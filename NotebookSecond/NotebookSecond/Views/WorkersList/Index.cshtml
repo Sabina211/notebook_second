@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebook</title>
+    <link href="~/css/popup.css" rel="stylesheet" />
+</head>
+<body>
+    <table cellspacing="0" border="1" cellpadding="3">
+        <caption>Список контактов</caption>
+
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Действие</th>
+        </tr>
+
+        @foreach (var item in ViewBag.Workers)
+        {
+            <tr>
+                <td>
+                    <a href="~/Worker/View?Id=@item.Id" target="_blank">@item.Id</a>
+                </td>
+                <td>@(item.Name)</td>
+                <td>@(item.Surname)</td>
+                <td>@(item.Patronymic)</td>
+                <td>
+                    <a href="~/Worker/EditWorker?Id=@item.Id" target="_blank">Изменить</a>
+                    <a href="~/Worker/DeleteWorker?Id=@item.Id" target="_blank">Удалить</a>
+                    <div id="myModel" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p>Вы уверены, что хотите удалить сотрудника?</p>
+                            <p>
+                                <button>Да</button>
+                                <button>Отмена</button>
+                            </p>
+                        </div>
+                    </div>
+                    <script>
+                        var modal = document.getElementById("myModel");
+                        var btn = document.getElementById("@item.Id");
+                        var span = document.getElementsByClassName("close")[0];
+                        btn.onclick = function () {
+                            modal.style.display = "block";
+                        }
+                        span.onclick = function () {
+                            modal.style.display = "none";
+                        }
+
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function (event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+                    </script>
+                </td>
+            </tr>
+        }
+    </table>
+    <p>
+        <a href="/WorkersList/Index" target="_blank">Список сотрудников</a>
+        <a href="/Worker/AddWorker" target="_blank">Добавить сотрудника</a>
+    </p>
+
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@using NotebookSecond.Entities 
+@model Worker
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebook</title>
+</head>
+<body>
+    <table cellspacing="0" border="1" cellpadding="3">
+        <caption>Контакт @Model.Name @Model.Patronymic</caption>
+        <tr>
+            <th>Id</th>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <th>Имя</th>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <th>Фамилия</th>
+            <td>@Model.Surname</td>
+        </tr>
+        <tr>
+            <th>Отчество</th>
+            <td>@Model.Patronymic</td>
+        </tr>
+        <tr>
+            <th>Номер телефона</th>
+            <td>@Model.PhoneNumber</td>
+        </tr>
+        <tr>
+            <th>Адрес</th>
+            <td>@Model.Address</td>
+        </tr>
+        <tr>
+            <th>Описание</th>
+            <td>@Model.Description</td>
+        </tr>
+    </table>
+    <p>
+        <a href="/WorkersList/Index" target="_blank">Список сотрудников</a>
+        <a href="/Worker/AddWorker" target="_blank">Добавить сотрудника</a>
+    </p> 
+
+</body>
+</html>
