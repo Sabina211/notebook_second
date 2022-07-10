@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-
         // Тег body для запрета прокрутки
         let tagBody = document.getElementsByTagName('body');
 

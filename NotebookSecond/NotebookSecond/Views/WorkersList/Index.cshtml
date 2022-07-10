@@ -6,42 +6,161 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notebook</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link href="~/css/popup.css" rel="stylesheet" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
-    <table cellspacing="0" border="1" cellpadding="3">
-        <caption>Список контактов</caption>
+    <div class="container-sm">
+        <ul class="menu-main">
+            <li><a href="/WorkersList/Index" class="current">Список сотрудников</a></li>
+            <li><a href="/Worker/AddWorker">Добавить нового сотрудника</a></li>
+        </ul>
+        <h1>Список сотрудников</h1>
+        <table class="table caption-top">
+            <caption style="visibility:hidden">Список контактов</caption>
+            <thead class="table-light">
+                <tr>
+                    <th>#</th>
+                    <th>Id</th>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Отчество</th>
+                    <th>Действие</th>
+                </tr>
 
-        <tr>
-            <th>Id</th>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Отчество</th>
-            <th>Действие</th>
-        </tr>
+            </thead>
+            @{int i = 0; }
+            @foreach (var item in ViewBag.Workers)
+            {
+                <tr>
+                    <td>
+                        @(i+1)
+                    </td>
+                    <td>
+                        <a href="~/Worker/View?Id=@item.Id" target="_blank">@item.Id</a>
+                    </td>
+                    <td>@(item.Name)</td>
+                    <td>@(item.Surname)</td>
+                    <td>@(item.Patronymic)</td>
+                    <td>
+                        <form>
+                            <input id="callback-button-view-@(i)" class="header__button get-modal_1" type="submit" value="Просмотреть" />
+                            <input id="callback-button-edit-@(i)" class="header__button get-modal_1" type="submit" value="Изменить" />
+                            <input id="callback-button-@(i)" class="header__button get-modal_1" type="submit" value="Удалить" />
 
-        @foreach (var item in ViewBag.Workers)
-        {
-            <tr>
-                <td>
-                    <a href="~/Worker/View?Id=@item.Id" target="_blank">@item.Id</a>
-                </td>
-                <td>@(item.Name)</td>
-                <td>@(item.Surname)</td>
-                <td>@(item.Patronymic)</td>
-                <td>
-                    <a href="~/Worker/EditWorker?Id=@item.Id" target="_blank">Изменить</a>
-                    <a href="~/Worker/DeleteWorker?Id=@item.Id" target="_blank">Удалить</a>
-                </td>
-            </tr>
-        }
-    </table>
-    <p>
-        <a href="/WorkersList/Index" target="_blank">Список сотрудников</a>
-        <a href="/Worker/AddWorker" target="_blank">Добавить сотрудника</a>
-    </p>
-    <p>
-        <a href="/WorkersList/IndexTest" target="_blank">Testovaya</a>
-    </p>
+                        </form>
 
+
+                        <!-- Дальше все модалка с просмотром сотрудника-->
+                        <div class="modal" id="modal-view-@(i)">
+                            <div class="modal__content">
+                                <button class="modal__close-button"><img src="~/img/close.svg" width="12" alt=""></button>
+                                <!-- Контент модального окна-->
+                                <h1 class="modal__title">Просмотр сотрудника</h1>
+                                <form action="~/Worker/GetWorkerFromViewDB" method="post">
+                                    <p>
+                                        <label class="form-label">Id</label><br>
+                                        <input class="form-control" type="text" name="worker.Id" value="@item.Id" placeholder="Disabled input" disabled />
+                                    </p>
+                                    <p>
+                                        <label class="form-label">Имя</label><br>
+                                        <input class="form-control" type="text" name="worker.Name" value="@item.Name" disabled />
+                                    </p>
+                                    <p>
+                                        <label class="form-label">Фамилия</label><br>
+                                        <input class="form-control" type="text" name="worker.Surname" value="@item.Surname" disabled />
+                                    </p>
+                                    <p>
+                                        <label class="form-label">Отчество</label><br>
+                                        <input class="form-control" type="text" name="worker.Patronymic" value="@item.Patronymic" disabled />
+                                    </p>
+                                    <p>
+                                        <label class="form-label">Номер телефона</label><br>
+                                        <input class="form-control" type="text" name="worker.PhoneNumber" value="@item.PhoneNumber" disabled />
+                                    </p>
+                                    <p>
+                                        <label class="form-label">Адрес</label><br>
+                                        <input class="form-control" type="text" name="worker.Address" value="@item.Address" disabled />
+                                    </p>
+                                    <p>
+                                        <label class="form-label">Описание</label><br>
+                                        <input class="form-control" type="text" name="worker.Description" value="@item.Description" disabled />
+                                    </p>
+                                    <input class="modal__cancel-button header__button" type="submit" value="Закрыть" style="float: right;" />
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <!-- Дальше все модалка с редактированием сотрудника-->
+                        <div class="modal" id="modal-edit-@(i)">
+                            <div class="modal__content">
+                                <button class="modal__close-button"><img src="~/img/close.svg" width="12" alt=""></button>
+                                <!-- Контент модального окна-->
+                                <h1 class="modal__title">Редактирование сотрудника</h1>
+                                <form action="~/Worker/GetWorkerFromViewDB" method="post">
+                                    <input type="text" name="worker.Id" value="@item.Id" hidden />
+                                    <p>
+                                        <label class="form-label">Id</label><br>
+                                        <input class="form-control" type="text" name="worker.Id" value="@item.Id" placeholder="Disabled input" disabled />
+                                    </p>
+                                    <p>
+                                        <label class="form-label">Имя</label><br>
+                                        <input class="form-control" type="text" name="worker.Name" value="@item.Name" />
+                                    </p>
+                                    <p>
+                                        <label class="form-label">Фамилия</label><br>
+                                        <input class="form-control" type="text" name="worker.Surname" value="@item.Surname" />
+                                    </p>
+                                    <p>
+                                        <label class="form-label">Отчество</label><br>
+                                        <input class="form-control" type="text" name="worker.Patronymic" value="@item.Patronymic" />
+                                    </p>
+                                    <p>
+                                        <label class="form-label">Номер телефона</label><br>
+                                        <input class="form-control" type="text" name="worker.PhoneNumber" value="@item.PhoneNumber" />
+                                    </p>
+                                    <p>
+                                        <label class="form-label">Адрес</label><br>
+                                        <input class="form-control" type="text" name="worker.Address" value="@item.Address" />
+                                    </p>
+                                    <p>
+                                        <label class="form-label">Описание</label><br>
+                                        <input class="form-control" type="text" name="worker.Description" value="@item.Description" />
+                                    </p>
+                                    <p><input type="submit" value=" Сохранить" class="header__button" style="float: right;" /></p>
+
+                                    <input class="modal__cancel-button header__button" type="submit" value="Отмена" style="background: #bbb9b7; float: right;" />
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <!-- Дальше все модалка с удалением сотрудника-->
+                        <div class="modal" id="modal-@(i++)">
+                            <div class="modal__content">
+                                <button class="modal__close-button"><img src="~/img/close.svg" width="12" alt=""></button>
+                                <!-- Контент модального окна-->
+                                <h1 class="modal__title">Подтверждение действия</h1>
+                                <p>Вы действительно хотите удалить сотрудника с именем @(item.Surname) @(item.Name)? </p>
+
+                                <form action="~/Worker/DeleteWorkerFromViewDB" method="post">
+                                    <input type="text" name="worker.Id" value="@item.Id" hidden />
+
+                                    <input type="submit" value="Удалить" class="header__button" style="float: right;" />
+                                    <input class="modal__cancel-button header__button" type="submit" value="Отмена" style="background: #bbb9b7; float: right;" />
+                                </form>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+        <input id="workersCount" type="number" name="@(ViewBag.Count)" value="@(ViewBag.Count)" style="visibility:collapse" />
+        <script src="~/js/scripts.js"></script>
+    </div>
 </body>
 </html>

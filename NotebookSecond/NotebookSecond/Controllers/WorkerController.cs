@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using NotebookSecond.ContextFolder;
 using NotebookSecond.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace NotebookSecond.Controllers
 {
@@ -20,20 +18,6 @@ namespace NotebookSecond.Controllers
         public IActionResult AddWorker()
         {
             return View();
-        }
-
-        public IActionResult EditWorker(Guid? Id)
-        {
-            List<Worker> workers = new DataContext().Workers.ToList();
-            var worker = workers.Find(e => e.Id == Id);
-            return View(worker);
-        }
-
-        public IActionResult DeleteWorker(Guid? Id)
-        {
-            List<Worker> workers = new DataContext().Workers.ToList();
-            var worker = workers.Find(e => e.Id == Id);
-            return View(worker);
         }
 
         //соханаем модель в БД с формы
@@ -76,19 +60,6 @@ namespace NotebookSecond.Controllers
             using (var db = new DataContext())
             {
                 var curentWorker = db.Workers.Find(worker.Id);
-                db.Workers.Remove(curentWorker);
-                db.SaveChanges();
-            }
-            return Redirect("/WorkersList/Index");
-        }
-
-
-        [HttpPost]
-        public IActionResult DeleteWorkerFromViewDB2(string id)
-        {
-            using (var db = new DataContext())
-            {
-                var curentWorker = db.Workers.Find(id);
                 db.Workers.Remove(curentWorker);
                 db.SaveChanges();
             }

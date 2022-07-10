@@ -1,4 +1,4 @@
-﻿@using NotebookSecond.Entities 
+﻿@using NotebookSecond.Entities
 @model Worker
 <!DOCTYPE html>
 <html lang="en">
@@ -7,43 +7,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notebook</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link href="~/css/popup.css" rel="stylesheet" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
-    <table cellspacing="0" border="1" cellpadding="3">
-        <caption>Контакт @Model.Name @Model.Patronymic</caption>
-        <tr>
-            <th>Id</th>
-            <td>@Model.Id</td>
-        </tr>
-        <tr>
-            <th>Имя</th>
-            <td>@Model.Name</td>
-        </tr>
-        <tr>
-            <th>Фамилия</th>
-            <td>@Model.Surname</td>
-        </tr>
-        <tr>
-            <th>Отчество</th>
-            <td>@Model.Patronymic</td>
-        </tr>
-        <tr>
-            <th>Номер телефона</th>
-            <td>@Model.PhoneNumber</td>
-        </tr>
-        <tr>
-            <th>Адрес</th>
-            <td>@Model.Address</td>
-        </tr>
-        <tr>
-            <th>Описание</th>
-            <td>@Model.Description</td>
-        </tr>
-    </table>
-    <p>
-        <a href="/WorkersList/Index" target="_blank">Список сотрудников</a>
-        <a href="/Worker/AddWorker" target="_blank">Добавить сотрудника</a>
-    </p> 
-
+    <div class="container-sm">
+        <ul class="menu-main">
+            <li><a href="/WorkersList/Index" class="current">Список сотрудников</a></li>
+            <li><a href="/Worker/AddWorker">Добавить нового сотрудника</a></li>
+        </ul>
+        <h1>@Model.Name @Model.Patronymic</h1>
+        <table class="table caption-top">
+            <caption style="visibility:hidden;">Контакт @Model.Name @Model.Patronymic</caption>
+            <tr>
+                <th>Id</th>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <th>Имя</th>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <th>Фамилия</th>
+                <td>@Model.Surname</td>
+            </tr>
+            <tr>
+                <th>Отчество</th>
+                <td>@Model.Patronymic</td>
+            </tr>
+            <tr>
+                <th>Номер телефона</th>
+                <td>@Model.PhoneNumber</td>
+            </tr>
+            <tr>
+                <th>Адрес</th>
+                <td>@Model.Address</td>
+            </tr>
+            <tr>
+                <th>Описание</th>
+                <td>@Model.Description</td>
+            </tr>
+        </table>
+       </div>
 </body>
 </html>
