@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notebook</title>
-    <link href="~/css/popup.css" rel="stylesheet" />
+
 </head>
 <body>
     <table cellspacing="0" border="1" cellpadding="3">
@@ -31,34 +31,6 @@
                 <td>
                     <a href="~/Worker/EditWorker?Id=@item.Id" target="_blank">Изменить</a>
                     <a href="~/Worker/DeleteWorker?Id=@item.Id" target="_blank">Удалить</a>
-                    <div id="myModel" class="modal">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <p>Вы уверены, что хотите удалить сотрудника?</p>
-                            <p>
-                                <button>Да</button>
-                                <button>Отмена</button>
-                            </p>
-                        </div>
-                    </div>
-                    <script>
-                        var modal = document.getElementById("myModel");
-                        var btn = document.getElementById("@item.Id");
-                        var span = document.getElementsByClassName("close")[0];
-                        btn.onclick = function () {
-                            modal.style.display = "block";
-                        }
-                        span.onclick = function () {
-                            modal.style.display = "none";
-                        }
-
-                        // When the user clicks anywhere outside of the modal, close it
-                        window.onclick = function (event) {
-                            if (event.target == modal) {
-                                modal.style.display = "none";
-                            }
-                        }
-                    </script>
                 </td>
             </tr>
         }
@@ -67,7 +39,9 @@
         <a href="/WorkersList/Index" target="_blank">Список сотрудников</a>
         <a href="/Worker/AddWorker" target="_blank">Добавить сотрудника</a>
     </p>
-
+    <p>
+        <a href="/WorkersList/IndexTest" target="_blank">Testovaya</a>
+    </p>
 
 </body>
 </html>

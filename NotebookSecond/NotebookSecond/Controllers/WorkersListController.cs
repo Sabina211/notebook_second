@@ -11,7 +11,13 @@ namespace NotebookSecond.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.Workers = new DataContext().Workers;          
+            return View();
+        }
+        public IActionResult IndexTest()
+        {
             ViewBag.Workers = new DataContext().Workers;
+            ViewBag.Count = new DataContext().Workers.Count();
             return View();
         }
     }

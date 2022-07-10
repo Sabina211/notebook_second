@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebook</title>
+    <link href="~/css/popup.css" rel="stylesheet" />
+</head>
+<body>
+    <input id="workersCount" type="number" name="@(ViewBag.Count)" value="@(ViewBag.Count)" style="visibility:collapse" />
+    <table cellspacing="0" border="1" cellpadding="3">
+        <caption>Список контактов</caption>
+
+
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Действие</th>
+        </tr>
+        @{int i = 0; }
+        @foreach (var item in ViewBag.Workers)
+        {
+            <tr>
+                <td>
+                    <a href="~/Worker/View?Id=@item.Id" target="_blank">@item.Id</a>
+                </td>
+                <td>@(item.Name)</td>
+                <td>@(item.Surname)</td>
+                <td>@(item.Patronymic)</td>
+                <td>
+                    <!-- <form><input id="callback-button" type="submit" value="Удалить" class="header__button get-modal_1" /></form> -->
+                    <form><input id="callback-button-@(i)" class="header__button get-modal_1" type="submit" value="Удалить" /></form>
+                    <!-- Дальше все модалка-->
+                    <!-- Модальное окно -->
+                    <!-- <div class="modal" id="modal-1">-->
+                    <div class="modal" id="modal-@(i++)">
+                        <div class="modal__content">
+                            <button class="modal__close-button"><img src="~/img/close.svg" width="12" alt=""></button>
+                            <!-- Контент модального окна -->
+                            <h1 class="modal__title">Вы действительно хотите удалить сотрудника @(item.Surname) @(item.Name)? </h1>
+                           
+                            <form action="~/Worker/DeleteWorkerFromViewDB" method="post">
+                                <input type="text" name="worker.Id" value="@item.Id" hidden />
+                                <input type="submit" value="Удалить" />
+                            </form>
+                            <button class="modal__cancel-button">Отмена</button>
+                        </div>
+                    </div>
+
+
+                </td>
+            </tr>
+        }
+    </table>
+    <script src="~/js/scripts.js"></script>
+
+
+</body>
+</html>

@@ -72,3 +72,4 @@ E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\De
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Worker\AddWorker.cshtml.g.cs
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Worker\EditWorker.cshtml.g.cs
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Worker\DeleteWorker.cshtml.g.cs
+E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\WorkersList\IndexTest.cshtml.g.cs

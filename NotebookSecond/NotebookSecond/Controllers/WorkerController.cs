@@ -81,5 +81,18 @@ namespace NotebookSecond.Controllers
             }
             return Redirect("/WorkersList/Index");
         }
+
+
+        [HttpPost]
+        public IActionResult DeleteWorkerFromViewDB2(string id)
+        {
+            using (var db = new DataContext())
+            {
+                var curentWorker = db.Workers.Find(id);
+                db.Workers.Remove(curentWorker);
+                db.SaveChanges();
+            }
+            return Redirect("/WorkersList/Index");
+        }
     }
 }
