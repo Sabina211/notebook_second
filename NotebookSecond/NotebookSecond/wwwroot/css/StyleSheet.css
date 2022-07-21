@@ -19,6 +19,21 @@
         .menu-main li:last-child:after {
             content: none;
         }
+    .menu-main input {
+        text-decoration: none;
+        font-family: 'Tahoma';
+        letter-spacing: 2px;
+        position: relative;
+        padding-bottom: 20px;
+        margin: 0 34px 0 30px;
+        font-size: 17px;
+        text-transform: uppercase;
+        display: inline-block;
+        transition: color .2s;
+        border: none;
+        background: white;
+        color: #9d999d;
+    }
 
     .menu-main a {
         text-decoration: none;
@@ -37,12 +52,14 @@
             color: #9d999d;
         }
 
-            .menu-main a.current, .menu-main a:hover {
+            .menu-main a.current, .menu-main input.current, .menu-main a:hover, .menu-main input:hover {
                 color: #ff9c09;
             }
 
             .menu-main a:before,
-            .menu-main a:after {
+            .menu-main a:after,
+            .menu-main input:before,
+            .menu-main input:after {
                 content: "";
                 position: absolute;
                 height: 4px;

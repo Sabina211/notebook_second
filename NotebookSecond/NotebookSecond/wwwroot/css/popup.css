@@ -69,6 +69,7 @@ body {
     transition: .3s;
     outline: none;
     margin-left: 15px;
+    margin-bottom: 5px;
 }
     .header__button:hover {
         background: #4545b5;
@@ -162,3 +163,8 @@ body {
     font-size: 1.125rem;
 }
 /*# sourceMappingURL=style.css.map */
+
+.error {
+    color: orangered;
+}
+

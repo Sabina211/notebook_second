@@ -1,0 +1,30 @@
+﻿@model NotebookSecond.Models.RegisterUser
+    <div class="page_content">
+        <form method="post" asp-controller="Account" asp-action="Registration" class="container-sm" style="width: 50%; max-width: 517px;">
+            <h1>Регистрация пользователя</h1>
+            <p>
+                <label asp-for="Login" class="form-label"></label><br>
+                <input class="form-control input" asp-for="Login" type="text" name="registerUser.Login" required />
+                <span asp-validation-for="Login" style="color:orangered;"></span>
+            </p>
+            <p>
+                <label class="form-label" asp-for="Email"></label><br>
+                <input class="form-control" type="text" asp-for="Email" name="registerUser.Email" required />
+                <span asp-validation-for="Email" class="error"></span>
+            </p>
+            <p>
+                <label asp-for="Password" class="form-label"></label><br>
+                <input asp-for="Password" class="form-control" type="text" name="registerUser.Password" placeholder="" required />
+                <span asp-validation-for="Password" class="error"></span>
+            </p>
+            <p>
+                <label asp-for="ConfirmPassword" class="form-label"></label><br>
+                <input asp-for="ConfirmPassword" class="form-control" type="text" name="registerUser.ConfirmPassword" placeholder="" required />
+                <span asp-validation-for="ConfirmPassword" class="error"></span>
+            </p>
+            <div asp-validation-summary="All" class="error"></div>
+            <p>
+                <input class="header__button get-modal_1" type="submit" value="Зарегистрироваться" style="float: right;" />
+            </p>
+        </form>
+    </div>

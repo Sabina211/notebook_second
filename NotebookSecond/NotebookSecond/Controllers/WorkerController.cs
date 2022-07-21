@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NotebookSecond.ContextFolder;
+using NotebookSecond.Data;
 using NotebookSecond.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,12 +11,21 @@ namespace NotebookSecond.Controllers
 {
     public class WorkerController : Controller
     {
+        private readonly WorkerData workerData;
+
+        public WorkerController(WorkerData WorkerData)
+        {
+            this.workerData = WorkerData;
+        }
         public IActionResult View(Guid? Id)
         {
-            List<Worker> workers = new DataContext().Workers.ToList();
+            List<Worker> workers = workerData.GetWorkers().ToList();
             var worker = workers.Find(e => e.Id == Id);
             return View(worker);
         }
+        
+        [Authorize]
+        [HttpGet]
         public IActionResult AddWorker()
         {
             return View();
@@ -24,32 +35,22 @@ namespace NotebookSecond.Controllers
         [HttpPost]
         public IActionResult GetWorkerFromViewDB(Worker worker)
         {
-            using (var db = new DataContext())
+            var test = worker.Id;
+            if (worker.Id != Guid.Empty)
             {
-                var test = worker.Id;
-                if (worker.Id != Guid.Empty)
+                workerData.EditWorker(worker);
+            }
+            else
+            {
+                workerData.AddWorker(new Worker()
                 {
-                    var curentWorker = db.Workers.Find(worker.Id);
-                    curentWorker.Name = worker.Name;
-                    curentWorker.Surname = worker.Surname;
-                    curentWorker.Patronymic = worker.Patronymic;
-                    curentWorker.Address = worker.Address;
-                    curentWorker.PhoneNumber = worker.PhoneNumber;
-                    curentWorker.Description = worker.Description;
-                }
-                else
-                {
-                    db.Workers.Add(new Worker()
-                    {
-                        Name = worker.Name,
-                        Surname = worker.Surname,
-                        Patronymic = worker.Patronymic,
-                        PhoneNumber = worker.PhoneNumber,
-                        Address = worker.Address,
-                        Description = worker.Description
-                    });
-                }
-                db.SaveChanges();
+                    Name = worker.Name,
+                    Surname = worker.Surname,
+                    Patronymic = worker.Patronymic,
+                    PhoneNumber = worker.PhoneNumber,
+                    Address = worker.Address,
+                    Description = worker.Description
+                });
             }
             return Redirect("/WorkersList/Index");
         }
@@ -57,12 +58,8 @@ namespace NotebookSecond.Controllers
         [HttpPost]
         public IActionResult DeleteWorkerFromViewDB(Worker worker)
         {
-            using (var db = new DataContext())
-            {
-                var curentWorker = db.Workers.Find(worker.Id);
-                db.Workers.Remove(curentWorker);
-                db.SaveChanges();
-            }
+            var curentWorker = workerData.GetWorkers().ToList().Find(e => e.Id == worker.Id);
+            workerData.RemoveWorker(curentWorker);
             return Redirect("/WorkersList/Index");
         }
     }

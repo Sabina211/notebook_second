@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NotebookSecond.Entities;
 using System;
 using System.Collections.Generic;
@@ -7,16 +8,12 @@ using System.Threading.Tasks;
 
 namespace NotebookSecond.ContextFolder
 {
-    public class DataContext : DbContext
+    public class DataContext : IdentityDbContext<User>
     {
-        public DbSet<Worker> Workers { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public DataContext(DbContextOptions options) : base(options) 
         {
-            optionsBuilder.UseSqlServer(
-              @"Server=(localdb)\MSSQLLocalDB;
-                               DataBase=_Notebook;
-                               Trusted_Connection=True;"
-              );
+            Database.EnsureCreated();
         }
+        public DbSet<Worker> Workers { get; set; }
     }
 }

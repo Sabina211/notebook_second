@@ -1,20 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <link href="~/css/popup.css" rel="stylesheet" />
-    <link href="~/css/StyleSheet.css" rel="stylesheet" />
-    <title></title>
-</head>
-<body>
-    <ul class="menu-main">
-        <li><a href="/WorkersList/Index" class="current">Список сотрудников</a></li>
-        <li><a href="/Worker/AddWorker">Добавить нового сотрудника</a></li>
-    </ul>
+﻿<div class="page_content">
     <form action="~/Worker/GetWorkerFromViewDB" method="post" class="container-sm" style="width: 50%; max-width: 517px;">
         <h1>Добавление сотрудника</h1>
         @*Ссылка на метод в контроллере*@
@@ -46,5 +30,4 @@
             <input class="header__button get-modal_1" type="submit" value="Сохранить" style="float: right;" />
         </p>
     </form>
-</body>
-</html>
+</div>
