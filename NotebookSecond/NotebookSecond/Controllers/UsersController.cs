@@ -22,18 +22,6 @@ namespace NotebookSecond.Controllers
             this.roleManager = roleManager;
         }
 
-        /* [HttpGet]
-         public async Task<IActionResult> EditUser()
-         {
-             var currentUserId = await userManager.GetUserAsync(User);
-             EditUser model = new EditUser
-             {
-                 Id = currentUserId.Id,
-                 Email = currentUserId.Email,
-                 Login = currentUserId.UserName
-             };
-             return View(model);
-         }*/
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> ViewCurrentUser()
@@ -98,7 +86,6 @@ namespace NotebookSecond.Controllers
             }
             else
             {
-
                     return Forbid();
             }
 
