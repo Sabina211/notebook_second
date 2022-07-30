@@ -1,0 +1,106 @@
+﻿@model IEnumerable<NotebookSecond.Models.UserWithRoles>
+@{
+    ViewData["Title"] = "Список пользователей";
+}
+
+<div class="page_content">
+    <h1>Список пользователей системы</h1>
+    <table class="table caption-top">
+        <thead class="table-light">
+            <tr>
+                <th>#</th>
+                <th>Id</th>
+                <th>Логин</th>
+                <th>Почта</th>
+                <th>Роли</th>
+                <th>Действие</th>
+            </tr>
+        </thead>
+        @{int i = 0; }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @(i+1)
+                </td>
+                <td>
+                    @item.Id
+                </td>
+                <td>@(item.UserName)</td>
+                <td>@(item.Email)</td>
+                <td>
+                    @foreach (var role in item.UserRoles)
+                    {
+                        @role.ToString();
+                    }
+                </td>
+                <td>
+                    <form>
+                        <input id="callback-button-user-edit-@(i)" class="header__button get-modal_1" type="submit" value="Изменить" />
+                        <input id="callback-button-user-delete-@(i)" class="header__button get-modal_1" type="submit" value="Удалить" />
+                    </form>
+
+                    <!-- Дальше все модалка с редактированием пользователя-->
+                    <div class="modal" id="modal-user-edit-@(i)">
+                        <div class="modal__content">
+                            <button class="modal__close-button"><img src="~/img/close.svg" width="12" alt=""></button>
+                            <!-- Контент модального окна-->
+                            <h1 class="modal__title">Редактирование пользователя</h1>
+                            <form asp-controller="Users" asp-action="EditUser" method="post">
+                                <input type="text" name="model.Id" value="@item.Id" hidden />
+                                <p>
+                                    <label class="form-label">Id</label><br>
+                                    <input class="form-control" type="text" name="model.Id" value="@item.Id" placeholder="Disabled input" disabled />
+                                </p>
+                                <p>
+                                    <label class="form-label">Логин</label><br>
+                                    <input class="form-control" type="text" name="model.Login" value="@item.UserName" disabled />
+                                </p>
+                                <p>
+                                    <label class="form-label">Email</label><br>
+                                    <input class="form-control" type="text" name="model.Email" value="@item.Email" />
+                                </p>
+                                <p>
+                                    @foreach (var role in item.AllRoles)
+                                    {
+                                        <input type="checkbox" class="form-check-input" name="model.UserRoles" value="@role.Name"
+                                               @(item.UserRoles.Contains(role.Name) ? "checked=\"checked\"" : "") />
+                                        @role.Name
+                                    }
+                                </p>
+                                <div asp-validation-summary="All" class="error"></div>
+                                <p><input type="submit" value=" Сохранить" class="header__button" style="float: right;" /></p>
+
+                                <input class="modal__cancel-button header__button" type="submit" value="Отмена" style="background: #bbb9b7; float: right;" />
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Дальше все модалка с удалением пользователя-->
+                    <div class="modal" id="modal-user-delete-@(i++)">
+                        <div class="modal__content">
+                            <button class="modal__close-button"><img src="~/img/close.svg" width="12" alt=""></button>
+                            <!-- Контент модального окна-->
+                            <h1 class="modal__title">Удаление пользователя</h1>
+                            <form asp-controller="Users" asp-action="DeleteUser" method="post">
+                                <input type="text" name="model.Id" value="@item.Id" hidden />
+                                <p>
+                                    Вы действительно хотите удалить пользователя системы с именем @item.UserName?
+                                </p>
+                                <div asp-validation-summary="All" class="error"></div>
+                                <p><input type="submit" value="Подтвердить" class="header__button" style="float: right;" /></p>
+
+                                <input class="modal__cancel-button header__button" type="submit" value="Отмена" style="background: #bbb9b7; float: right;" />
+                            </form>
+                        </div>
+                    </div>
+
+
+                </td>
+            </tr>
+
+        }
+    </table>
+    <input id="usersCount" type="number" name="@(i)" value="@(i)" style="visibility:collapse" />
+    <script src="~/js/scripts.js"></script>
+</div>

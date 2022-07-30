@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "NotebookSecond/1.0.0": {
         "dependencies": {
+          "DataAnnotationsExtensions": "5.0.1.27",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.17",
           "Microsoft.AspNetCore.SpaServices": "5.0.0-preview.8.20414.8",
           "Microsoft.AspNetCore.SpaServices.Extensions": "5.0.17",
@@ -322,6 +323,17 @@
         },
         "compile": {
           "NotebookSecond.dll": {}
+        }
+      },
+      "DataAnnotationsExtensions/5.0.1.27": {
+        "runtime": {
+          "lib/NETFramework40/DataAnnotationsExtensions.dll": {
+            "assemblyVersion": "5.0.1.27",
+            "fileVersion": "5.0.1.27"
+          }
+        },
+        "compile": {
+          "lib/NETFramework40/DataAnnotationsExtensions.dll": {}
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -3639,6 +3651,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "DataAnnotationsExtensions/5.0.1.27": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lw4n4XzY62raAOrrlPdkh4h3PXenReARIazAPzs8AvlkKDAK9pe7kcUL3dh3T095/Q9+LezoXCfjEgDPslmGyg==",
+      "path": "dataannotationsextensions/5.0.1.27",
+      "hashPath": "dataannotationsextensions.5.0.1.27.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",

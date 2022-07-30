@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using NotebookSecond.ContextFolder;
 using NotebookSecond.Data;
 using NotebookSecond.Entities;
+using NotebookSecond.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,8 @@ namespace NotebookSecond
             services.AddControllersWithViews();
             services.Configure<IdentityOptions>(options =>
             {
-                options.Password.RequiredLength = 6; // минимальное количество знаков в пароле
+                options.Password.RequiredLength = 4; // минимальное количество знаков в пароле
+                options.Password.RequireNonAlphanumeric = false;   // требуются ли не алфавитно-цифровые символы
                 options.Lockout.MaxFailedAccessAttempts = 10; // количество попыток до блокировки
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
                 options.Lockout.AllowedForNewUsers = true;

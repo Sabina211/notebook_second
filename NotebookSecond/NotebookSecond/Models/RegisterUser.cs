@@ -19,6 +19,7 @@ namespace NotebookSecond.Models
         [Required(ErrorMessage = "Необходимо заполнить поле Пароль")]
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
+        [StringLength(100, ErrorMessage ="Поле {0} должно содержать не менее 4 символов и не более 100", MinimumLength =4)]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Необходимо заполнить поле Подтверждение пароля")]

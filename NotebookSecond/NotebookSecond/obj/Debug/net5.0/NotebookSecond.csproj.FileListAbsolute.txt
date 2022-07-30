@@ -39,7 +39,6 @@ E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\De
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\NotebookSecond.csproj.AssemblyReference.cache
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\NotebookSecond.GeneratedMSBuildEditorConfig.editorconfig
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\NotebookSecond.AssemblyInfoInputs.cache
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\NotebookSecond.AssemblyInfo.cs
@@ -155,3 +154,10 @@ E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\De
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Account\login.cshtml.g.cs
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Users\UsersList.cshtml.g.cs
+E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\DataAnnotationsExtensions.dll
+E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\NotebookSecond.csproj.AssemblyReference.cache
+E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Users\ViewCurrentUser.cshtml.g.cs
+E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Users\ChangePassword.cshtml.g.cs
+E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Roles\Index.cshtml.g.cs
+E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Users\AddUser.cshtml.g.cs

@@ -29,9 +29,9 @@ namespace NotebookSecond.Data
                     context.Workers.Add(section);
                 }
 
-                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Workers] ON");
+               // context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Workers] ON");
                 context.SaveChanges();
-                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Workers] OFF");
+                //context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Workers] OFF");
                 trans.Commit();
             }
 

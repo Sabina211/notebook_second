@@ -33,6 +33,7 @@ namespace NotebookSecond.Controllers
 
         //соханаем модель в БД с формы
         [HttpPost]
+        [Authorize]
         public IActionResult GetWorkerFromViewDB(Worker worker)
         {
             var test = worker.Id;
@@ -56,6 +57,7 @@ namespace NotebookSecond.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult DeleteWorkerFromViewDB(Worker worker)
         {
             var curentWorker = workerData.GetWorkers().ToList().Find(e => e.Id == worker.Id);

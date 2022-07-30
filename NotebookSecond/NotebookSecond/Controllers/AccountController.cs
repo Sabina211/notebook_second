@@ -57,10 +57,6 @@ namespace NotebookSecond.Controllers
                     }
                 }
             }
-            /*else
-            {
-                ModelState.AddModelError("Login", "ошибки при валидации");
-            }*/
             return View(registerUser);
         }
 

@@ -1,0 +1,52 @@
+﻿@model NotebookSecond.Entities.User 
+@{
+    ViewData["Title"] = "Профиль";
+}
+<div class="page_content">
+    <form class="container-sm" style="width: 50%; max-width: 517px;">
+        <h1>Профиль пользователя</h1>
+        @*Ссылка на метод в контроллере*@
+        <p>
+            <label asp-for="UserName" class="form-label">Логин</label><br>
+            <input asp-for="UserName" class="form-control" type="text" placeholder="" disabled />
+        </p>
+        <p>
+            <label asp-for="Email" class="form-label"></label><br>
+            <input asp-for="Email" class="form-control" type="text" placeholder="" disabled />
+        </p>
+        <input asp-for="Id" class="form-control" type="text" placeholder="" hidden />
+        <p>
+            <input id="callback-button-user-edit" class="header__button get-modal_1" type="submit" value="Редактировать" style="float: right;" />
+            <input class="header__button get-modal_1" type="submit" formaction="~/Users/ChangePassword" value="Изменить пароль" style="float: right;" />
+        </p>
+    </form>
+
+    <!-- Дальше все модалка с редактированием пользователя-->
+    <div class="modal" id="modal-user-edit">
+        <div class="modal__content">
+            <button class="modal__close-button"><img src="~/img/close.svg" width="12" alt=""></button>
+            <!-- Контент модального окна-->
+            <h1 class="modal__title">Редактирование пользователя</h1>
+            <form asp-controller="Users" asp-action="EditUser" method="post">
+                <input type="text" name="model.Id" value="@Model.Id" hidden />
+                <p>
+                    <label class="form-label">Id</label><br>
+                    <input class="form-control" type="text" name="model.Id" value="@Model.Id" placeholder="Disabled input" disabled />
+                </p>
+                <p>
+                    <label class="form-label">Логин</label><br>
+                    <input name="model.UserName" value="@Model.UserName" class="form-control" type="text" disabled />
+                </p>
+                <p>
+                    <label class="form-label">Email</label><br>
+                    <input class="form-control" type="text" name="model.Email" value="@Model.Email" />
+                </p>
+                <div asp-validation-summary="All" class="error"></div>
+                <p><input type="submit" value="Сохранить" class="header__button" style="float: right;" /></p>
+
+                <input class="modal__cancel-button header__button" type="submit" value="Отмена" style="background: #bbb9b7; float: right;" />
+            </form>
+        </div>
+    </div>
+    <script src="~/js/scripts.js"></script>
+</div>

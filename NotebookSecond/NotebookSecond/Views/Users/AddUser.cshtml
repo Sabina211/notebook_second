@@ -1,0 +1,37 @@
+﻿@model NotebookSecond.Models.UserWithRoles
+@{
+    ViewData["Title"] = "Добавление пользователя";
+}
+
+<div class="page_content">
+    <form asp-action="AddUser" asp-controller="Users" method="post" class="container-sm" style="width: 50%; max-width: 517px;">
+        <h1>Добавление пользователя</h1>
+        @*Ссылка на метод в контроллере*@
+        <p>
+            <label asp-for="UserName" class="form-label">Логин</label><br>
+            <input asp-for="UserName" class="form-control" type="text" name="userWithRoles.UserName" placeholder="" required />
+        </p>
+        <p>
+            <label asp-for="Email" class="form-label"></label><br>
+            <input asp-for="Email" class="form-control" type="text" name="userWithRoles.Email" placeholder="" />
+        </p>
+        <p>
+            <label asp-for="Password" class="form-label"></label><br>
+            <input asp-for="Password" class="form-control" placeholder="" name="userWithRoles.Password" required />
+        </p>
+        <p>
+            <label asp-for="ConfirmPassword" class="form-label"></label><br>
+            <input asp-for="ConfirmPassword" class="form-control" placeholder="" name="userWithRoles.ConfirmPassword" required />
+        </p>
+        <p>
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" name="userWithRoles.UserRoles" value="@Model.AllRoles[0]" />
+                Назначить администратором
+            </div>
+        </p>
+        <div asp-validation-summary="All" class="error"></div>
+        <p>
+            <input class="header__button get-modal_1" type="submit" value="Сохранить" style="float: right;" />
+        </p>
+    </form>
+</div>

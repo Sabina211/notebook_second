@@ -14,6 +14,7 @@ namespace NotebookSecond.Models
 
         [Required(ErrorMessage = "Необходимо заполнить поле Пароль")]
         [Display(Name = "Пароль")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         public string ReturnUrl { get; set; }

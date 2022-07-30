@@ -1,5 +1,8 @@
-﻿<div class="page_content">
-    <h1>Список сотрудников</h1>
+﻿@{       
+    ViewData["Title"] = "Главная";
+}
+<div class="page_content">
+    <h1>Список сотрудников компании</h1>
     <table class="table caption-top">
         <caption style="visibility:hidden">Список контактов</caption>
         <thead class="table-light">
@@ -29,8 +32,12 @@
                 <td>
                     <form>
                         <input id="callback-button-view-@(i)" class="header__button get-modal_1" type="submit" value="Просмотреть" />
-                        <input id="callback-button-edit-@(i)" class="header__button get-modal_1" type="submit" value="Изменить" />
-                        <input id="callback-button-@(i)" class="header__button get-modal_1" type="submit" value="Удалить" />
+                        @if (User.Identity.IsAuthenticated & User.IsInRole("admin"))
+                        {
+                            <input id="callback-button-edit-@(i)" class="header__button get-modal_1" type="submit" value="Изменить" />
+                            <input id="callback-button-@(i)" class="header__button get-modal_1" type="submit" value="Удалить" />
+                        }
+
 
                     </form>
 

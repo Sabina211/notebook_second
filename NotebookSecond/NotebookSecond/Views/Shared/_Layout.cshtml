@@ -4,17 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notebook</title>
+    <title>@ViewData["Title"]</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <link href="~/css/popup.css" rel="stylesheet" />
     <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: hidden;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="container-sm">
         <ul class="menu-main">
-            <li><a href="/WorkersList/Index">Список сотрудников</a></li>
-            <li><a href="/Worker/AddWorker">Добавить нового сотрудника</a></li>
+            <li><a href="/WorkersList/Index">Сотрудники</a></li>
+
+
             @if (!User.Identity.IsAuthenticated)
             {
                 <li><a href="/Account/Registration">Зарегистрироваться</a></li>
@@ -22,6 +54,20 @@
             }
             else
             {
+                <li><a href="/Worker/AddWorker">Добавить нового сотрудника</a></li>
+                @if (User.IsInRole("admin"))
+                {
+                    <div class="dropdown">
+                        <input type="submit" value="Пользователи" onclick="myFunction()" class="dropbtn" />
+                        <br>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="/Users/UsersList">Список пользователей</a>
+                            <a href="/Users/AddUser">Добавить нового пользователя</a>
+                            <a href="/Roles/Index">Роли пользователей</a>
+                        </div>
+                    </div>
+                }
+
                 <li>
                     <div>
                         <form method="post" asp-action="Logout" asp-controller="Account">
@@ -29,19 +75,47 @@
                         </form>
                     </div>
                 </li>
+
             }
         </ul>
+
+
         @if (User.Identity.IsAuthenticated)
         {
             <p style="float: right;">
-                <b>Пользователь:</b> @User.Identity.Name
+                <b>Пользователь:</b>
+                <a href="~/Users/ViewCurrentUser">
+                    @User.Identity.Name
+                </a>
             </p>
         }
-    <div class="page_content">
-        @RenderBody()
-    </div>
+        <div class="page_content">
+            @RenderBody()
+        </div>
 
 
     </div>
+    <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>

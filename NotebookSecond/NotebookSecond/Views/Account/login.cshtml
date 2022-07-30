@@ -1,22 +1,26 @@
 ﻿@model NotebookSecond.Models.LoginUser
-    <div class="page_content">
-        <form method="post" asp-controller="Account" asp-action="Login" class="container-sm"
-              style="width: 50%; max-width: 517px;">
-            <input type="text" asp-for="ReturnUrl" name="loginUser.ReturnUrl" hidden />
-            <h1>Вход</h1>
-            <p>
-                <label asp-for="Login" class="form-label"></label><br>
-                <input asp-for="Login" class="form-control" type="text" name="loginUser.Login" placeholder="" required />
-                <span asp-validation-for="Login" style="color:orangered;"></span>
-            </p>
-            <p>
-                <label asp-for="Password" class="form-label"></label><br>
-                <input asp-for="Password" class="form-control" type="text" name="loginUser.Password" placeholder="" required />
-                <span asp-validation-for="Password" class="error"></span>
-            </p>
-            <div asp-validation-summary="All" class="error"></div>
-            <p>
-                <input class="header__button get-modal_1" type="submit" value="Войти" style="float: right;" />
-            </p>
-        </form>
-    </div>
+@{
+    ViewData["Title"] = "Вход";
+}
+
+<div class="page_content">
+    <form method="post" asp-controller="Account" asp-action="Login" class="container-sm"
+          style="width: 50%; max-width: 517px;">
+        <input type="text" asp-for="ReturnUrl" hidden />
+        <h1>Вход</h1>
+        <p>
+            <label asp-for="Login" class="form-label"></label><br>
+            <input asp-for="Login" class="form-control" type="text" placeholder="" required />
+            <span asp-validation-for="Login" style="color:orangered;"></span>
+        </p>
+        <p>
+            <label asp-for="Password" class="form-label"></label><br>
+            <input asp-for="Password" class="form-control" placeholder="" required />
+            <span asp-validation-for="Password" class="error"></span>
+        </p>
+        <div asp-validation-summary="All" class="error"></div>
+        <p>
+            <input class="header__button get-modal_1" type="submit" value="Войти" style="float: right;" />
+        </p>
+    </form>
+</div>
