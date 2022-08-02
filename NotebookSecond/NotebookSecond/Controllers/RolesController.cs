@@ -20,9 +20,6 @@ namespace NotebookSecond.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            /*User user = await _userManager.FindByIdAsync("181c2e0a-451e-4564-9582-8e5b4ed7fe02");
-            var userRoles = await _userManager.GetRolesAsync(user);
-            IdentityResult result = await _userManager.AddToRoleAsync(user, "admin");*/
             return View(_roleManager.Roles.ToList());
         }
 

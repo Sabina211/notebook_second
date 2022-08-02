@@ -161,3 +161,7 @@ E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\De
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Users\ChangePassword.cshtml.g.cs
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Roles\Index.cshtml.g.cs
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Users\AddUser.cshtml.g.cs
+E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.dll
+E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.Extensions.Logging.dll
+E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.Web.AspNetCore.dll
+E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.config

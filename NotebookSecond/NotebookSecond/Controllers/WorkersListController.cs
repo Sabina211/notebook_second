@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using NLog;
 using NotebookSecond.ContextFolder;
 using NotebookSecond.Data;
 using NotebookSecond.Entities;
@@ -12,15 +14,27 @@ namespace NotebookSecond.Controllers
     public class WorkersListController : Controller
     {
         private readonly WorkerData workerData;
-
-        public WorkersListController(WorkerData WorkerData)
+        private readonly ILogger<WorkersListController> _logger;
+        //private static Logger logger2 = LogManager.GetCurrentClassLogger();
+       // private readonly Logger logger2;
+        public WorkersListController( ILogger<WorkersListController> logger, WorkerData WorkerData)
         {
-            this.workerData = WorkerData;
+            _logger = logger;
+            _logger.LogDebug(1, "NLog injected into HomeController");
+            _logger.LogError("Hello1");
+            workerData = WorkerData;
+
         }
+
         public IActionResult Index()
         {
             ViewBag.Workers = workerData.GetWorkers();
             ViewBag.Count = workerData.GetWorkers().Count();
+            //не пишутся
+
+
+            //logger2.Error("Текстовая ошибка");
+
             return View();
         }
 

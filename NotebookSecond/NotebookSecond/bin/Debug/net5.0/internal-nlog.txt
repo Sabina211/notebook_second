@@ -1,0 +1,16 @@
+2022-08-01 15:56:11.8550 Info Message Template Auto Format enabled
+2022-08-01 15:56:11.9379 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 15:56:12.0892 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-08-01 15:56:12.2510 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\nlog.config
+2022-08-01 17:00:09.8012 Info Message Template Auto Format enabled
+2022-08-01 17:00:09.9444 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 17:00:10.2195 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-08-01 17:00:10.3402 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\nlog.config
+2022-08-01 17:01:08.6939 Info Message Template Auto Format enabled
+2022-08-01 17:01:08.7392 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 17:01:08.9536 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-08-01 17:01:09.0203 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\nlog.config
+2022-08-01 17:02:40.3624 Info Message Template Auto Format enabled
+2022-08-01 17:02:40.3935 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 17:02:40.4958 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-08-01 17:02:40.7154 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=37, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\nlog.config

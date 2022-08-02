@@ -1,0 +1,62 @@
+2022-08-01 13:32:11.4812 Info Message Template Auto Format enabled
+2022-08-01 13:32:11.5219 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 13:32:11.5418 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error loading extensions: NLog.Web.AspNetCore
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'NLog.Web.AspNetCore, Culture=neutral, PublicKeyToken=null'. Не удается найти указанный файл.
+File name: 'NLog.Web.AspNetCore, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.InternalLoad(ObjectHandleOnStack assemblyName, ObjectHandleOnStack requestingAssembly, StackCrawlMarkHandle stackMark, Boolean throwOnFileNotFound, ObjectHandleOnStack assemblyLoadContext, ObjectHandleOnStack retAssembly)
+   at System.Reflection.RuntimeAssembly.InternalLoad(AssemblyName assemblyName, RuntimeAssembly requestingAssembly, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, AssemblyLoadContext assemblyLoadContext)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NLog.Internal.AssemblyHelpers.LoadFromName(String assemblyName)
+   at NLog.Config.LoggingConfigurationParser.ParseExtensionWithAssembly(String assemblyName, String prefix)
+   --- End of inner exception stack trace ---
+2022-08-01 13:32:11.7929 Info Adding target FileTarget(Name=allfile)
+2022-08-01 13:32:11.7929 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error parsing layout aspnet-request-url
+ ---> System.ArgumentException: LayoutRenderer type-alias is unknown: 'aspnetrequesturl'. Extension NLog.Web.AspNetCore not included?
+   at NLog.Config.Factory`2.CreateInstance(String itemName)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+   --- End of inner exception stack trace ---
+2022-08-01 13:32:11.7973 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error parsing layout aspnet-mvc-action
+ ---> System.ArgumentException: LayoutRenderer type-alias is unknown: 'aspnetmvcaction'. Extension NLog.Web.AspNetCore not included?
+   at NLog.Config.Factory`2.CreateInstance(String itemName)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+   --- End of inner exception stack trace ---
+2022-08-01 13:32:11.7973 Info Adding target FileTarget(Name=ownFile-web)
+2022-08-01 13:32:11.7973 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error parsing layout MicrosoftConsoleLayout
+ ---> System.ArgumentException: LayoutRenderer type-alias is unknown: 'MicrosoftConsoleLayout'
+   at NLog.Config.Factory`2.CreateInstance(String itemName)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+   --- End of inner exception stack trace ---
+2022-08-01 13:32:11.7973 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 13:32:11.8247 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=52, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.config
+2022-08-01 13:32:11.8427 Info Configuration initialized.
+2022-08-01 13:32:11.8704 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.1.1159. Product version: 5.0.1+a3718b8417284a90b0f73b2cbba47bc4067f6a3a. GlobalAssemblyCache: False
+2022-08-01 14:53:30.2202 Info Message Template Auto Format enabled
+2022-08-01 14:53:30.2622 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 14:53:30.3288 Info Adding target FileTarget(Name=allfile)
+2022-08-01 14:53:30.3529 Info Adding target FileTarget(Name=ownFile-web)
+2022-08-01 14:53:30.3529 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 14:53:30.4241 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.config
+2022-08-01 14:57:35.0311 Info Message Template Auto Format enabled
+2022-08-01 14:57:35.0566 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 14:57:35.1470 Info Adding target FileTarget(Name=allfile)
+2022-08-01 14:57:35.1570 Info Adding target FileTarget(Name=ownFile-web)
+2022-08-01 14:57:35.1570 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 14:57:35.1944 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.config
+2022-08-01 15:03:10.5235 Info Message Template Auto Format enabled
+2022-08-01 15:03:10.5394 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 15:03:10.5970 Info Adding target FileTarget(Name=allfile)
+2022-08-01 15:03:10.5970 Info Adding target FileTarget(Name=ownFile-web)
+2022-08-01 15:03:10.5970 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 15:03:10.6494 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.config
+2022-08-01 15:05:13.1863 Info Message Template Auto Format enabled
+2022-08-01 15:05:13.2008 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 15:05:13.2585 Info Adding target FileTarget(Name=allfile)
+2022-08-01 15:05:13.2676 Info Adding target FileTarget(Name=ownFile-web)
+2022-08-01 15:05:13.2676 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 15:05:13.3048 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.config
+2022-08-01 15:12:33.4238 Info Message Template Auto Format enabled
+2022-08-01 15:12:33.4431 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 15:12:33.4931 Info Adding target FileTarget(Name=allfile)
+2022-08-01 15:12:33.5022 Info Adding target FileTarget(Name=ownFile-web)
+2022-08-01 15:12:33.5022 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 15:12:33.5474 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=56, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.config

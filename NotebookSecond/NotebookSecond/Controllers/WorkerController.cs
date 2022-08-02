@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using NotebookSecond.ContextFolder;
 using NotebookSecond.Data;
 using NotebookSecond.Entities;
@@ -12,10 +13,13 @@ namespace NotebookSecond.Controllers
     public class WorkerController : Controller
     {
         private readonly WorkerData workerData;
+        private readonly ILogger<WorkerController> _logger;
 
-        public WorkerController(WorkerData WorkerData)
+        public WorkerController(WorkerData WorkerData, ILogger<WorkerController> logger)
         {
             this.workerData = WorkerData;
+            _logger = logger;
+            _logger.LogDebug(1, "NLog injected into HomeController");
         }
         public IActionResult View(Guid? Id)
         {
@@ -28,6 +32,7 @@ namespace NotebookSecond.Controllers
         [HttpGet]
         public IActionResult AddWorker()
         {
+            _logger.LogDebug("Открыта страница с добавлением сотрудника");
             return View();
         }
 

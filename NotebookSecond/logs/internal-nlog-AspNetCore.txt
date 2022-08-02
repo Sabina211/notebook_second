@@ -1,0 +1,172 @@
+2022-08-01 20:05:50.4307 Info Message Template Auto Format enabled
+2022-08-01 20:05:50.5143 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 20:05:50.5143 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-01 20:05:50.5700 Debug Setting 'NLog.Targets.FileTarget.name' to 'ownFile-web'
+2022-08-01 20:05:50.5700 Debug Setting 'NLog.Targets.FileTarget.fileName' to 'E:\Сабина, курс\Задание 21\NotebookSecond\logs\own-${shortdate}.log'
+2022-08-01 20:05:50.5966 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate}|${message}'
+2022-08-01 20:05:50.5966 Info Adding target FileTarget(Name=ownFile-web)
+2022-08-01 20:05:50.5966 Debug Registered target ownFile-web: NLog.Targets.FileTarget
+2022-08-01 20:05:50.5966 Debug Setting 'NLog.Targets.ConsoleTarget.name' to 'lifetimeConsole'
+2022-08-01 20:05:50.5966 Debug Setting 'NLog.Targets.ConsoleTarget.layout' to '${MicrosoftConsoleLayout}'
+2022-08-01 20:05:50.5966 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 20:05:50.5966 Debug Registered target lifetimeConsole: NLog.Targets.ConsoleTarget
+2022-08-01 20:05:50.6695 Debug Watching file-filter 'NLog.config' in directory: E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0
+2022-08-01 20:05:50.6695 Debug --- NLog configuration dump ---
+2022-08-01 20:05:50.6695 Debug Targets:
+2022-08-01 20:05:50.6741 Debug FileTarget(Name=ownFile-web)
+2022-08-01 20:05:50.6741 Debug ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 20:05:50.6741 Debug Rules:
+2022-08-01 20:05:50.6741 Debug logNamePattern: (Microsoft.Hosting.Lifetime:Equals) levels: [ Debug Info Warn Error Fatal ] writeTo: [ lifetimeConsole ownFile-web ]
+2022-08-01 20:05:50.6741 Debug --- End of NLog configuration dump ---
+2022-08-01 20:05:50.6930 Info Validating config: TargetNames=lifetimeConsole, ownFile-web, ConfigItems=13, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.config
+2022-08-01 20:05:50.6930 Debug Unused target checking is started... Rule Count: 1, Target Count: 2
+2022-08-01 20:05:50.6930 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 2, Unused Target Count: 0
+2022-08-01 20:05:50.7335 Debug Targets not configured for Logger: NotebookSecond.Program
+2022-08-01 20:07:24.2460 Info Message Template Auto Format enabled
+2022-08-01 20:07:24.2851 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 20:07:24.2851 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-01 20:07:24.3151 Debug Setting 'NLog.Targets.FileTarget.name' to 'ownFile-web'
+2022-08-01 20:07:24.3151 Debug Setting 'NLog.Targets.FileTarget.fileName' to 'E:\Сабина, курс\Задание 21\NotebookSecond\logs\own-${shortdate}.log'
+2022-08-01 20:07:24.3366 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} ${callsite} ${level} ${message}'
+2022-08-01 20:07:24.3366 Info Adding target FileTarget(Name=ownFile-web)
+2022-08-01 20:07:24.3366 Debug Registered target ownFile-web: NLog.Targets.FileTarget
+2022-08-01 20:07:24.3366 Debug Setting 'NLog.Targets.ConsoleTarget.name' to 'lifetimeConsole'
+2022-08-01 20:07:24.3366 Debug Setting 'NLog.Targets.ConsoleTarget.layout' to '${MicrosoftConsoleLayout}'
+2022-08-01 20:07:24.3366 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 20:07:24.3443 Debug Registered target lifetimeConsole: NLog.Targets.ConsoleTarget
+2022-08-01 20:07:24.3811 Debug Watching file-filter 'NLog.config' in directory: E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0
+2022-08-01 20:07:24.3811 Debug --- NLog configuration dump ---
+2022-08-01 20:07:24.3811 Debug Targets:
+2022-08-01 20:07:24.3912 Debug FileTarget(Name=ownFile-web)
+2022-08-01 20:07:24.3912 Debug ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 20:07:24.3912 Debug Rules:
+2022-08-01 20:07:24.3912 Debug logNamePattern: (Microsoft.Hosting.Lifetime:Equals) levels: [ Debug Info Warn Error Fatal ] writeTo: [ lifetimeConsole ownFile-web ]
+2022-08-01 20:07:24.3912 Debug --- End of NLog configuration dump ---
+2022-08-01 20:07:24.4183 Info Validating config: TargetNames=lifetimeConsole, ownFile-web, ConfigItems=17, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.config
+2022-08-01 20:07:24.4268 Debug Unused target checking is started... Rule Count: 1, Target Count: 2
+2022-08-01 20:07:24.4268 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 2, Unused Target Count: 0
+2022-08-01 20:07:24.5137 Debug Targets not configured for Logger: NotebookSecond.Program
+2022-08-01 20:12:18.3978 Info Message Template Auto Format enabled
+2022-08-01 20:12:18.4680 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 20:12:18.4696 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-01 20:12:18.5356 Debug Setting 'NLog.Targets.FileTarget.name' to 'ownFile-web'
+2022-08-01 20:12:18.5356 Debug Setting 'NLog.Targets.FileTarget.fileName' to 'E:\Сабина, курс\Задание 21\NotebookSecond\logs\own-${shortdate}.log'
+2022-08-01 20:12:18.5622 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} ${callsite} ${level} ${message}'
+2022-08-01 20:12:18.5647 Info Adding target FileTarget(Name=ownFile-web)
+2022-08-01 20:12:18.5647 Debug Registered target ownFile-web: NLog.Targets.FileTarget
+2022-08-01 20:12:18.5647 Debug Setting 'NLog.Targets.ConsoleTarget.name' to 'lifetimeConsole'
+2022-08-01 20:12:18.5647 Debug Setting 'NLog.Targets.ConsoleTarget.layout' to '${MicrosoftConsoleLayout}'
+2022-08-01 20:12:18.5647 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 20:12:18.5647 Debug Registered target lifetimeConsole: NLog.Targets.ConsoleTarget
+2022-08-01 20:12:18.6325 Debug Watching file-filter 'NLog.config' in directory: E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0
+2022-08-01 20:12:18.6325 Debug --- NLog configuration dump ---
+2022-08-01 20:12:18.6325 Debug Targets:
+2022-08-01 20:12:18.6429 Debug FileTarget(Name=ownFile-web)
+2022-08-01 20:12:18.6429 Debug ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 20:12:18.6429 Debug Rules:
+2022-08-01 20:12:18.6429 Debug logNamePattern: (Microsoft.Hosting.Lifetime:Equals) levels: [ Debug Info Warn Error Fatal ] writeTo: [ lifetimeConsole ownFile-web ]
+2022-08-01 20:12:18.6429 Debug --- End of NLog configuration dump ---
+2022-08-01 20:12:18.6767 Info Validating config: TargetNames=lifetimeConsole, ownFile-web, ConfigItems=17, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.config
+2022-08-01 20:12:18.6890 Debug Unused target checking is started... Rule Count: 1, Target Count: 2
+2022-08-01 20:12:18.6890 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 2, Unused Target Count: 0
+2022-08-01 20:12:18.7454 Debug Targets not configured for Logger: NotebookSecond.Program
+2022-08-01 20:15:16.6228 Info Message Template Auto Format enabled
+2022-08-01 20:15:16.6426 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 20:15:16.6426 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-01 20:15:16.6930 Debug Setting 'NLog.Targets.FileTarget.name' to 'ownFile-web'
+2022-08-01 20:15:16.6930 Debug Setting 'NLog.Targets.FileTarget.fileName' to 'E:\Сабина, курс\Задание 21\NotebookSecond\logs\own-${shortdate}.log'
+2022-08-01 20:15:16.7143 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} ${callsite} ${level} ${message}'
+2022-08-01 20:15:16.7143 Info Adding target FileTarget(Name=ownFile-web)
+2022-08-01 20:15:16.7143 Debug Registered target ownFile-web: NLog.Targets.FileTarget
+2022-08-01 20:15:16.7143 Debug Setting 'NLog.Targets.ConsoleTarget.name' to 'lifetimeConsole'
+2022-08-01 20:15:16.7143 Debug Setting 'NLog.Targets.ConsoleTarget.layout' to '${MicrosoftConsoleLayout}'
+2022-08-01 20:15:16.7183 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 20:15:16.7183 Debug Registered target lifetimeConsole: NLog.Targets.ConsoleTarget
+2022-08-01 20:15:16.7183 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Unrecognized value 'maxlexel'='Error' for element 'logger' in section 'rules'
+2022-08-01 20:15:16.7664 Debug Watching file-filter 'NLog.config' in directory: E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0
+2022-08-01 20:15:16.7664 Debug --- NLog configuration dump ---
+2022-08-01 20:15:16.7664 Debug Targets:
+2022-08-01 20:15:16.7664 Debug FileTarget(Name=ownFile-web)
+2022-08-01 20:15:16.7664 Debug ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 20:15:16.7664 Debug Rules:
+2022-08-01 20:15:16.7664 Debug logNamePattern: (Microsoft.Hosting.Lifetime:Equals) levels: [ Debug Info Warn Error Fatal ] writeTo: [ lifetimeConsole ownFile-web ]
+2022-08-01 20:15:16.7664 Debug --- End of NLog configuration dump ---
+2022-08-01 20:15:16.7863 Info Validating config: TargetNames=lifetimeConsole, ownFile-web, ConfigItems=17, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.config
+2022-08-01 20:15:16.7863 Debug Unused target checking is started... Rule Count: 1, Target Count: 2
+2022-08-01 20:15:16.7970 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 2, Unused Target Count: 0
+2022-08-01 20:15:16.9052 Debug Targets not configured for Logger: NotebookSecond.Program
+2022-08-01 20:19:47.6122 Info Message Template Auto Format enabled
+2022-08-01 20:19:47.6533 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 20:19:47.6533 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-01 20:19:47.6833 Debug Setting 'NLog.Targets.FileTarget.name' to 'ownFile-web'
+2022-08-01 20:19:47.6879 Debug Setting 'NLog.Targets.FileTarget.fileName' to 'E:\Сабина, курс\Задание 21\NotebookSecond\logs\own-${shortdate}.log'
+2022-08-01 20:19:47.7058 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} ${callsite} ${level} ${message}'
+2022-08-01 20:19:47.7058 Info Adding target FileTarget(Name=ownFile-web)
+2022-08-01 20:19:47.7058 Debug Registered target ownFile-web: NLog.Targets.FileTarget
+2022-08-01 20:19:47.7058 Debug Setting 'NLog.Targets.ConsoleTarget.name' to 'lifetimeConsole'
+2022-08-01 20:19:47.7058 Debug Setting 'NLog.Targets.ConsoleTarget.layout' to '${MicrosoftConsoleLayout}'
+2022-08-01 20:19:47.7058 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 20:19:47.7058 Debug Registered target lifetimeConsole: NLog.Targets.ConsoleTarget
+2022-08-01 20:19:47.7058 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Unrecognized value 'maxlexel'='Error' for element 'logger' in section 'rules'
+2022-08-01 20:19:47.7605 Debug Watching file-filter 'NLog.config' in directory: E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0
+2022-08-01 20:19:47.7605 Debug --- NLog configuration dump ---
+2022-08-01 20:19:47.7605 Debug Targets:
+2022-08-01 20:19:47.7654 Debug FileTarget(Name=ownFile-web)
+2022-08-01 20:19:47.7654 Debug ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 20:19:47.7654 Debug Rules:
+2022-08-01 20:19:47.7654 Debug logNamePattern: (Microsoft.Hosting.Lifetime:Equals) levels: [ Debug Info Warn Error Fatal ] writeTo: [ lifetimeConsole ownFile-web ]
+2022-08-01 20:19:47.7654 Debug --- End of NLog configuration dump ---
+2022-08-01 20:19:47.7909 Info Validating config: TargetNames=lifetimeConsole, ownFile-web, ConfigItems=17, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.config
+2022-08-01 20:19:47.7909 Debug Unused target checking is started... Rule Count: 1, Target Count: 2
+2022-08-01 20:19:47.8090 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 2, Unused Target Count: 0
+2022-08-01 20:19:47.8425 Debug Targets not configured for Logger: NotebookSecond.Program
+2022-08-01 20:20:57.3951 Info Message Template Auto Format enabled
+2022-08-01 20:20:57.5478 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 20:20:57.5893 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-01 20:20:57.7089 Debug Setting 'NLog.Targets.FileTarget.name' to 'ownFile-web'
+2022-08-01 20:20:57.7190 Debug Setting 'NLog.Targets.FileTarget.fileName' to 'E:\Сабина, курс\Задание 21\NotebookSecond\logs\own-${shortdate}.log'
+2022-08-01 20:20:57.7431 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} ${callsite} ${level} ${message}'
+2022-08-01 20:20:57.7431 Info Adding target FileTarget(Name=ownFile-web)
+2022-08-01 20:20:57.7508 Debug Registered target ownFile-web: NLog.Targets.FileTarget
+2022-08-01 20:20:57.7508 Debug Setting 'NLog.Targets.ConsoleTarget.name' to 'lifetimeConsole'
+2022-08-01 20:20:57.7508 Debug Setting 'NLog.Targets.ConsoleTarget.layout' to '${MicrosoftConsoleLayout}'
+2022-08-01 20:20:57.7508 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 20:20:57.7508 Debug Registered target lifetimeConsole: NLog.Targets.ConsoleTarget
+2022-08-01 20:20:57.7508 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Unrecognized value 'maxlexel'='Error' for element 'logger' in section 'rules'
+2022-08-01 20:20:57.8660 Debug Watching file-filter 'NLog.config' in directory: E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0
+2022-08-01 20:20:57.8660 Debug --- NLog configuration dump ---
+2022-08-01 20:20:57.8660 Debug Targets:
+2022-08-01 20:20:57.8660 Debug FileTarget(Name=ownFile-web)
+2022-08-01 20:20:57.8660 Debug ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 20:20:57.8660 Debug Rules:
+2022-08-01 20:20:57.8660 Debug logNamePattern: (Microsoft.Hosting.Lifetime:Equals) levels: [ Debug Info Warn Error Fatal ] writeTo: [ lifetimeConsole ownFile-web ]
+2022-08-01 20:20:57.8660 Debug --- End of NLog configuration dump ---
+2022-08-01 20:20:57.8848 Info Validating config: TargetNames=lifetimeConsole, ownFile-web, ConfigItems=17, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.config
+2022-08-01 20:20:57.8848 Debug Unused target checking is started... Rule Count: 1, Target Count: 2
+2022-08-01 20:20:57.9052 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 2, Unused Target Count: 0
+2022-08-01 20:20:57.9673 Debug Targets not configured for Logger: NotebookSecond.Program
+2022-08-01 20:25:20.8409 Info Message Template Auto Format enabled
+2022-08-01 20:25:20.8588 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-01 20:25:20.8598 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-01 20:25:20.8939 Debug Setting 'NLog.Targets.FileTarget.name' to 'ownFile-web'
+2022-08-01 20:25:20.8939 Debug Setting 'NLog.Targets.FileTarget.fileName' to 'E:\Сабина, курс\Задание 21\NotebookSecond\logs\own-${shortdate}.log'
+2022-08-01 20:25:20.9090 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} ${callsite} ${level} ${message}'
+2022-08-01 20:25:20.9090 Info Adding target FileTarget(Name=ownFile-web)
+2022-08-01 20:25:20.9090 Debug Registered target ownFile-web: NLog.Targets.FileTarget
+2022-08-01 20:25:20.9090 Debug Setting 'NLog.Targets.ConsoleTarget.name' to 'lifetimeConsole'
+2022-08-01 20:25:20.9090 Debug Setting 'NLog.Targets.ConsoleTarget.layout' to '${MicrosoftConsoleLayout}'
+2022-08-01 20:25:20.9090 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 20:25:20.9090 Debug Registered target lifetimeConsole: NLog.Targets.ConsoleTarget
+2022-08-01 20:25:20.9090 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Unrecognized value 'maxlexel'='Error' for element 'logger' in section 'rules'
+2022-08-01 20:25:20.9532 Debug Watching file-filter 'nlog.config' in directory: E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0
+2022-08-01 20:25:20.9532 Debug --- NLog configuration dump ---
+2022-08-01 20:25:20.9532 Debug Targets:
+2022-08-01 20:25:20.9532 Debug FileTarget(Name=ownFile-web)
+2022-08-01 20:25:20.9532 Debug ConsoleTarget(Name=lifetimeConsole)
+2022-08-01 20:25:20.9532 Debug Rules:
+2022-08-01 20:25:20.9532 Debug logNamePattern: (Microsoft.Hosting.Lifetime:Equals) levels: [ Debug Info Warn Error Fatal ] writeTo: [ lifetimeConsole ownFile-web ]
+2022-08-01 20:25:20.9532 Debug --- End of NLog configuration dump ---
+2022-08-01 20:25:20.9799 Info Validating config: TargetNames=lifetimeConsole, ownFile-web, ConfigItems=17, FilePath=E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\nlog.config
+2022-08-01 20:25:20.9841 Debug Unused target checking is started... Rule Count: 1, Target Count: 2
+2022-08-01 20:25:20.9841 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 2, Unused Target Count: 0
+2022-08-01 20:25:21.0241 Debug Targets not configured for Logger: NotebookSecond.Program
