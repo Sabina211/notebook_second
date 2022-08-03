@@ -13,13 +13,12 @@ namespace NotebookSecond.Controllers
     public class WorkerController : Controller
     {
         private readonly WorkerData workerData;
-        private readonly ILogger<WorkerController> _logger;
+        private readonly ILogger<WorkerController> logger;
 
         public WorkerController(WorkerData WorkerData, ILogger<WorkerController> logger)
         {
             this.workerData = WorkerData;
-            _logger = logger;
-            _logger.LogDebug(1, "NLog injected into HomeController");
+            this.logger = logger;
         }
         public IActionResult View(Guid? Id)
         {
@@ -32,7 +31,6 @@ namespace NotebookSecond.Controllers
         [HttpGet]
         public IActionResult AddWorker()
         {
-            _logger.LogDebug("Открыта страница с добавлением сотрудника");
             return View();
         }
 
@@ -41,14 +39,14 @@ namespace NotebookSecond.Controllers
         [Authorize]
         public IActionResult GetWorkerFromViewDB(Worker worker)
         {
-            var test = worker.Id;
             if (worker.Id != Guid.Empty)
             {
                 workerData.EditWorker(worker);
+                logger.LogInformation("Отредактирован сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
             }
             else
             {
-                workerData.AddWorker(new Worker()
+                var id = workerData.AddWorker(new Worker()
                 {
                     Name = worker.Name,
                     Surname = worker.Surname,
@@ -57,7 +55,9 @@ namespace NotebookSecond.Controllers
                     Address = worker.Address,
                     Description = worker.Description
                 });
+                logger.LogInformation("Создан сотрудник {0} c id={1}, редактор {2}", worker.Name, id, User.Identity.Name);
             }
+
             return Redirect("/WorkersList/Index");
         }
 
@@ -67,6 +67,7 @@ namespace NotebookSecond.Controllers
         {
             var curentWorker = workerData.GetWorkers().ToList().Find(e => e.Id == worker.Id);
             workerData.RemoveWorker(curentWorker);
+            logger.LogInformation("Удален сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
             return Redirect("/WorkersList/Index");
         }
     }

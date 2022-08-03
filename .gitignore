@@ -1,2 +1,4 @@
 *.cache
-Shop/.vs/Shop/v16/.suo
+*.dll
+*.suo
+NotebookSecond/NotebookSecond/bin/Debug/net5.0/logs

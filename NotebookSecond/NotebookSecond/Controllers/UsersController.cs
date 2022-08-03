@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Security.Claims;
+using Microsoft.Extensions.Logging;
 
 namespace NotebookSecond.Controllers
 {
@@ -15,11 +16,13 @@ namespace NotebookSecond.Controllers
     {
         private readonly UserManager<User> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
+        private readonly ILogger<UsersController> logger;
 
-        public UsersController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        public UsersController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, ILogger<UsersController> logger)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
+            this.logger = logger;
         }
 
         [HttpGet]
@@ -58,6 +61,7 @@ namespace NotebookSecond.Controllers
 
                 if (result.Succeeded )
                 {
+                    logger.LogInformation("\nДобавлен новый пользователь с логином {0}, редактор {1}", userWithRoles.UserName, User.Identity.Name);
                     return RedirectToAction("UsersList", "Users");
                 }
                 else
@@ -93,7 +97,7 @@ namespace NotebookSecond.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> EditUser(UserWithRoles model)//!!
+        public async Task<IActionResult> EditUser(UserWithRoles model)
         {
             if (User.IsInRole("admin") || model.Id == User.FindFirstValue(ClaimTypes.NameIdentifier))
             {
@@ -118,11 +122,12 @@ namespace NotebookSecond.Controllers
                         var result = await userManager.UpdateAsync(user);
                         if (result.Succeeded & result1.Succeeded & result2.Succeeded)
                         {
+                            logger.LogInformation("\nОтредактирован пользователь с логином {0}, редактор {1}", user.UserName, User.Identity.Name);
                             if (User.IsInRole("admin"))
                             {
                                 return RedirectToAction("UsersList", "Users");
                             }
-                            else return RedirectToAction("ViewCurrentUser", "Users");
+                            else return RedirectToAction("ViewCurrentUser", "Users");                          
                         }
                         else
                         {
@@ -159,6 +164,7 @@ namespace NotebookSecond.Controllers
             if (user != null)
             {
                 await userManager.DeleteAsync(user);
+                logger.LogInformation("\nУдален пользователь с логином {0}, редактор {1}", user.UserName, User.Identity.Name);
             }
             return RedirectToAction("UsersList", "Users");
         }
@@ -204,6 +210,7 @@ namespace NotebookSecond.Controllers
                     IdentityResult result = await userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
                     if (result.Succeeded)
                     {
+                        logger.LogInformation("\nИзменен пароль для пользователя с логином {0}, редактор {1}", user.UserName, User.Identity.Name);
                         return RedirectToAction("ViewCurrentUser", "Users");
                     }
                     else

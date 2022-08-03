@@ -22,14 +22,12 @@ namespace NotebookSecond
         
         public static async Task Main(string[] args)
         {
-            //CreateHostBuilder(args).Build().Run();
-            //var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
-            var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+            var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
             try
             {
-                logger.Debug("init main2");
-                //var init = BuildWebHost(args);
-                var init = BuildWebHost(args);
+
+                logger.Error("init main2");
+                var init = CreateHostBuilder(args).Build();
                 using (var scope = init.Services.CreateScope())
                 {
                     var s = scope.ServiceProvider;
@@ -47,7 +45,6 @@ namespace NotebookSecond
                         logger.Error(ex, "An error occurred while seeding the database.");
                     }
                 }
-                logger.Debug("перед ран");
                 init.Run();
 
             }
@@ -59,9 +56,7 @@ namespace NotebookSecond
             }
             finally
             {
-                // Ensure to flush and stop internal timers/threads before application-exit (Avoid segmentation fault on Linux)
-                logger.Debug("закрытие");
-                NLog.LogManager.Shutdown();
+                LogManager.Shutdown();
             }
         }
 
@@ -75,14 +70,13 @@ namespace NotebookSecond
              {
                  logging.ClearProviders();
                  logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
-                 //logging.AddNLog(config);
              })
               .UseNLog();  
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        /*public static IWebHost BuildWebHost(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .UseStartup<Startup>()
-            .Build();
+            .Build();*/
 
 
     }

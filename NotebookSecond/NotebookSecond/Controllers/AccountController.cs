@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using NotebookSecond.Entities;
 using NotebookSecond.Models;
 using System;
@@ -13,11 +14,13 @@ namespace NotebookSecond.Controllers
     {
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
+        private readonly ILogger<AccountController> logger;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ILogger<AccountController> logger)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.logger = logger;
         }
 
         [HttpGet]
@@ -47,6 +50,7 @@ namespace NotebookSecond.Controllers
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, false);
+                    logger.LogInformation("Зарегистрировался новый пользователь с логином {0}", registerUser.Login);
                     return RedirectToAction("index", "WorkersList");
                 }
                 else

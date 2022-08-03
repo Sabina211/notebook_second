@@ -10,18 +10,17 @@ namespace NotebookSecond.Data
     public class WorkerData
     {
         private readonly DataContext Context;
-        //static List<Worker> Workers;
 
         public WorkerData(DataContext Context)
         {
             this.Context = Context;
-            //Workers = this.Context.Workers.ToList();
         }
 
-        public void AddWorker(Worker worker)
+        public string AddWorker(Worker worker)
         {
-            Context.Workers.Add(worker);
+            var id = Context.Workers.Add(worker).Entity.Id.ToString();
             Context.SaveChanges();
+            return id;
         }
 
         public void EditWorker(Worker worker)
