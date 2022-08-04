@@ -1,5 +1,6 @@
 ﻿using ApiNotebook.Data;
 using ApiNotebook.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -36,12 +37,12 @@ namespace ApiNotebook.Controllers
             Worker worker = await db.Workers.FirstOrDefaultAsync(x => x.Id.ToString() == id);
             if (worker == null)
                 return NotFound();
-            return new ObjectResult(worker);// когда мы указываем ObjectResult, то данные форматируются в
-                                          // джейсон и устанавливается заголовок с  Content-Type= application/json.
+            return new ObjectResult(worker);
         }
 
         // POST api/Workers
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Worker>> Post(Worker worker)
         {
             if (worker.Name == "admin")
@@ -60,6 +61,7 @@ namespace ApiNotebook.Controllers
 
         // PUT api/Workers/
         [HttpPut]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<Worker>> Put(Worker worker)
         {
             if (worker == null)
@@ -79,6 +81,7 @@ namespace ApiNotebook.Controllers
 
         // DELETE api/Workers/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<Worker>> Delete(string id)
         {
             Worker worker = db.Workers.FirstOrDefault(x => x.Id.ToString() == id);

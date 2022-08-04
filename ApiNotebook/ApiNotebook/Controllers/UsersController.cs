@@ -62,6 +62,23 @@ namespace ApiNotebook.Controllers
             }
         }
 
+        [HttpGet("{id}")]
+        [Authorize(Roles = "admin")]
+        public async Task<ActionResult<UserWithRolesEdit>> GetUser(Guid id)
+        {
+            User user = await userManager.FindByIdAsync(id.ToString());
+            if (user == null) return NotFound("Пользователь с таким Id не найден");
+            UserWithRolesEdit userWithRolesEdit = new UserWithRolesEdit
+            {
+                Id = id,
+                UserName = user.UserName,
+                Email = user.Email,
+                UserRoles = await userManager.GetRolesAsync(user),
+                AllRoles = roleManager.Roles.ToList()
+            };
+            return Ok(userWithRolesEdit);
+        }
+
         [HttpPost]
         [Route("api/[controller]/editUserEmail")]
         [Authorize]
@@ -136,8 +153,7 @@ namespace ApiNotebook.Controllers
             }
         }
 
-        [Route("api/[controller]/deleteUser")]
-        [HttpPost]
+        [HttpDelete("id")]
         [Authorize(Roles = "admin")]
         public async Task<ActionResult<string>> DeleteUser(string id)
         {

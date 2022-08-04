@@ -52,9 +52,9 @@ namespace ApiNotebook.Controllers
                 }
                 return BadRequest(ModelState);
             }
-
         }
 
+       // [ValidateAntiForgeryToken]
         [Route("api/[controller]/login")]
         [HttpPost]
         public async Task<ActionResult<LoginUser>> Post(LoginUser loginUser)
@@ -72,7 +72,15 @@ namespace ApiNotebook.Controllers
                 ModelState.AddModelError("", "Некорректный логин и/или пароль");
                 return BadRequest(ModelState);
             }
+        }
 
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        [Route("api/[controller]/logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return Ok();
         }
     }
 }
