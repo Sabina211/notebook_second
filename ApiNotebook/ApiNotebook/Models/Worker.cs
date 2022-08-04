@@ -8,7 +8,7 @@ namespace ApiNotebook.Models
 {
     public class Worker
     {
-        public Guid Id { get; set; }//поле айди обязательно для энтити
+        public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Необходимо заполнить имя пользователя"),
         StringLength(200, ErrorMessage ="Поле должно содержать не больше 200 символов")]

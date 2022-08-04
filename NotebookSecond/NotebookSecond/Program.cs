@@ -1,7 +1,5 @@
-using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -9,8 +7,6 @@ using NotebookSecond.ContextFolder;
 using NotebookSecond.Data;
 using NotebookSecond.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using NLog.Web;
 using NLog;
@@ -72,13 +68,6 @@ namespace NotebookSecond
                  logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
              })
               .UseNLog();  
-
-        /*public static IWebHost BuildWebHost(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .UseStartup<Startup>()
-            .Build();*/
-
-
     }
 }
 

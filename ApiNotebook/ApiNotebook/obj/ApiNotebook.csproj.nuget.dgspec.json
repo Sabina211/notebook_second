@@ -40,13 +40,33 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "DataAnnotationsExtensions": {
+              "target": "Package",
+              "version": "[5.0.1.27, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.AspNetCore.SpaServices": {
+              "target": "Package",
+              "version": "[3.1.27, )"
+            },
+            "Microsoft.AspNetCore.SpaServices.Extensions": {
               "target": "Package",
               "version": "[5.0.17, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.17, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.1.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

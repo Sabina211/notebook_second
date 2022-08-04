@@ -1,0 +1,50 @@
+2022-08-03 16:28:46.9881 | ApiNotebook.Program.Main | ERROR | init main2 
+
+2022-08-03 16:29:01.8792 | ApiNotebook.Program.Main | ERROR | init main2 
+
+2022-08-03 16:30:00.5343 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 16:36:10.8128 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 16:37:32.5647 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник КарлПервый c id=3fa85f64-5717-4562-b3fc-2c963f66afa7, редактор  
+
+2022-08-03 16:52:56.9403 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 16:53:55.1733 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 16:54:24.8900 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 16:57:14.6114 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 16:59:32.0465 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 17:04:05.5628 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 21:58:25.6250 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 22:03:37.0937 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 22:05:27.2028 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 22:11:32.4721 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 22:21:39.7860 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 22:27:38.0662 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 22:29:16.1530 | ApiNotebook.Controllers.UsersController.AddUser | INFO | 
+Добавлен новый пользователь с логином Karl, редактор admin 
+
+2022-08-03 22:34:05.7665 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-03 22:36:04.9840 | ApiNotebook.Controllers.UsersController.AddUser | INFO | 
+Добавлен новый пользователь с логином Mark, редактор admin 
+
+2022-08-03 22:41:27.9700 | ApiNotebook.Controllers.UsersController.DeleteUser | INFO | 
+Удален пользователь с логином string, редактор admin 
+
+2022-08-03 22:42:11.2043 | ApiNotebook.Controllers.UsersController.EditUser | INFO | 
+Отредактирован пользователь с логином Mark, редактор admin 
+
+2022-08-03 22:47:46.7349 | ApiNotebook.Program.Main | INFO | init main2 
+

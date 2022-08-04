@@ -3,6 +3,7 @@ using ApiNotebook.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,15 +16,11 @@ namespace ApiNotebook.Controllers
     public class WorkersController : ControllerBase
     {
         DataContext db;
-        public WorkersController(DataContext context)
+        private readonly ILogger<WorkersController> logger;
+        public WorkersController(DataContext context, ILogger<WorkersController> logger)
         {
             db = context;
-            if (!db.Workers.Any())
-            {
-                db.Workers.Add(new Worker { Name = "Tom", Address = "Пушкина 56" });
-                db.Workers.Add(new Worker { Name = "Alice", Address = "Гагарина 45" });
-                db.SaveChanges();
-            }
+            this.logger = logger;
         }
 
         [HttpGet]
@@ -57,6 +54,7 @@ namespace ApiNotebook.Controllers
 
             db.Workers.Add(worker);
             await db.SaveChangesAsync();
+            logger.LogInformation("Создан сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
             return Ok(worker);
         }
 
@@ -75,6 +73,7 @@ namespace ApiNotebook.Controllers
 
             db.Update(worker);
             await db.SaveChangesAsync();
+            logger.LogInformation("Отредактирован сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
             return Ok(worker);
         }
 
@@ -89,6 +88,7 @@ namespace ApiNotebook.Controllers
             }
             db.Workers.Remove(worker);
             await db.SaveChangesAsync();
+            logger.LogInformation("Удален сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
             return Ok(worker);
         }
     }
