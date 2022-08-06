@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace ApiNotebook.Controllers
@@ -42,8 +43,8 @@ namespace ApiNotebook.Controllers
 
         // POST api/Workers
         [HttpPost]
-        [Authorize]
-        public async Task<ActionResult<Worker>> Post(Worker worker)
+        //[Authorize]
+        public async Task<ActionResult<Worker>> Post([FromBody] Worker worker)
         {
             if (worker.Name == "admin")
             {
@@ -56,12 +57,12 @@ namespace ApiNotebook.Controllers
             db.Workers.Add(worker);
             await db.SaveChangesAsync();
             logger.LogInformation("Создан сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
-            return Ok(worker);
+            return worker;
         }
 
         // PUT api/Workers/
         [HttpPut]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public async Task<ActionResult<Worker>> Put(Worker worker)
         {
             if (worker == null)
@@ -81,13 +82,14 @@ namespace ApiNotebook.Controllers
 
         // DELETE api/Workers/5
         [HttpDelete("{id}")]
-        [Authorize(Roles = "admin")]
+       // [Authorize(Roles = "admin")]
         public async Task<ActionResult<Worker>> Delete(string id)
         {
             Worker worker = db.Workers.FirstOrDefault(x => x.Id.ToString() == id);
             if (worker == null)
             {
-                return NotFound();
+                //return NotFound("Сотрудник с таким Id не найден");
+                return NotFound(new { message = "Сотрудник с таким Id не найден" });
             }
             db.Workers.Remove(worker);
             await db.SaveChangesAsync();

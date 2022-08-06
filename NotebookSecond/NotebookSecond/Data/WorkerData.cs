@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NotebookSecond.Data
 {
-    public class WorkerData
+    public class WorkerData : IWorkerData
     {
         private readonly DataContext Context;
 
@@ -16,14 +16,14 @@ namespace NotebookSecond.Data
             this.Context = Context;
         }
 
-        public string AddWorker(Worker worker)
+        public Worker AddWorker(Worker worker)
         {
-            var id = Context.Workers.Add(worker).Entity.Id.ToString();
+            var newWorker = Context.Workers.Add(worker).Entity;
             Context.SaveChanges();
-            return id;
+            return newWorker;
         }
 
-        public void EditWorker(Worker worker)
+        public Worker EditWorker(Worker worker)
         {
             var curentWorker = Context.Workers.ToList().Find(e => e.Id == worker.Id);
             curentWorker.Name = worker.Name;
@@ -33,12 +33,14 @@ namespace NotebookSecond.Data
             curentWorker.PhoneNumber = worker.PhoneNumber;
             curentWorker.Description = worker.Description;
             Context.SaveChanges();
+            return curentWorker;
         }
 
-        public void RemoveWorker(Worker worker)
+        public bool RemoveWorker(Worker worker)
         {
-            Context.Workers.Remove(worker);
+            var result = Context.Workers.Remove(worker);
             Context.SaveChanges();
+            return true;
         }
 
         public IEnumerable<Worker> GetWorkers()

@@ -60,7 +60,6 @@ E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\De
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\NotebookSecond.TagHelpers.input.cache
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\NotebookSecond.TagHelpers.output.cache
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\NotebookSecond.RazorCoreGenerate.cache
-E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\WorkersList\Index.cshtml.g.cs
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\NotebookSecond.RazorTargetAssemblyInfo.cs
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\NotebookSecond.Views.pdb
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\Microsoft.AspNetCore.NodeServices.dll
@@ -68,7 +67,6 @@ E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\De
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\NotebookSecond.MvcApplicationPartsAssemblyInfo.cs
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Worker\AddWorker.cshtml.g.cs
-E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\WorkersList\IndexTest.cshtml.g.cs
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Worker\View.cshtml.g.cs
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -165,3 +163,4 @@ E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\De
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.Extensions.Logging.dll
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.Web.AspNetCore.dll
 E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\bin\Debug\net5.0\NLog.config
+E:\Сабина, курс\Задание 21\NotebookSecond\NotebookSecond\obj\Debug\net5.0\Razor\Views\Worker\Index.cshtml.g.cs

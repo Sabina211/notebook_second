@@ -1,0 +1,38 @@
+2022-08-06 14:14:34.0946 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник 34 c id=b08fd63b-056e-423e-bf19-08da76d41dd4, редактор  
+
+2022-08-06 14:15:12.8746 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник 456 c id=0426eb88-7291-4838-bf1a-08da76d41dd4, редактор  
+
+2022-08-06 14:23:37.3167 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник Тестовый c id=57b65148-4ea2-4df6-bf1b-08da76d41dd4, редактор  
+
+2022-08-06 14:38:48.6911 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник Тестовый c id=a7317b1e-13a3-4fd4-bf1c-08da76d41dd4, редактор  
+
+2022-08-06 14:54:21.0159 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник Тестовый c id=2d17a9ac-944f-4d2e-bf1d-08da76d41dd4, редактор  
+
+2022-08-06 14:55:20.8490 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник Карл c id=3b36fa3a-1038-466c-bf1e-08da76d41dd4, редактор  
+
+2022-08-06 14:56:05.8644 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник 123 c id=60c74622-b6cd-4783-bf1f-08da76d41dd4, редактор  
+
+2022-08-06 15:04:25.9234 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник 456 c id=9ff44274-8797-4592-88f1-08da7537da5a, редактор  
+
+2022-08-06 15:09:56.2508 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник Карлов c id=9ff44274-8797-4592-88f1-08da7537da5a, редактор  
+
+2022-08-06 15:15:14.3209 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник 7988 c id=cbb92e1c-3589-4ee0-a3fd-08da7617eda2, редактор  
+
+2022-08-06 15:16:43.9225 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник 789 c id=7422e832-ced5-4370-502f-08da76a5e321, редактор  
+
+2022-08-06 15:16:54.5637 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник string c id=3fa85f64-5717-4562-b3fc-2c963f66afa9, редактор  
+
+2022-08-06 15:16:57.6630 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник 345 c id=a33e3d0c-a7d7-4a0c-5030-08da76a5e321, редактор  
+
+2022-08-06 15:22:19.5167 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник Марк c id=afdb637d-3296-44c4-2f1a-08da76a7edf2, редактор  
+
+2022-08-06 15:22:25.4216 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник 456 c id=f878375c-dcfc-478e-2f1b-08da76a7edf2, редактор  
+
+2022-08-06 15:25:33.7040 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник цукцук c id=1a3cdac7-e37a-46d5-bf20-08da76d41dd4, редактор  
+
+2022-08-06 15:25:50.8938 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник Tom123 c id=5b1eb051-7217-4555-1b4b-08da7535fc7b, редактор  
+
+2022-08-06 15:25:54.6267 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник 456456 c id=6afea7ed-fe0e-41b5-9582-08da76a8cbee, редактор  
+
+2022-08-06 15:27:21.4529 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник ghdfgh c id=0fd9c48e-2f40-4664-693d-08da76d371b6, редактор  
+

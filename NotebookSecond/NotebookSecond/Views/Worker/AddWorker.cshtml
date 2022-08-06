@@ -2,12 +2,12 @@
     ViewData["Title"] = "Добавление сотрудника";
 }
 <div class="page_content">
-    <form action="~/Worker/GetWorkerFromViewDB" method="post" class="container-sm" style="width: 50%; max-width: 517px;">
+    <form action="~/Worker/AddWorker" method="post" class="container-sm" style="width: 50%; max-width: 517px;">
         <h1>Добавление сотрудника</h1>
         @*Ссылка на метод в контроллере*@
         <p>
-            <label class="form-label">Имя</label><br>
-            <input class="form-control" type="text" name="worker.Name" placeholder="" />
+            <label class="form-label">Имя*</label><br>
+            <input class="form-control" type="text" name="worker.Name" placeholder="" required/>
         </p>
         <p>
             <label class="form-label">Фамилия</label><br>
@@ -29,6 +29,7 @@
             <label class="form-label">Описание</label><br>
             <input class="form-control" type="text" name="worker.Description" placeholder="" />
         </p>
+        <div asp-validation-summary="All" class="error"></div>
         <p>
             <input class="header__button get-modal_1" type="submit" value="Сохранить" style="float: right;" />
         </p>

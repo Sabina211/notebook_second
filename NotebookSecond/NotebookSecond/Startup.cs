@@ -31,7 +31,7 @@ namespace NotebookSecond
             services.AddSpaStaticFiles();
             services.AddDbContext<DataContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddTransient<WorkerData, WorkerData>();
+            services.AddTransient<IWorkerData, ApiWorkerData>();
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddIdentity<User, IdentityRole>()
@@ -70,7 +70,7 @@ namespace NotebookSecond
             app.UseMvc(
                 r =>
                 {
-                    r.MapRoute("default", "{controller=WorkersList}/{action=Index}");
+                    r.MapRoute("default", "{controller=Worker}/{action=Index}");
                 });
         }
     }

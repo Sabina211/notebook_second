@@ -3,6 +3,14 @@
 }
 <div class="page_content">
     <h1>Список сотрудников компании</h1>
+    @if (!(ViewData["Error"] == null))
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewData["Error"]
+        </div>
+
+    }
+
     <table class="table caption-top">
         <caption style="visibility:hidden">Список контактов</caption>
         <thead class="table-light">
@@ -89,15 +97,15 @@
                             <button class="modal__close-button"><img src="~/img/close.svg" width="12" alt=""></button>
                             <!-- Контент модального окна-->
                             <h1 class="modal__title">Редактирование сотрудника</h1>
-                            <form action="~/Worker/GetWorkerFromViewDB" method="post">
+                            <form action="~/Worker/EditWorker" method="post">
                                 <input type="text" name="worker.Id" value="@item.Id" hidden />
                                 <p>
                                     <label class="form-label">Id</label><br>
                                     <input class="form-control" type="text" name="worker.Id" value="@item.Id" placeholder="Disabled input" disabled />
                                 </p>
                                 <p>
-                                    <label class="form-label">Имя</label><br>
-                                    <input class="form-control" type="text" name="worker.Name" value="@item.Name" />
+                                    <label class="form-label">Имя*</label><br>
+                                    <input class="form-control" type="text" name="worker.Name" value="@item.Name" required/>
                                 </p>
                                 <p>
                                     <label class="form-label">Фамилия</label><br>

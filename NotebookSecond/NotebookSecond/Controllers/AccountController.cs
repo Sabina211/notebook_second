@@ -51,7 +51,7 @@ namespace NotebookSecond.Controllers
                 {
                     await signInManager.SignInAsync(user, false);
                     logger.LogInformation("Зарегистрировался новый пользователь с логином {0}", registerUser.Login);
-                    return RedirectToAction("index", "WorkersList");
+                    return RedirectToAction("index", "Worker");
                 }
                 else
                 {
@@ -80,7 +80,7 @@ namespace NotebookSecond.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("index", "WorkersList");
+                        return RedirectToAction("index", "Worker");
                     }
                 }
                 else
@@ -97,7 +97,7 @@ namespace NotebookSecond.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction("index", "WorkersList");
+            return RedirectToAction("index", "Worker");
         }
     }
 }
