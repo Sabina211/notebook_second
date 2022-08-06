@@ -36,3 +36,5 @@
 
 2022-08-06 15:27:21.4529 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник ghdfgh c id=0fd9c48e-2f40-4664-693d-08da76d371b6, редактор  
 
+2022-08-06 20:33:27.1718 | ApiNotebook.Program.Main | INFO | init main2 
+

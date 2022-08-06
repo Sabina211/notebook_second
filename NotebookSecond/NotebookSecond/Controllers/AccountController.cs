@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using NotebookSecond.Data;
 using NotebookSecond.Entities;
 using NotebookSecond.Models;
 using System;
@@ -15,6 +16,7 @@ namespace NotebookSecond.Controllers
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
         private readonly ILogger<AccountController> logger;
+        ApiAccountData api = new ApiAccountData();
 
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ILogger<AccountController> logger)
         {
@@ -47,6 +49,7 @@ namespace NotebookSecond.Controllers
                 };
 
                 var result = await userManager.CreateAsync(user, registerUser.Password);
+                var apiResult = api.Registration(registerUser);
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, false);
@@ -70,23 +73,24 @@ namespace NotebookSecond.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                var result = await signInManager.PasswordSignInAsync(loginUser.Login, loginUser.Password, false, false);
-                if (result.Succeeded)
-                {
-                    if (!string.IsNullOrEmpty(loginUser.ReturnUrl) & Url.IsLocalUrl(loginUser.ReturnUrl))
-                    {
-                        return Redirect(loginUser.ReturnUrl);
-                    }
-                    else
-                    {
-                        return RedirectToAction("index", "Worker");
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Некорректный логин и/или пароль");
-                }
+                //var result = await signInManager.PasswordSignInAsync(loginUser.Login, loginUser.Password, false, false);
+                api.Login(loginUser);
+                return RedirectToAction("index", "Worker");
+                /* if (result.Succeeded)
+                 {
+                     if (!string.IsNullOrEmpty(loginUser.ReturnUrl) & Url.IsLocalUrl(loginUser.ReturnUrl))
+                     {
+                         return Redirect(loginUser.ReturnUrl);
+                     }
+                     else
+                     {
+                         return RedirectToAction("index", "Worker");
+                     }
+                 }
+                 else
+                 {
+                     ModelState.AddModelError("", "Некорректный логин и/или пароль");
+                 }*/
             }
            
             return View(loginUser);
@@ -97,6 +101,7 @@ namespace NotebookSecond.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
+            api.Logout();
             return RedirectToAction("index", "Worker");
         }
     }

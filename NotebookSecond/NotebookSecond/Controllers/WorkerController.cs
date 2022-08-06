@@ -37,7 +37,7 @@ namespace NotebookSecond.Controllers
             return View(worker);
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public IActionResult AddWorker()
         {
@@ -45,7 +45,7 @@ namespace NotebookSecond.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public IActionResult AddWorker(Worker worker)
         {
             if (!ModelState.IsValid)

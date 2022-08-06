@@ -43,7 +43,7 @@ namespace ApiNotebook.Controllers
 
         // POST api/Workers
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         public async Task<ActionResult<Worker>> Post([FromBody] Worker worker)
         {
             if (worker.Name == "admin")
@@ -62,7 +62,7 @@ namespace ApiNotebook.Controllers
 
         // PUT api/Workers/
         [HttpPut]
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<Worker>> Put(Worker worker)
         {
             if (worker == null)
@@ -82,7 +82,7 @@ namespace ApiNotebook.Controllers
 
         // DELETE api/Workers/5
         [HttpDelete("{id}")]
-       // [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<Worker>> Delete(string id)
         {
             Worker worker = db.Workers.FirstOrDefault(x => x.Id.ToString() == id);

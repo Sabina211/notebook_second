@@ -22,7 +22,7 @@ namespace NotebookSecond
             try
             {
 
-                logger.Error("init main2");
+                logger.Info("init main2");
                 var init = CreateHostBuilder(args).Build();
                 using (var scope = init.Services.CreateScope())
                 {
