@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using NotebookSecond.Entities;
@@ -19,16 +20,16 @@ namespace NotebookSecond.Data
         private string url = @"https://localhost:5005/api/Workers";
         private readonly ILogger<ApiWorkerData> logger;
 
-        public ApiWorkerData(ILogger<ApiWorkerData> logger)
+        public ApiWorkerData(ILogger<ApiWorkerData> logger, HttpClient httpClient)
         {
-            httpClient = new HttpClient();
+            this.httpClient = httpClient;
             this.logger = logger;
         }
 
         public IEnumerable<Worker> GetWorkers()
         {
             string json = httpClient.GetStringAsync(url).Result;
-
+          
             return JsonConvert.DeserializeObject<IEnumerable<Worker>>(json);
 
         }

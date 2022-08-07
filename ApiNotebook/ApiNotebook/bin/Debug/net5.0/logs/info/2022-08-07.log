@@ -1,0 +1,22 @@
+2022-08-07 00:27:16.3554 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник string c id=4fa85f64-5717-4562-b3fc-2c963f66afa0, редактор admin 
+
+2022-08-07 00:29:15.8000 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник string c id=5fa85f64-5717-4562-b3fc-2c963f66afa0, редактор admin 
+
+2022-08-07 00:30:27.8817 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник string c id=0fa85f64-5717-4562-b3fc-2c963f66afa0, редактор admin 
+
+2022-08-07 01:03:52.1967 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник Markus c id=b98e8676-2b5d-4a9b-8261-08da77e6c8d3, редактор admin 
+
+2022-08-07 11:13:31.6562 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник Тестовый200 c id=2377dc3a-d970-494f-8262-08da77e6c8d3, редактор admin 
+
+2022-08-07 11:18:33.5045 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-07 11:21:26.8437 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник Тестовый300 c id=4f7a467c-efaa-44e1-c6bb-08da783d0f0c, редактор admin 
+
+2022-08-07 11:22:19.3312 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник Тестовый400 c id=017d5994-32e3-4ca0-c6bc-08da783d0f0c, редактор admin 
+
+2022-08-07 13:05:25.8801 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-07 13:07:47.1869 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-07 13:28:27.9550 | ApiNotebook.Program.Main | INFO | init main2 
+

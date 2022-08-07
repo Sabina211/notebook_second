@@ -79,6 +79,24 @@ namespace ApiNotebook.Controllers
             return Ok(userWithRolesEdit);
         }
 
+        [Route("api/[controller]/getCurrentUser")]
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult<UserWithRolesEdit>> GetCurrentUser()
+        {
+            string id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            User user = await userManager.FindByIdAsync(id.ToString());
+            if (user == null) return NotFound("Пользователь с таким Id не найден");
+            UserWithRolesEdit userWithRolesEdit = new UserWithRolesEdit
+            {
+                Id = Guid.Parse(user.Id),
+                UserName = user.UserName,
+                Email = user.Email,
+                UserRoles = await userManager.GetRolesAsync(user),
+            };
+            return Ok(userWithRolesEdit);
+        }
+
         [HttpPost]
         [Route("api/[controller]/editUserEmail")]
         [Authorize]

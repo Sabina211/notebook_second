@@ -1,4 +1,5 @@
 ﻿using ApiNotebook.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -55,6 +56,7 @@ namespace ApiNotebook.Controllers
         }
 
        // [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         [Route("api/[controller]/login")]
         [HttpPost]
         public async Task<ActionResult<LoginUser>> Post(LoginUser loginUser)

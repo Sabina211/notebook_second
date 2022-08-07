@@ -8,6 +8,7 @@ using NotebookSecond.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 
 namespace NotebookSecond.Controllers
 {
@@ -15,9 +16,11 @@ namespace NotebookSecond.Controllers
     {
         private readonly IWorkerData workerData;
         private readonly ILogger<WorkerController> logger;
+        private HttpClient httpClient { get; set; }
 
         public WorkerController(IWorkerData WorkerData, ILogger<WorkerController> logger)
         {
+            httpClient = new HttpClient();
             this.workerData = WorkerData;
             this.logger = logger;
         }

@@ -31,6 +31,7 @@ namespace NotebookSecond
             services.AddSpaStaticFiles();
             services.AddDbContext<DataContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddHttpClient("httpClient", c => c.BaseAddress = new System.Uri("https://localhost:5005"));
             services.AddTransient<IWorkerData, ApiWorkerData>();
 
             services.AddMvc(options => options.EnableEndpointRouting = false);

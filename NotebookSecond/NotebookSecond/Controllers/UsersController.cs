@@ -9,6 +9,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using Microsoft.Extensions.Logging;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace NotebookSecond.Controllers
 {
@@ -17,12 +19,28 @@ namespace NotebookSecond.Controllers
         private readonly UserManager<User> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly ILogger<UsersController> logger;
+        private HttpClient httpClient { get; set; }
 
-        public UsersController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, ILogger<UsersController> logger)
+        public UsersController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, ILogger<UsersController> logger, HttpClient httpClient)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
             this.logger = logger;
+            this.httpClient = httpClient;
+        }
+
+    
+        public async Task<UserWithRolesEdit> GetCurrentUser()
+        {
+            string url = @"https://localhost:5005/api/Users/getCurrentUser";
+            /*var content = new StringContent(JsonConvert.SerializeObject(registerUser), Encoding.UTF8, "application/json");
+            var result = httpClient.PostAsync(url, content).Result;*/
+
+            string json = httpClient.GetStringAsync(url).Result;
+            var currentUsers = JsonConvert.DeserializeObject<UserWithRolesEdit>(json);
+
+            return currentUsers;
+
         }
 
         [HttpGet]
