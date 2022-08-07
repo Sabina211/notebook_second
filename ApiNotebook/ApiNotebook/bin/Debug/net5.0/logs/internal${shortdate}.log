@@ -18772,3 +18772,337 @@
 2022-08-07 14:52:45.8125 Debug Logger Microsoft.AspNetCore.Authorization.DefaultAuthorizationService [Warn] => main
 2022-08-07 14:52:45.8125 Debug Logger Microsoft.AspNetCore.Authorization.DefaultAuthorizationService [Error] => error main
 2022-08-07 14:52:45.8125 Debug Logger Microsoft.AspNetCore.Authorization.DefaultAuthorizationService [Fatal] => error main
+2022-08-07 16:12:39.4500 Info Message Template Auto Format enabled
+2022-08-07 16:12:39.4653 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-07 16:12:39.4653 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-07 16:12:39.5053 Debug Setting 'NLog.Targets.FileTarget.name' to 'main'
+2022-08-07 16:12:39.5053 Debug Setting 'NLog.Targets.FileTarget.fileName' to '${basedir}/logs/${shortdate}.log'
+2022-08-07 16:12:39.5388 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} | ${callsite} | ${uppercase:${level}} | ${message} ${newline}'
+2022-08-07 16:12:39.5561 Debug Setting 'NLog.LayoutRenderers.Wrappers.UppercaseLayoutRendererWrapper.Inner' to '${level}'
+2022-08-07 16:12:39.5761 Info Adding target FileTarget(Name=main)
+2022-08-07 16:12:39.5796 Debug Registered target main: NLog.Targets.FileTarget
+2022-08-07 16:12:39.5796 Debug Setting 'NLog.Targets.FileTarget.name' to 'error'
+2022-08-07 16:12:39.5796 Debug Setting 'NLog.Targets.FileTarget.fileName' to '${basedir}/logs/errors/${shortdate}.log'
+2022-08-07 16:12:39.5796 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} | ${callsite} | ${uppercase:${level}} | ${message} ${exception:format=ToString,StackTrace} ${newline}'
+2022-08-07 16:12:39.5796 Debug Setting 'NLog.LayoutRenderers.Wrappers.UppercaseLayoutRendererWrapper.Inner' to '${level}'
+2022-08-07 16:12:39.6054 Info Adding target FileTarget(Name=error)
+2022-08-07 16:12:39.6054 Debug Registered target error: NLog.Targets.FileTarget
+2022-08-07 16:12:39.6054 Debug Setting 'NLog.Targets.FileTarget.name' to 'info'
+2022-08-07 16:12:39.6088 Debug Setting 'NLog.Targets.FileTarget.fileName' to '${basedir}/logs/info/${shortdate}.log'
+2022-08-07 16:12:39.6088 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} | ${callsite} | ${uppercase:${level}} | ${message} ${newline}'
+2022-08-07 16:12:39.6088 Debug Setting 'NLog.LayoutRenderers.Wrappers.UppercaseLayoutRendererWrapper.Inner' to '${level}'
+2022-08-07 16:12:39.6088 Info Adding target FileTarget(Name=info)
+2022-08-07 16:12:39.6088 Debug Registered target info: NLog.Targets.FileTarget
+2022-08-07 16:12:39.6273 Debug Setting 'NLog.Targets.ColoredConsoleTarget.name' to 'lifetimeConsole'
+2022-08-07 16:12:39.6273 Debug Setting 'NLog.Targets.ColoredConsoleTarget.layout' to '${MicrosoftConsoleLayout}'
+2022-08-07 16:12:39.6273 Info Adding target ColoredConsoleTarget(Name=lifetimeConsole)
+2022-08-07 16:12:39.6273 Debug Registered target lifetimeConsole: NLog.Targets.ColoredConsoleTarget
+2022-08-07 16:12:39.6768 Debug Watching file-filter 'NLog.config' in directory: E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0
+2022-08-07 16:12:39.6768 Debug --- NLog configuration dump ---
+2022-08-07 16:12:39.6768 Debug Targets:
+2022-08-07 16:12:39.6768 Debug FileTarget(Name=main)
+2022-08-07 16:12:39.6768 Debug FileTarget(Name=error)
+2022-08-07 16:12:39.6768 Debug FileTarget(Name=info)
+2022-08-07 16:12:39.6768 Debug ColoredConsoleTarget(Name=lifetimeConsole)
+2022-08-07 16:12:39.6768 Debug Rules:
+2022-08-07 16:12:39.6768 Debug logNamePattern: (:All) levels: [ Error Fatal ] writeTo: [ error ]
+2022-08-07 16:12:39.6768 Debug logNamePattern: (:All) levels: [ Info Warn Error Fatal ] writeTo: [ main ]
+2022-08-07 16:12:39.6869 Debug logNamePattern: (ApiNotebook.:StartsWith) levels: [ Info Warn Error Fatal ] writeTo: [ lifetimeConsole info ]
+2022-08-07 16:12:39.6869 Debug --- End of NLog configuration dump ---
+2022-08-07 16:12:39.6869 Info Validating config: TargetNames=error, main, lifetimeConsole, info, ConfigItems=56, FilePath=E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\NLog.config
+2022-08-07 16:12:39.6869 Debug Unused target checking is started... Rule Count: 3, Target Count: 4
+2022-08-07 16:12:39.7110 Debug Unused target checking is completed. Total Rule Count: 3, Total Target Count: 4, Unused Target Count: 0
+2022-08-07 16:12:39.7572 Debug Targets configured when LogLevel >= Info for Logger: ApiNotebook.Program
+2022-08-07 16:12:39.7572 Debug Logger ApiNotebook.Program [Info] => main lifetimeConsole info
+2022-08-07 16:12:39.7572 Debug Logger ApiNotebook.Program [Warn] => main lifetimeConsole info
+2022-08-07 16:12:39.7572 Debug Logger ApiNotebook.Program [Error] => error main lifetimeConsole info
+2022-08-07 16:12:39.7572 Debug Logger ApiNotebook.Program [Fatal] => error main lifetimeConsole info
+2022-08-07 16:12:39.7904 Debug FileTarget(Name=main): Preparing for new file 'E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\logs\2022-08-07.log'
+2022-08-07 16:12:39.8032 Debug FileTarget(Name=main): Creating file appender: E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\logs\2022-08-07.log
+2022-08-07 16:12:39.8409 Debug FileTarget(Name=info): Preparing for new file 'E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\logs\info\2022-08-07.log'
+2022-08-07 16:12:39.8409 Debug FileTarget(Name=info): Creating file appender: E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\logs\info\2022-08-07.log
+2022-08-07 16:12:41.0099 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-07 16:12:41.0799 Debug Hide assemblies for callsite
+2022-08-07 16:12:41.0799 Debug ScanAssembly('NLog.Extensions.Logging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-07 16:12:41.0799 Debug Skip loading NLogLoggingConfiguration from empty config section: NLog
+2022-08-07 16:12:41.0799 Info Validating config: TargetNames=error, main, lifetimeConsole, info, ConfigItems=56, FilePath=E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\NLog.config
+2022-08-07 16:12:41.0799 Debug Targets configured when LogLevel >= Info for Logger: ApiNotebook.Program
+2022-08-07 16:12:41.0799 Debug Logger ApiNotebook.Program [Info] => main lifetimeConsole info
+2022-08-07 16:12:41.0799 Debug Logger ApiNotebook.Program [Warn] => main lifetimeConsole info
+2022-08-07 16:12:41.0799 Debug Logger ApiNotebook.Program [Error] => error main lifetimeConsole info
+2022-08-07 16:12:41.0799 Debug Logger ApiNotebook.Program [Fatal] => error main lifetimeConsole info
+2022-08-07 16:12:41.1078 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.Extensions.Hosting.Internal.ApplicationLifetime
+2022-08-07 16:12:41.1078 Debug Logger Microsoft.Extensions.Hosting.Internal.ApplicationLifetime [Info] => main
+2022-08-07 16:12:41.1093 Debug Logger Microsoft.Extensions.Hosting.Internal.ApplicationLifetime [Warn] => main
+2022-08-07 16:12:41.1093 Debug Logger Microsoft.Extensions.Hosting.Internal.ApplicationLifetime [Error] => error main
+2022-08-07 16:12:41.1093 Debug Logger Microsoft.Extensions.Hosting.Internal.ApplicationLifetime [Fatal] => error main
+2022-08-07 16:12:41.1093 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.Extensions.Hosting.Internal.Host
+2022-08-07 16:12:41.1093 Debug Logger Microsoft.Extensions.Hosting.Internal.Host [Info] => main
+2022-08-07 16:12:41.1093 Debug Logger Microsoft.Extensions.Hosting.Internal.Host [Warn] => main
+2022-08-07 16:12:41.1093 Debug Logger Microsoft.Extensions.Hosting.Internal.Host [Error] => error main
+2022-08-07 16:12:41.1093 Debug Logger Microsoft.Extensions.Hosting.Internal.Host [Fatal] => error main
+2022-08-07 16:12:41.1093 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.Hosting.Lifetime
+2022-08-07 16:12:41.1093 Debug Logger Microsoft.Hosting.Lifetime [Info] => main
+2022-08-07 16:12:41.1248 Debug Logger Microsoft.Hosting.Lifetime [Warn] => main
+2022-08-07 16:12:41.1248 Debug Logger Microsoft.Hosting.Lifetime [Error] => error main
+2022-08-07 16:12:41.1248 Debug Logger Microsoft.Hosting.Lifetime [Fatal] => error main
+2022-08-07 16:12:41.6258 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Infrastructure
+2022-08-07 16:12:41.6258 Debug Logger Microsoft.EntityFrameworkCore.Infrastructure [Info] => main
+2022-08-07 16:12:41.6258 Debug Logger Microsoft.EntityFrameworkCore.Infrastructure [Warn] => main
+2022-08-07 16:12:41.6258 Debug Logger Microsoft.EntityFrameworkCore.Infrastructure [Error] => error main
+2022-08-07 16:12:41.6258 Debug Logger Microsoft.EntityFrameworkCore.Infrastructure [Fatal] => error main
+2022-08-07 16:12:41.7318 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.ChangeTracking
+2022-08-07 16:12:41.7318 Debug Logger Microsoft.EntityFrameworkCore.ChangeTracking [Info] => main
+2022-08-07 16:12:41.7318 Debug Logger Microsoft.EntityFrameworkCore.ChangeTracking [Warn] => main
+2022-08-07 16:12:41.7318 Debug Logger Microsoft.EntityFrameworkCore.ChangeTracking [Error] => error main
+2022-08-07 16:12:41.7318 Debug Logger Microsoft.EntityFrameworkCore.ChangeTracking [Fatal] => error main
+2022-08-07 16:12:41.7582 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Model
+2022-08-07 16:12:41.7582 Debug Logger Microsoft.EntityFrameworkCore.Model [Info] => main
+2022-08-07 16:12:41.7582 Debug Logger Microsoft.EntityFrameworkCore.Model [Warn] => main
+2022-08-07 16:12:41.7582 Debug Logger Microsoft.EntityFrameworkCore.Model [Error] => error main
+2022-08-07 16:12:41.7582 Debug Logger Microsoft.EntityFrameworkCore.Model [Fatal] => error main
+2022-08-07 16:12:41.7582 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Model.Validation
+2022-08-07 16:12:41.7582 Debug Logger Microsoft.EntityFrameworkCore.Model.Validation [Info] => main
+2022-08-07 16:12:41.7582 Debug Logger Microsoft.EntityFrameworkCore.Model.Validation [Warn] => main
+2022-08-07 16:12:41.7582 Debug Logger Microsoft.EntityFrameworkCore.Model.Validation [Error] => error main
+2022-08-07 16:12:41.7582 Debug Logger Microsoft.EntityFrameworkCore.Model.Validation [Fatal] => error main
+2022-08-07 16:12:42.8959 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Database.Command
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Database.Command [Info] => main
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Database.Command [Warn] => main
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Database.Command [Error] => error main
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Database.Command [Fatal] => error main
+2022-08-07 16:12:42.8959 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Query
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Query [Info] => main
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Query [Warn] => main
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Query [Error] => error main
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Query [Fatal] => error main
+2022-08-07 16:12:42.8959 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Database.Transaction
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Database.Transaction [Info] => main
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Database.Transaction [Warn] => main
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Database.Transaction [Error] => error main
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Database.Transaction [Fatal] => error main
+2022-08-07 16:12:42.8959 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Database.Connection
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Database.Connection [Info] => main
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Database.Connection [Warn] => main
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Database.Connection [Error] => error main
+2022-08-07 16:12:42.8959 Debug Logger Microsoft.EntityFrameworkCore.Database.Connection [Fatal] => error main
+2022-08-07 16:12:42.9260 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Update
+2022-08-07 16:12:42.9260 Debug Logger Microsoft.EntityFrameworkCore.Update [Info] => main
+2022-08-07 16:12:42.9260 Debug Logger Microsoft.EntityFrameworkCore.Update [Warn] => main
+2022-08-07 16:12:42.9260 Debug Logger Microsoft.EntityFrameworkCore.Update [Error] => error main
+2022-08-07 16:12:42.9260 Debug Logger Microsoft.EntityFrameworkCore.Update [Fatal] => error main
+2022-08-07 16:12:42.9613 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Migrations
+2022-08-07 16:12:42.9613 Debug Logger Microsoft.EntityFrameworkCore.Migrations [Info] => main
+2022-08-07 16:12:42.9613 Debug Logger Microsoft.EntityFrameworkCore.Migrations [Warn] => main
+2022-08-07 16:12:42.9613 Debug Logger Microsoft.EntityFrameworkCore.Migrations [Error] => error main
+2022-08-07 16:12:42.9613 Debug Logger Microsoft.EntityFrameworkCore.Migrations [Fatal] => error main
+2022-08-07 16:12:44.4756 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Identity.UserManager
+2022-08-07 16:12:44.4756 Debug Logger Microsoft.AspNetCore.Identity.UserManager [Info] => main
+2022-08-07 16:12:44.4756 Debug Logger Microsoft.AspNetCore.Identity.UserManager [Warn] => main
+2022-08-07 16:12:44.4840 Debug Logger Microsoft.AspNetCore.Identity.UserManager [Error] => error main
+2022-08-07 16:12:44.4840 Debug Logger Microsoft.AspNetCore.Identity.UserManager [Fatal] => error main
+2022-08-07 16:12:44.4840 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.DataProtection.TypeForwardingActivator
+2022-08-07 16:12:44.4840 Debug Logger Microsoft.AspNetCore.DataProtection.TypeForwardingActivator [Info] => main
+2022-08-07 16:12:44.4840 Debug Logger Microsoft.AspNetCore.DataProtection.TypeForwardingActivator [Warn] => main
+2022-08-07 16:12:44.4840 Debug Logger Microsoft.AspNetCore.DataProtection.TypeForwardingActivator [Error] => error main
+2022-08-07 16:12:44.4840 Debug Logger Microsoft.AspNetCore.DataProtection.TypeForwardingActivator [Fatal] => error main
+2022-08-07 16:12:44.5292 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager
+2022-08-07 16:12:44.5292 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager [Info] => main
+2022-08-07 16:12:44.5292 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager [Warn] => main
+2022-08-07 16:12:44.5292 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager [Error] => error main
+2022-08-07 16:12:44.5292 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager [Fatal] => error main
+2022-08-07 16:12:44.5332 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngGcmAuthenticatedEncryptorFactory
+2022-08-07 16:12:44.5332 Debug Logger Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngGcmAuthenticatedEncryptorFactory [Info] => main
+2022-08-07 16:12:44.5332 Debug Logger Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngGcmAuthenticatedEncryptorFactory [Warn] => main
+2022-08-07 16:12:44.5332 Debug Logger Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngGcmAuthenticatedEncryptorFactory [Error] => error main
+2022-08-07 16:12:44.5332 Debug Logger Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngGcmAuthenticatedEncryptorFactory [Fatal] => error main
+2022-08-07 16:12:44.5332 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory
+2022-08-07 16:12:44.5332 Debug Logger Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory [Info] => main
+2022-08-07 16:12:44.5332 Debug Logger Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory [Warn] => main
+2022-08-07 16:12:44.5332 Debug Logger Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory [Error] => error main
+2022-08-07 16:12:44.5332 Debug Logger Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory [Fatal] => error main
+2022-08-07 16:12:44.5332 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ManagedAuthenticatedEncryptorFactory
+2022-08-07 16:12:44.5332 Debug Logger Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ManagedAuthenticatedEncryptorFactory [Info] => main
+2022-08-07 16:12:44.5332 Debug Logger Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ManagedAuthenticatedEncryptorFactory [Warn] => main
+2022-08-07 16:12:44.5332 Debug Logger Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ManagedAuthenticatedEncryptorFactory [Error] => error main
+2022-08-07 16:12:44.5332 Debug Logger Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ManagedAuthenticatedEncryptorFactory [Fatal] => error main
+2022-08-07 16:12:44.5485 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlEncryptor
+2022-08-07 16:12:44.5485 Debug Logger Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlEncryptor [Info] => main
+2022-08-07 16:12:44.5485 Debug Logger Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlEncryptor [Warn] => main
+2022-08-07 16:12:44.5485 Debug Logger Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlEncryptor [Error] => error main
+2022-08-07 16:12:44.5485 Debug Logger Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlEncryptor [Fatal] => error main
+2022-08-07 16:12:44.5485 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository
+2022-08-07 16:12:44.5485 Debug Logger Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository [Info] => main
+2022-08-07 16:12:44.5485 Debug Logger Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository [Warn] => main
+2022-08-07 16:12:44.5485 Debug Logger Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository [Error] => error main
+2022-08-07 16:12:44.5485 Debug Logger Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository [Fatal] => error main
+2022-08-07 16:12:44.5889 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver
+2022-08-07 16:12:44.5889 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver [Info] => main
+2022-08-07 16:12:44.5889 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver [Warn] => main
+2022-08-07 16:12:44.5889 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver [Error] => error main
+2022-08-07 16:12:44.5889 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver [Fatal] => error main
+2022-08-07 16:12:44.5889 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider
+2022-08-07 16:12:44.5889 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider [Info] => main
+2022-08-07 16:12:44.5889 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider [Warn] => main
+2022-08-07 16:12:44.5889 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider [Error] => error main
+2022-08-07 16:12:44.5940 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider [Fatal] => error main
+2022-08-07 16:12:44.5940 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector
+2022-08-07 16:12:44.5940 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector [Info] => main
+2022-08-07 16:12:44.5940 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector [Warn] => main
+2022-08-07 16:12:44.5940 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector [Error] => error main
+2022-08-07 16:12:44.5940 Debug Logger Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector [Fatal] => error main
+2022-08-07 16:12:44.5940 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Identity.DataProtectorTokenProvider
+2022-08-07 16:12:44.5940 Debug Logger Microsoft.AspNetCore.Identity.DataProtectorTokenProvider [Info] => main
+2022-08-07 16:12:44.5940 Debug Logger Microsoft.AspNetCore.Identity.DataProtectorTokenProvider [Warn] => main
+2022-08-07 16:12:44.5940 Debug Logger Microsoft.AspNetCore.Identity.DataProtectorTokenProvider [Error] => error main
+2022-08-07 16:12:44.5940 Debug Logger Microsoft.AspNetCore.Identity.DataProtectorTokenProvider [Fatal] => error main
+2022-08-07 16:12:44.5940 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Identity.RoleManager
+2022-08-07 16:12:44.5940 Debug Logger Microsoft.AspNetCore.Identity.RoleManager [Info] => main
+2022-08-07 16:12:44.5940 Debug Logger Microsoft.AspNetCore.Identity.RoleManager [Warn] => main
+2022-08-07 16:12:44.5940 Debug Logger Microsoft.AspNetCore.Identity.RoleManager [Error] => error main
+2022-08-07 16:12:44.5940 Debug Logger Microsoft.AspNetCore.Identity.RoleManager [Fatal] => error main
+2022-08-07 16:12:44.9757 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService
+2022-08-07 16:12:44.9757 Debug Logger Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService [Info] => main
+2022-08-07 16:12:44.9757 Debug Logger Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService [Warn] => main
+2022-08-07 16:12:44.9757 Debug Logger Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService [Error] => error main
+2022-08-07 16:12:44.9757 Debug Logger Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService [Fatal] => error main
+2022-08-07 16:12:44.9757 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets
+2022-08-07 16:12:44.9757 Debug Logger Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets [Info] => main
+2022-08-07 16:12:44.9757 Debug Logger Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets [Warn] => main
+2022-08-07 16:12:44.9757 Debug Logger Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets [Error] => error main
+2022-08-07 16:12:44.9757 Debug Logger Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets [Fatal] => error main
+2022-08-07 16:12:44.9840 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer
+2022-08-07 16:12:44.9840 Debug Logger Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer [Info] => main
+2022-08-07 16:12:44.9840 Debug Logger Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer [Warn] => main
+2022-08-07 16:12:44.9840 Debug Logger Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer [Error] => error main
+2022-08-07 16:12:44.9840 Debug Logger Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer [Fatal] => error main
+2022-08-07 16:12:44.9840 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware
+2022-08-07 16:12:44.9840 Debug Logger Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware [Info] => main
+2022-08-07 16:12:44.9840 Debug Logger Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware [Warn] => main
+2022-08-07 16:12:44.9840 Debug Logger Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware [Error] => error main
+2022-08-07 16:12:44.9840 Debug Logger Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware [Fatal] => error main
+2022-08-07 16:12:44.9840 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Server.Kestrel
+2022-08-07 16:12:44.9840 Debug Logger Microsoft.AspNetCore.Server.Kestrel [Info] => main
+2022-08-07 16:12:44.9840 Debug Logger Microsoft.AspNetCore.Server.Kestrel [Warn] => main
+2022-08-07 16:12:44.9840 Debug Logger Microsoft.AspNetCore.Server.Kestrel [Error] => error main
+2022-08-07 16:12:44.9840 Debug Logger Microsoft.AspNetCore.Server.Kestrel [Fatal] => error main
+2022-08-07 16:12:45.0023 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Hosting.Diagnostics
+2022-08-07 16:12:45.0023 Debug Logger Microsoft.AspNetCore.Hosting.Diagnostics [Info] => main
+2022-08-07 16:12:45.0023 Debug Logger Microsoft.AspNetCore.Hosting.Diagnostics [Warn] => main
+2022-08-07 16:12:45.0023 Debug Logger Microsoft.AspNetCore.Hosting.Diagnostics [Error] => error main
+2022-08-07 16:12:45.0023 Debug Logger Microsoft.AspNetCore.Hosting.Diagnostics [Fatal] => error main
+2022-08-07 16:12:45.0504 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor
+2022-08-07 16:12:45.0504 Debug Logger Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor [Info] => main
+2022-08-07 16:12:45.0504 Debug Logger Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor [Warn] => main
+2022-08-07 16:12:45.0504 Debug Logger Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor [Error] => error main
+2022-08-07 16:12:45.0504 Debug Logger Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor [Fatal] => error main
+2022-08-07 16:12:45.1522 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Mvc.MvcOptions
+2022-08-07 16:12:45.1522 Debug Logger Microsoft.AspNetCore.Mvc.MvcOptions [Info] => main
+2022-08-07 16:12:45.1522 Debug Logger Microsoft.AspNetCore.Mvc.MvcOptions [Warn] => main
+2022-08-07 16:12:45.1522 Debug Logger Microsoft.AspNetCore.Mvc.MvcOptions [Error] => error main
+2022-08-07 16:12:45.1522 Debug Logger Microsoft.AspNetCore.Mvc.MvcOptions [Fatal] => error main
+2022-08-07 16:12:45.1629 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter
+2022-08-07 16:12:45.1629 Debug Logger Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter [Info] => main
+2022-08-07 16:12:45.1629 Debug Logger Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter [Warn] => main
+2022-08-07 16:12:45.1629 Debug Logger Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter [Error] => error main
+2022-08-07 16:12:45.1629 Debug Logger Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter [Fatal] => error main
+2022-08-07 16:12:45.2639 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Routing.EndpointMiddleware
+2022-08-07 16:12:45.2639 Debug Logger Microsoft.AspNetCore.Routing.EndpointMiddleware [Info] => main
+2022-08-07 16:12:45.2639 Debug Logger Microsoft.AspNetCore.Routing.EndpointMiddleware [Warn] => main
+2022-08-07 16:12:45.2651 Debug Logger Microsoft.AspNetCore.Routing.EndpointMiddleware [Error] => error main
+2022-08-07 16:12:45.2651 Debug Logger Microsoft.AspNetCore.Routing.EndpointMiddleware [Fatal] => error main
+2022-08-07 16:12:45.2651 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware
+2022-08-07 16:12:45.2651 Debug Logger Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware [Info] => main
+2022-08-07 16:12:45.2651 Debug Logger Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware [Warn] => main
+2022-08-07 16:12:45.2651 Debug Logger Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware [Error] => error main
+2022-08-07 16:12:45.2651 Debug Logger Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware [Fatal] => error main
+2022-08-07 16:12:45.2651 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware
+2022-08-07 16:12:45.2651 Debug Logger Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware [Info] => main
+2022-08-07 16:12:45.2651 Debug Logger Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware [Warn] => main
+2022-08-07 16:12:45.2651 Debug Logger Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware [Error] => error main
+2022-08-07 16:12:45.2651 Debug Logger Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware [Fatal] => error main
+2022-08-07 16:12:45.2651 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware
+2022-08-07 16:12:45.2651 Debug Logger Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware [Info] => main
+2022-08-07 16:12:45.2651 Debug Logger Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware [Warn] => main
+2022-08-07 16:12:45.2651 Debug Logger Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware [Error] => error main
+2022-08-07 16:12:45.2651 Debug Logger Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware [Fatal] => error main
+2022-08-07 16:12:45.3518 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+2022-08-07 16:12:45.3518 Debug Logger Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [Info] => main
+2022-08-07 16:12:45.3518 Debug Logger Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [Warn] => main
+2022-08-07 16:12:45.3518 Debug Logger Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [Error] => error main
+2022-08-07 16:12:45.3518 Debug Logger Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [Fatal] => error main
+2022-08-07 16:12:45.3518 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware
+2022-08-07 16:12:45.3590 Debug Logger Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware [Info] => main
+2022-08-07 16:12:45.3590 Debug Logger Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware [Warn] => main
+2022-08-07 16:12:45.3590 Debug Logger Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware [Error] => error main
+2022-08-07 16:12:45.3590 Debug Logger Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware [Fatal] => error main
+2022-08-07 16:12:49.0914 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Routing.Matching.DfaMatcher
+2022-08-07 16:12:49.0914 Debug Logger Microsoft.AspNetCore.Routing.Matching.DfaMatcher [Info] => main
+2022-08-07 16:12:49.0914 Debug Logger Microsoft.AspNetCore.Routing.Matching.DfaMatcher [Warn] => main
+2022-08-07 16:12:49.0914 Debug Logger Microsoft.AspNetCore.Routing.Matching.DfaMatcher [Error] => error main
+2022-08-07 16:12:49.0914 Debug Logger Microsoft.AspNetCore.Routing.Matching.DfaMatcher [Fatal] => error main
+2022-08-07 16:12:49.1130 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler
+2022-08-07 16:12:49.1130 Debug Logger Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler [Info] => main
+2022-08-07 16:12:49.1130 Debug Logger Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler [Warn] => main
+2022-08-07 16:12:49.1130 Debug Logger Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler [Error] => error main
+2022-08-07 16:12:49.1130 Debug Logger Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler [Fatal] => error main
+2022-08-07 16:12:58.6902 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory
+2022-08-07 16:12:58.6902 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory [Info] => main
+2022-08-07 16:12:58.6902 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory [Warn] => main
+2022-08-07 16:12:58.6902 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory [Error] => error main
+2022-08-07 16:12:58.6902 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory [Fatal] => error main
+2022-08-07 16:12:58.7042 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder [Info] => main
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder [Warn] => main
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder [Error] => error main
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder [Fatal] => error main
+2022-08-07 16:12:58.7042 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker [Info] => main
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker [Warn] => main
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker [Error] => error main
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker [Fatal] => error main
+2022-08-07 16:12:58.7042 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Mvc.ViewFeatures.CookieTempDataProvider
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.ViewFeatures.CookieTempDataProvider [Info] => main
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.ViewFeatures.CookieTempDataProvider [Warn] => main
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.ViewFeatures.CookieTempDataProvider [Error] => error main
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.ViewFeatures.CookieTempDataProvider [Fatal] => error main
+2022-08-07 16:12:58.7042 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter [Info] => main
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter [Warn] => main
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter [Error] => error main
+2022-08-07 16:12:58.7042 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter [Fatal] => error main
+2022-08-07 16:12:58.7042 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter
+2022-08-07 16:12:58.7192 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter [Info] => main
+2022-08-07 16:12:58.7192 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter [Warn] => main
+2022-08-07 16:12:58.7192 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter [Error] => error main
+2022-08-07 16:12:58.7192 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter [Fatal] => error main
+2022-08-07 16:12:58.7362 Debug Targets configured when LogLevel >= Info for Logger: ApiNotebook.Controllers.WorkersController
+2022-08-07 16:12:58.7362 Debug Logger ApiNotebook.Controllers.WorkersController [Info] => main lifetimeConsole info
+2022-08-07 16:12:58.7362 Debug Logger ApiNotebook.Controllers.WorkersController [Warn] => main lifetimeConsole info
+2022-08-07 16:12:58.7362 Debug Logger ApiNotebook.Controllers.WorkersController [Error] => error main lifetimeConsole info
+2022-08-07 16:12:58.7362 Debug Logger ApiNotebook.Controllers.WorkersController [Fatal] => error main lifetimeConsole info
+2022-08-07 16:12:58.7897 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector
+2022-08-07 16:12:58.7897 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector [Info] => main
+2022-08-07 16:12:58.7897 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector [Warn] => main
+2022-08-07 16:12:58.7897 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector [Error] => error main
+2022-08-07 16:12:58.7897 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector [Fatal] => error main
+2022-08-07 16:12:58.7897 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+2022-08-07 16:12:58.7897 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor [Info] => main
+2022-08-07 16:12:58.7897 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor [Warn] => main
+2022-08-07 16:12:58.7897 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor [Error] => error main
+2022-08-07 16:12:58.7897 Debug Logger Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor [Fatal] => error main
+2022-08-07 16:13:05.2199 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder
+2022-08-07 16:13:05.2199 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder [Info] => main
+2022-08-07 16:13:05.2199 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder [Warn] => main
+2022-08-07 16:13:05.2199 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder [Error] => error main
+2022-08-07 16:13:05.2199 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder [Fatal] => error main
+2022-08-07 16:13:05.2379 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Identity.SignInManager
+2022-08-07 16:13:05.2379 Debug Logger Microsoft.AspNetCore.Identity.SignInManager [Info] => main
+2022-08-07 16:13:05.2379 Debug Logger Microsoft.AspNetCore.Identity.SignInManager [Warn] => main
+2022-08-07 16:13:05.2379 Debug Logger Microsoft.AspNetCore.Identity.SignInManager [Error] => error main
+2022-08-07 16:13:05.2379 Debug Logger Microsoft.AspNetCore.Identity.SignInManager [Fatal] => error main
+2022-08-07 16:13:08.3285 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Identity.SecurityStampValidator`1[[ApiNotebook.Models.User, ApiNotebook, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2022-08-07 16:13:08.3285 Debug Logger Microsoft.AspNetCore.Identity.SecurityStampValidator`1[[ApiNotebook.Models.User, ApiNotebook, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] [Info] => main
+2022-08-07 16:13:08.3453 Debug Logger Microsoft.AspNetCore.Identity.SecurityStampValidator`1[[ApiNotebook.Models.User, ApiNotebook, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] [Warn] => main
+2022-08-07 16:13:08.3453 Debug Logger Microsoft.AspNetCore.Identity.SecurityStampValidator`1[[ApiNotebook.Models.User, ApiNotebook, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] [Error] => error main
+2022-08-07 16:13:08.3453 Debug Logger Microsoft.AspNetCore.Identity.SecurityStampValidator`1[[ApiNotebook.Models.User, ApiNotebook, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] [Fatal] => error main

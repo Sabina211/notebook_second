@@ -40,7 +40,7 @@ namespace NotebookSecond.Controllers
             return View(worker);
         }
 
-        //[Authorize]
+        //
         [HttpGet]
         public IActionResult AddWorker()
         {

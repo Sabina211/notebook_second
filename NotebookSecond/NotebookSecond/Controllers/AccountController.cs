@@ -81,10 +81,10 @@ namespace NotebookSecond.Controllers
                 var content = new StringContent(JsonConvert.SerializeObject(loginUser), Encoding.UTF8, "application/json");
                 var bool2 = Request.Cookies.Any();
                 var result = httpClient.PostAsync(url, content).Result;
-                //var cookies = result.Headers.GetValues(HeaderNames.SetCookie);
                 bool success = CheckResult(result);
                 if (success)
                 {
+                    logger.LogInformation($"Авторизация прошла успешно. Сообщение от api: {result.Content.ReadAsStringAsync().Result}\n. User.Identity.IsAuthenticated {User.Identity.IsAuthenticated}");
                     if (!string.IsNullOrEmpty(loginUser.ReturnUrl) & Url.IsLocalUrl(loginUser.ReturnUrl))
                     {
                         return Redirect(loginUser.ReturnUrl);
