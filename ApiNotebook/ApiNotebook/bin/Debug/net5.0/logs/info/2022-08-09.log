@@ -34,3 +34,11 @@
 
 2022-08-09 14:11:35.5901 | ApiNotebook.Program.Main | INFO | init main2 
 
+2022-08-09 14:16:24.2156 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-09 15:02:40.1733 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник 456 c id=69afdd48-e984-4008-0cd7-08da76abdb22, редактор admin 
+
+2022-08-09 15:03:21.8572 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник Радость Моя c id=e484a0a4-9f15-41ea-bf10-08da76d41dd4, редактор admin 
+
+2022-08-09 16:32:19.3766 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник Tom901 c id=5b1eb051-7217-4555-1b4b-08da7535fc7b, редактор admin 
+

@@ -20491,3 +20491,8 @@
 2022-08-09 16:32:31.8691 Debug Logger Microsoft.AspNetCore.Mvc.StatusCodeResult [Warn] => main
 2022-08-09 16:32:31.8691 Debug Logger Microsoft.AspNetCore.Mvc.StatusCodeResult [Error] => error main
 2022-08-09 16:32:31.8691 Debug Logger Microsoft.AspNetCore.Mvc.StatusCodeResult [Fatal] => error main
+2022-08-09 18:08:37.1668 Debug Targets configured when LogLevel >= Info for Logger: ApiNotebook.Controllers.UsersController
+2022-08-09 18:08:37.1668 Debug Logger ApiNotebook.Controllers.UsersController [Info] => main lifetimeConsole info
+2022-08-09 18:08:37.1668 Debug Logger ApiNotebook.Controllers.UsersController [Warn] => main lifetimeConsole info
+2022-08-09 18:08:37.1668 Debug Logger ApiNotebook.Controllers.UsersController [Error] => error main lifetimeConsole info
+2022-08-09 18:08:37.1668 Debug Logger ApiNotebook.Controllers.UsersController [Fatal] => error main lifetimeConsole info

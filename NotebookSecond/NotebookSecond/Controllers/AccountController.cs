@@ -86,11 +86,23 @@ namespace NotebookSecond.Controllers
                 bool success = CheckResult(result);
                 if (success)
                 {
-                    var claims = new List<Claim> {
-                        new Claim(ClaimTypes.Name, loginUser.Login)};
+                    /*var claims = new List<Claim> {
+                        new Claim(ClaimTypes.Name, loginUser.Login)};*/
+                    var loggedUserRole = new UsersController(null, httpClient).GetCurrentUser().UserRoles;
+                    if (loggedUserRole != null)
+                    {
+                        var claims = new List<Claim> {
+                        new Claim(ClaimTypes.Name, loginUser.Login),
+                        new Claim(ClaimTypes.Role, loggedUserRole[0])};
+                    }
+                    else { var claims = new List<Claim> {
+                        new Claim(ClaimTypes.Name, loginUser.Login)}; }
+
                     var claim = new Claim(loginUser.Login, loginUser.Password);
+                    var NameClame = new Claim(ClaimTypes.Name, loginUser.Login);
+                    var claim2 = new Claim(ClaimTypes.Role, loggedUserRole[0].ToString());
                     //var identity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
-                    var identity = new ClaimsIdentity(new[] { claim }, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var identity = new ClaimsIdentity(new[] { claim, claim2, NameClame }, CookieAuthenticationDefaults.AuthenticationScheme);
                     var principal = new ClaimsPrincipal(identity);
                     HttpContext.User = principal;
                     var prop = new AuthenticationProperties { RedirectUri = loginUser .ReturnUrl};
@@ -100,7 +112,8 @@ namespace NotebookSecond.Controllers
                     logger.LogInformation($"Авторизация прошла успешно. " +
                         $"Сообщение от api: {result.Content.ReadAsStringAsync().Result}\n. " +
                         $"User.Identity.IsAuthenticated {User.Identity.IsAuthenticated}\n" +
-                        $"{HttpContext.User.Identity.IsAuthenticated} {HttpContext.User.Identity.Name}");
+                        $"{HttpContext.User.Identity.IsAuthenticated} {HttpContext.User.Identity.Name}\n" +
+                        $"role={HttpContext.User.IsInRole("admin")}");
                     if (!string.IsNullOrEmpty(loginUser.ReturnUrl) & Url.IsLocalUrl(loginUser.ReturnUrl))
                     {
                         return Redirect(loginUser.ReturnUrl);

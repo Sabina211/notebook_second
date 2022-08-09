@@ -21,22 +21,23 @@ namespace NotebookSecond.Controllers
         private readonly ILogger<UsersController> logger;
         private HttpClient httpClient { get; set; }
 
-        public UsersController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, ILogger<UsersController> logger, HttpClient httpClient)
+        public UsersController( ILogger<UsersController>? logger, HttpClient httpClient)
         {
-            this.userManager = userManager;
-            this.roleManager = roleManager;
+           /* this.userManager = userManager;
+            this.roleManager = roleManager;*/
             this.logger = logger;
             this.httpClient = httpClient;
         }
 
     
-        public async Task<UserWithRolesEdit> GetCurrentUser()
+        public UserWithRolesEdit GetCurrentUser()
         {
-            string url = @"https://localhost:5005/api/Users/getCurrentUser";
+            string url = @"https://localhost:5005/api/Users/api/Users/getCurrentUser";
             /*var content = new StringContent(JsonConvert.SerializeObject(registerUser), Encoding.UTF8, "application/json");
             var result = httpClient.PostAsync(url, content).Result;*/
 
             string json = httpClient.GetStringAsync(url).Result;
+            
             var currentUsers = JsonConvert.DeserializeObject<UserWithRolesEdit>(json);
 
             return currentUsers;
