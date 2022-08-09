@@ -55,6 +55,7 @@ namespace NotebookSecond.Data
             return new Worker { Id=Guid.Empty};
         }
 
+        [Authorize]
         public Worker EditWorker(Worker worker)
         {
             var result = httpClient.PutAsync(
@@ -79,6 +80,7 @@ namespace NotebookSecond.Data
             return new Worker { Id = Guid.Empty };
         }
 
+        [Authorize]
         public bool RemoveWorker(Worker worker)
         {
             var uri = new Uri(url + $"/{worker.Id}") ;

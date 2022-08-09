@@ -1,4 +1,4 @@
-﻿@{       
+﻿@{
     ViewData["Title"] = "Главная";
 }
 <div class="page_content">
@@ -40,11 +40,15 @@
                 <td>
                     <form>
                         <input id="callback-button-view-@(i)" class="header__button get-modal_1" type="submit" value="Просмотреть" />
-                        @if (User.Identity.IsAuthenticated & User.IsInRole("admin"))
+                        <!-- @if (User.Identity.IsAuthenticated & User.IsInRole("admin"))
                         {
                             <input id="callback-button-edit-@(i)" class="header__button get-modal_1" type="submit" value="Изменить" />
                             <input id="callback-button-@(i)" class="header__button get-modal_1" type="submit" value="Удалить" />
-                        }
+                        }-->
+
+                        <input id="callback-button-edit-@(i)" class="header__button get-modal_1" type="submit" value="Изменить" />
+                        <input id="callback-button-@(i)" class="header__button get-modal_1" type="submit" value="Удалить" />
+
 
 
                     </form>
@@ -105,7 +109,7 @@
                                 </p>
                                 <p>
                                     <label class="form-label">Имя*</label><br>
-                                    <input class="form-control" type="text" name="worker.Name" value="@item.Name" required/>
+                                    <input class="form-control" type="text" name="worker.Name" value="@item.Name" required />
                                 </p>
                                 <p>
                                     <label class="form-label">Фамилия</label><br>

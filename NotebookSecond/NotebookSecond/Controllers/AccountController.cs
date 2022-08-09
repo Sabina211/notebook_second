@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Net.Http.Headers;
@@ -11,25 +14,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Security.Claims;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace NotebookSecond.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<User> userManager;
-        private readonly SignInManager<User> signInManager;
         private readonly ILogger<AccountController> logger;
+        private readonly IHttpContextAccessor httpContextAccessor;
         private HttpClient httpClient { get; set; }
-        //ApiAccountData api = new ApiAccountData();
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ILogger<AccountController> logger, HttpClient httpClient)
+        public AccountController(ILogger<AccountController> logger, HttpClient httpClient,
+            IHttpContextAccessor httpContextAccessor)
         {
-            this.userManager = userManager;
-            this.signInManager = signInManager;
             this.logger = logger;
             this.httpClient = httpClient;
+            this.httpContextAccessor = httpContextAccessor;
         }
 
         [HttpGet]
@@ -79,12 +82,25 @@ namespace NotebookSecond.Controllers
             {
                 string url = @"https://localhost:5005/api/Account/login";
                 var content = new StringContent(JsonConvert.SerializeObject(loginUser), Encoding.UTF8, "application/json");
-                var bool2 = Request.Cookies.Any();
                 var result = httpClient.PostAsync(url, content).Result;
                 bool success = CheckResult(result);
                 if (success)
                 {
-                    logger.LogInformation($"Авторизация прошла успешно. Сообщение от api: {result.Content.ReadAsStringAsync().Result}\n. User.Identity.IsAuthenticated {User.Identity.IsAuthenticated}");
+                    var claims = new List<Claim> {
+                        new Claim(ClaimTypes.Name, loginUser.Login)};
+                    var claim = new Claim(loginUser.Login, loginUser.Password);
+                    //var identity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
+                    var identity = new ClaimsIdentity(new[] { claim }, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var principal = new ClaimsPrincipal(identity);
+                    HttpContext.User = principal;
+                    var prop = new AuthenticationProperties { RedirectUri = loginUser .ReturnUrl};
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity), prop);
+                    
+                    
+                    logger.LogInformation($"Авторизация прошла успешно. " +
+                        $"Сообщение от api: {result.Content.ReadAsStringAsync().Result}\n. " +
+                        $"User.Identity.IsAuthenticated {User.Identity.IsAuthenticated}\n" +
+                        $"{HttpContext.User.Identity.IsAuthenticated} {HttpContext.User.Identity.Name}");
                     if (!string.IsNullOrEmpty(loginUser.ReturnUrl) & Url.IsLocalUrl(loginUser.ReturnUrl))
                     {
                         return Redirect(loginUser.ReturnUrl);
@@ -109,6 +125,8 @@ namespace NotebookSecond.Controllers
         {
             string url = @"https://localhost:5005/api/Account/logout";
             var result = httpClient.PostAsync(url, null).Result;
+            await HttpContext.SignOutAsync(
+                    CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("index", "Worker");
         }
 

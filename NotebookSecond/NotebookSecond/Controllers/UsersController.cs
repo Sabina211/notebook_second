@@ -44,14 +44,14 @@ namespace NotebookSecond.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> ViewCurrentUser()
         {
             var currentUser = await userManager.GetUserAsync(User);
             return View(currentUser);
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpGet]
         public IActionResult AddUser()
         {
@@ -61,7 +61,7 @@ namespace NotebookSecond.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public async Task<IActionResult> AddUser(UserWithRoles userWithRoles)
         {
             userWithRoles.AllRoles = roleManager.Roles.ToList();
@@ -93,7 +93,7 @@ namespace NotebookSecond.Controllers
             return View(userWithRoles);
         }
 
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> EditUser(string id)
         {
             User user = await userManager.FindByIdAsync(id);
@@ -114,7 +114,7 @@ namespace NotebookSecond.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> EditUser(UserWithRoles model)
         {
             if (User.IsInRole("admin") || model.Id == User.FindFirstValue(ClaimTypes.NameIdentifier))
@@ -175,7 +175,7 @@ namespace NotebookSecond.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteUser(EditUser model)
         {
             User user = await userManager.FindByIdAsync(model.Id);
@@ -187,7 +187,7 @@ namespace NotebookSecond.Controllers
             return RedirectToAction("UsersList", "Users");
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public async Task<IActionResult> UsersList()
         {
             List<UserWithRoles> usersWithRoles = new List<UserWithRoles>();
@@ -204,7 +204,7 @@ namespace NotebookSecond.Controllers
             return View(usersWithRoles.ToList());
         }
 
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> ChangePassword(string id)
         {
             User user = await userManager.FindByIdAsync(id);
@@ -217,7 +217,7 @@ namespace NotebookSecond.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> ChangePassword(ChangePassword model)
         {
             if (ModelState.IsValid)

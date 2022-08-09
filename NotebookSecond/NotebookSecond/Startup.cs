@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,15 +30,36 @@ namespace NotebookSecond
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSpaStaticFiles();
-            services.AddDbContext<DataContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            /*services.AddDbContext<DataContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));*/
+            /*services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                    .AddCookie(options=>
+                    {
+                        options.LoginPath = "/Account/Login";
+                        options.LogoutPath = "/Account/Logout";
+                    });*/
+            services.AddAuthentication(options =>
+            {
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignOutScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            }).AddCookie(
+                    CookieAuthenticationDefaults.AuthenticationScheme, (options) =>
+                    {
+                        options.Cookie.HttpOnly = true;
+                        options.LoginPath = "/Account/Login";
+                        options.LogoutPath = "/Account/Logout";
+                    });
+            services.AddAuthorization();
             services.AddHttpClient("httpClient", c => c.BaseAddress = new System.Uri("https://localhost:5005"));
             services.AddTransient<IWorkerData, ApiWorkerData>();
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
-            services.AddIdentity<User, IdentityRole>()
+            /*services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<DataContext>()
-                .AddDefaultTokenProviders();
+                .AddDefaultTokenProviders();*/
+
             services.AddControllersWithViews();
             services.Configure<IdentityOptions>(options =>
             {
@@ -48,7 +70,7 @@ namespace NotebookSecond
                 options.Lockout.AllowedForNewUsers = true;
             });
 
-            services.ConfigureApplicationCookie(options =>
+            /*services.ConfigureApplicationCookie(options =>
             {
                 // конфигурация Cookie с целью использования их для хранения авторизации
                 options.Cookie.HttpOnly = true;
@@ -56,7 +78,7 @@ namespace NotebookSecond
                 options.LoginPath = "/Account/Login";
                 options.LogoutPath = "/Account/Logout";
                 options.SlidingExpiration = true;
-            });
+            });*/
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -64,10 +86,10 @@ namespace NotebookSecond
             app.UseDeveloperExceptionPage();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            //app.UseRouting();
-
+            app.UseRouting();
             app.UseAuthentication();    // подключение аутентификации
             app.UseAuthorization();
+            app.UseCookiePolicy();
             app.UseMvc(
                 r =>
                 {

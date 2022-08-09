@@ -27,14 +27,14 @@ namespace NotebookSecond
                 using (var scope = init.Services.CreateScope())
                 {
                     var s = scope.ServiceProvider;
-                    var c = s.GetRequiredService<DataContext>();
-                    DbInitializer.Initialize(c);
+                    //var c = s.GetRequiredService<DataContext>();
+                    //DbInitializer.Initialize(c);
 
                     try
                     {
-                        var userManager = s.GetRequiredService<UserManager<User>>();
+                        /*var userManager = s.GetRequiredService<UserManager<User>>();
                         var rolesManager = s.GetRequiredService<RoleManager<IdentityRole>>();
-                        await DbInitializer.InitializeRoles(userManager, rolesManager);
+                        await DbInitializer.InitializeRoles(userManager, rolesManager);*/
                     }
                     catch (Exception ex)
                     {

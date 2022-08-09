@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -48,7 +49,7 @@ namespace NotebookSecond.Controllers
         }
 
         [HttpPost]
-        //[Authorize]
+        //[Authorize(AuthenticationSchemes = "Cookies")]
         public IActionResult AddWorker(Worker worker)
         {
             if (!ModelState.IsValid)
@@ -70,7 +71,7 @@ namespace NotebookSecond.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
         public IActionResult EditWorker(Worker worker)
         {
             Worker editedWorker= workerData.EditWorker(worker);
@@ -81,7 +82,7 @@ namespace NotebookSecond.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(AuthenticationSchemes = "Cookies")]
         public IActionResult DeleteWorkerFromViewDB(Worker worker)
         {
             var curentWorker = workerData.GetWorkers().ToList().Find(e => e.Id == worker.Id);

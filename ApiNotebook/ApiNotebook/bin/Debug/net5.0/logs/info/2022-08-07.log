@@ -22,3 +22,5 @@
 
 2022-08-07 14:52:45.9895 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник Тестовый900 c id=e885b3c8-949a-4702-368f-08da785a9468, редактор admin 
 
+2022-08-07 16:12:39.7572 | ApiNotebook.Program.Main | INFO | init main2 
+
