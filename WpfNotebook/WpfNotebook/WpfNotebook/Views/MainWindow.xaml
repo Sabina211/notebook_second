@@ -1,0 +1,66 @@
+﻿<Window x:Class="WpfNotebook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfNotebook"
+        mc:Ignorable="d"
+        Title="Сотрудники" Height="561" Width="926">
+    <Grid Margin="0,0,-55,-21">
+        <DataGrid x:Name="gridView"
+                  IsSynchronizedWithCurrentItem="True"
+                  SelectionMode="Single" 
+                  AutoGenerateColumns="False" 
+                  ItemsSource="{Binding ClientsData}"
+                  SelectedItem="{Binding SelectedClient}"
+                  IsReadOnly="False" 
+                  Margin="10,174,65,33" RenderTransformOrigin="0.499,0.688" FontSize="14" Grid.ColumnSpan="2"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="id" 
+                                    Binding="{Binding Id}" 
+                                    Header="Id" 
+                                    IsReadOnly="True" FontSize="14"/>
+
+                <DataGridTextColumn x:Name="surname" 
+                                    Binding="{Binding Surname}" 
+                                    Header="Фамилия" FontSize="14"/>
+
+                <DataGridTextColumn x:Name="first_name" 
+                                    Binding="{Binding Name}" 
+                                    Header="Имя" FontSize="14"/>
+
+                <DataGridTextColumn x:Name="patronymic" 
+                                    Binding="{Binding Patronymic}" 
+                                    Header="Отчество" FontSize="14"/>
+
+                <DataGridTextColumn x:Name="phone_number" 
+                                    Binding="{Binding PhoneNumber}" 
+                                    Header="Телефон" FontSize="14"/>
+
+                <DataGridTextColumn x:Name="address" 
+                                    Binding="{Binding Address}" 
+                                    Header="Адрес" FontSize="14"/>
+
+                <DataGridTextColumn x:Name="description" 
+                                    Binding="{Binding Description}" 
+                                    Header="Описание" FontSize="14"/>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить" Command="{Binding AddClientCommand}"/>
+                    <MenuItem Header="Удалить" Command="{Binding DeleteClientCommand}"/>
+                    <MenuItem Header="Изменить" Command="{Binding EditClientCommand}"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <Label Content="Список сотрудников" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.053,0.192" Width="170" FontWeight="Bold" FontSize="16" Grid.ColumnSpan="2"/>
+        <Label Content="Для добавления, удаления и редактирования сотрудников используйте контекстное меню" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.105,0" Width="898" FontSize="14" Grid.ColumnSpan="2"/>
+        <Label Content="Авторизация" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.053,0.192" Width="170" FontWeight="Bold" FontSize="16" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="59,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="247" FontSize="14" Grid.ColumnSpan="2"/>
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.033,-0.311" FontSize="14"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="336,44,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.033,-0.311" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="399,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="273" FontSize="14"/>
+        <Button Content="Войти" HorizontalAlignment="Left" Margin="689,44,0,0" VerticalAlignment="Top" Width="206" Height="33" FontSize="16"/>
+    </Grid>
+</Window>

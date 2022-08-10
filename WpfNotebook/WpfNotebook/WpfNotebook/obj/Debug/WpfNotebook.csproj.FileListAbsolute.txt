@@ -1,0 +1,14 @@
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\WpfNotebook.exe.config
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\WpfNotebook.exe
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\WpfNotebook.pdb
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\App.g.cs
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\WpfNotebook_MarkupCompile.cache
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\WpfNotebook_MarkupCompile.lref
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\WpfNotebook.g.resources
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\WpfNotebook.Properties.Resources.resources
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\WpfNotebook.csproj.GenerateResource.cache
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\WpfNotebook.csproj.CoreCompileInputs.cache
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\WpfNotebook.exe
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\WpfNotebook.pdb
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\Views\MainWindow.g.cs
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\Views\MainWindow.baml
