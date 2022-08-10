@@ -12,3 +12,15 @@ E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\
 E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\WpfNotebook.pdb
 E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\Views\MainWindow.g.cs
 E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\Views\MainWindow.baml
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\Newtonsoft.Json.dll
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\Newtonsoft.Json.xml
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\WpfNotebook.csproj.AssemblyReference.cache
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\WpfNotebook.csproj.CopyComplete
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\EntityFramework.dll
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\EntityFramework.SqlServer.dll
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\EntityFramework.xml
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\EntityFramework.SqlServer.xml
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml

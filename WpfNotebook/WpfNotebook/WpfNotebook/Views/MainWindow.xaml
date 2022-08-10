@@ -57,10 +57,18 @@
         <Label Content="Список сотрудников" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.053,0.192" Width="170" FontWeight="Bold" FontSize="16" Grid.ColumnSpan="2"/>
         <Label Content="Для добавления, удаления и редактирования сотрудников используйте контекстное меню" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.105,0" Width="898" FontSize="14" Grid.ColumnSpan="2"/>
         <Label Content="Авторизация" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.053,0.192" Width="170" FontWeight="Bold" FontSize="16" Grid.ColumnSpan="2"/>
-        <TextBox HorizontalAlignment="Left" Height="33" Margin="59,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="247" FontSize="14" Grid.ColumnSpan="2"/>
         <Label Content="Логин" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.033,-0.311" FontSize="14"/>
+        <TextBox Text="{Binding LoginUser.Login, UpdateSourceTrigger=PropertyChanged}"
+            HorizontalAlignment="Left" Height="28" Margin="59,44,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="247" FontSize="14"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="336,44,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.033,-0.311" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Height="33" Margin="399,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="273" FontSize="14"/>
-        <Button Content="Войти" HorizontalAlignment="Left" Margin="689,44,0,0" VerticalAlignment="Top" Width="206" Height="33" FontSize="16"/>
+        <TextBox Text="{Binding LoginUser.Password, UpdateSourceTrigger=PropertyChanged}"
+            HorizontalAlignment="Left" Height="28" Margin="399,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273" FontSize="14"/>
+        <Button Content="Войти" 
+                Command="{Binding LoginCommand}"
+                HorizontalAlignment="Left" Margin="689,44,0,0" VerticalAlignment="Top" Width="206" Height="28" FontSize="16"/>
+        <Label Content="{Binding ErrorText, UpdateSourceTrigger=PropertyChanged}" 
+               Visibility="{Binding ErrorEnable, UpdateSourceTrigger=PropertyChanged}"
+               Foreground="#FFB90606"
+               HorizontalAlignment="Left" Margin="20,73,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.342,0.115" Width="875" Height="48" FontSize="14"/>
     </Grid>
 </Window>
