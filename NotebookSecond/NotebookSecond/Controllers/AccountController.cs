@@ -24,15 +24,12 @@ namespace NotebookSecond.Controllers
     public class AccountController : Controller
     {
         private readonly ILogger<AccountController> logger;
-        private readonly IHttpContextAccessor httpContextAccessor;
         private HttpClient httpClient { get; set; }
 
-        public AccountController(ILogger<AccountController> logger, HttpClient httpClient,
-            IHttpContextAccessor httpContextAccessor)
+        public AccountController(ILogger<AccountController> logger, HttpClient httpClient)
         {
             this.logger = logger;
             this.httpClient = httpClient;
-            this.httpContextAccessor = httpContextAccessor;
         }
 
         [HttpGet]
@@ -58,17 +55,13 @@ namespace NotebookSecond.Controllers
                 bool success = CheckResult(result);
                 if (success)
                 {
-                    //await signInManager.SignInAsync(user, false);
+                    await LoginInSystem(registerUser.Login, result);
                     logger.LogInformation("Зарегистрировался новый пользователь с логином {0}", registerUser.Login);
                     return RedirectToAction("index", "Worker");
                 }
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Не удалось зарегистрировать пользоваткеля");
-                    /*foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError(string.Empty, error.Description);
-                    }*/
                 }
             }
             return View(registerUser);
@@ -86,34 +79,7 @@ namespace NotebookSecond.Controllers
                 bool success = CheckResult(result);
                 if (success)
                 {
-                    /*var claims = new List<Claim> {
-                        new Claim(ClaimTypes.Name, loginUser.Login)};*/
-                    var loggedUserRole = new UsersController(null, httpClient).GetCurrentUser().UserRoles;
-                    if (loggedUserRole != null)
-                    {
-                        var claims = new List<Claim> {
-                        new Claim(ClaimTypes.Name, loginUser.Login),
-                        new Claim(ClaimTypes.Role, loggedUserRole[0])};
-                    }
-                    else { var claims = new List<Claim> {
-                        new Claim(ClaimTypes.Name, loginUser.Login)}; }
-
-                    var claim = new Claim(loginUser.Login, loginUser.Password);
-                    var NameClame = new Claim(ClaimTypes.Name, loginUser.Login);
-                    var claim2 = new Claim(ClaimTypes.Role, loggedUserRole[0].ToString());
-                    //var identity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
-                    var identity = new ClaimsIdentity(new[] { claim, claim2, NameClame }, CookieAuthenticationDefaults.AuthenticationScheme);
-                    var principal = new ClaimsPrincipal(identity);
-                    HttpContext.User = principal;
-                    var prop = new AuthenticationProperties { RedirectUri = loginUser .ReturnUrl};
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity), prop);
-                    
-                    
-                    logger.LogInformation($"Авторизация прошла успешно. " +
-                        $"Сообщение от api: {result.Content.ReadAsStringAsync().Result}\n. " +
-                        $"User.Identity.IsAuthenticated {User.Identity.IsAuthenticated}\n" +
-                        $"{HttpContext.User.Identity.IsAuthenticated} {HttpContext.User.Identity.Name}\n" +
-                        $"role={HttpContext.User.IsInRole("admin")}");
+                    await LoginInSystem(loginUser.Login, result);
                     if (!string.IsNullOrEmpty(loginUser.ReturnUrl) & Url.IsLocalUrl(loginUser.ReturnUrl))
                     {
                         return Redirect(loginUser.ReturnUrl);
@@ -130,6 +96,32 @@ namespace NotebookSecond.Controllers
             }
 
             return View(loginUser);
+        }
+
+        private async Task LoginInSystem(string login, HttpResponseMessage result)
+        {
+            UserWithRolesEdit currentUser = JsonConvert.DeserializeObject<UserWithRolesEdit>(result.Content.ReadAsStringAsync().Result);
+
+            var claims = (currentUser.UserRoles.Count != 0) ?
+                 new List<Claim> { new Claim(ClaimTypes.Name, login), new Claim(ClaimTypes.Role, currentUser.UserRoles[0]) } :
+                 new List<Claim> { new Claim(ClaimTypes.Name, login) };
+            var roleClaim = (currentUser.UserRoles.Count != 0) ? new Claim(ClaimTypes.Role, currentUser.UserRoles[0].ToString()) : null;
+
+            //var claim = new Claim(loginUser.Login, loginUser.Password);
+            var nameClame = new Claim(ClaimTypes.Name, login);
+            var identity = new ClaimsIdentity(new[] { roleClaim, nameClame }, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+            HttpContext.User = principal;
+            //var prop = new AuthenticationProperties { RedirectUri = loginUser.ReturnUrl };
+            var prop = new AuthenticationProperties();
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity), prop);
+
+            logger.LogInformation($"Авторизация прошла успешно.\n " +
+                $"Сообщение от api: {result.Content.ReadAsStringAsync().Result}\n " +
+                $"User.Identity.IsAuthenticated = {User.Identity.IsAuthenticated}\n" +
+                $"HttpContext.User.Identity.IsAuthenticated = {HttpContext.User.Identity.IsAuthenticated}\n" +
+                $"HttpContext.User.Identity.Name = {HttpContext.User.Identity.Name}\n" +
+                $"admin role={HttpContext.User.IsInRole("admin")}");
         }
 
         [HttpPost]

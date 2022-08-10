@@ -188,7 +188,7 @@ namespace NotebookSecond.Controllers
             return RedirectToAction("UsersList", "Users");
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> UsersList()
         {
             List<UserWithRoles> usersWithRoles = new List<UserWithRoles>();

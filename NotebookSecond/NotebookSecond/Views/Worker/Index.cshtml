@@ -40,17 +40,11 @@
                 <td>
                     <form>
                         <input id="callback-button-view-@(i)" class="header__button get-modal_1" type="submit" value="Просмотреть" />
-                        <!-- @if (User.Identity.IsAuthenticated & User.IsInRole("admin"))
+                        @if (User.Identity.IsAuthenticated & User.IsInRole("admin"))
                         {
                             <input id="callback-button-edit-@(i)" class="header__button get-modal_1" type="submit" value="Изменить" />
                             <input id="callback-button-@(i)" class="header__button get-modal_1" type="submit" value="Удалить" />
-                        }-->
-
-                        <input id="callback-button-edit-@(i)" class="header__button get-modal_1" type="submit" value="Изменить" />
-                        <input id="callback-button-@(i)" class="header__button get-modal_1" type="submit" value="Удалить" />
-
-
-
+                        }
                     </form>
 
 

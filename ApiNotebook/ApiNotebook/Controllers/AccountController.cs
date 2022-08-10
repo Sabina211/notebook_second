@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace ApiNotebook.Controllers
@@ -43,7 +44,14 @@ namespace ApiNotebook.Controllers
             if (result.Succeeded)
             {
                 await signInManager.SignInAsync(user, false);
-                return Ok($"Пользователь {registerUser.Login} зерегистрирован");
+                UserWithRolesEdit userWithRolesEdit = new UserWithRolesEdit
+                {
+                    Id = Guid.Parse(user.Id),
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    UserRoles = await userManager.GetRolesAsync(user),
+                };
+                return Ok(userWithRolesEdit);
             }
             else
             {
@@ -59,7 +67,7 @@ namespace ApiNotebook.Controllers
         [AllowAnonymous]
         [Route("api/[controller]/login")]
         [HttpPost]
-        public async Task<ActionResult<LoginUser>> Post(LoginUser loginUser)
+        public async Task<ActionResult<UserWithRolesEdit>> Post(LoginUser loginUser)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -67,7 +75,16 @@ namespace ApiNotebook.Controllers
             var result = await signInManager.PasswordSignInAsync(loginUser.Login, loginUser.Password, false, false);
             if (result.Succeeded)
             {
-                return Ok($"Пользователь {loginUser.Login} авторизован");
+                User user = await userManager.FindByNameAsync(loginUser.Login);
+                if (user == null) return NotFound("Пользователь с таким Id не найден");
+                UserWithRolesEdit userWithRolesEdit = new UserWithRolesEdit
+                {
+                    Id = Guid.Parse(user.Id),
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    UserRoles = await userManager.GetRolesAsync(user),
+                };
+                return Ok(userWithRolesEdit);
             }
             else
             {

@@ -5,12 +5,8 @@ using Newtonsoft.Json;
 using NotebookSecond.Entities;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace NotebookSecond.Data
 {
@@ -92,7 +88,8 @@ namespace NotebookSecond.Data
         {
             if (!(result.StatusCode.ToString() == "OK"))
             {
-                logger.LogError($"Ошибка при обращении к апи result.StatusCode = {result.StatusCode}\n {result.Content.ReadAsStringAsync().Result}");
+                logger.LogError($"Ошибка при обращении к апи result.StatusCode = {result.StatusCode}");
+                logger.LogError($"Ошибка при обращении к апи result.StatusCode = {result.Content.ReadAsStringAsync().Result}");
                 return false;
             }
             else return true;
