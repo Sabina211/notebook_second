@@ -23,8 +23,21 @@ namespace NotebookSecond.Data
 
         public IEnumerable<Worker> GetWorkers()
         {
-            string json = httpClient.GetStringAsync(url).Result;        
-            return JsonConvert.DeserializeObject<IEnumerable<Worker>>(json);
+            try
+            {
+                string json = httpClient.GetStringAsync(url).Result;
+                return JsonConvert.DeserializeObject<IEnumerable<Worker>>(json);
+            }
+            catch (AggregateException ex)
+            {
+                logger.LogError(ex, $"Нужно запустить приложение с апи\n {ex.Message}");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
+                throw;
+            }    
         }
 
         public Worker AddWorker(Worker worker)

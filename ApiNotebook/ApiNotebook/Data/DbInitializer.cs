@@ -38,7 +38,9 @@ namespace ApiNotebook.Data
         public static async Task InitializeRoles(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
         {
             string adminLogin = "admin";
+            string userLogin = "Karl";
             string password = "Qwerty123";
+
             if (await roleManager.FindByNameAsync("admin") == null)
             {
                 await roleManager.CreateAsync(new IdentityRole("admin"));
@@ -52,6 +54,11 @@ namespace ApiNotebook.Data
                 {
                     await userManager.AddToRoleAsync(admin, "admin");
                 }
+            }
+            if (await userManager.FindByNameAsync(userLogin) == null)
+            {
+                User user = new User { UserName = userLogin };
+                IdentityResult result = await userManager.CreateAsync(user, password);
             }
         }
     }

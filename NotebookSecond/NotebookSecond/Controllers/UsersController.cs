@@ -22,6 +22,16 @@ namespace NotebookSecond.Controllers
             this.httpClient = httpClient;
         }
 
+        [Authorize(AuthenticationSchemes = "Cookies", Roles = "admin")]
+        public IActionResult UsersList(string? error)
+        {
+            string url = @"https://localhost:5005/api/Users/getUsers";
+            string json = httpClient.GetStringAsync(url).Result;
+            var users = JsonConvert.DeserializeObject<IEnumerable<UserWithRolesEdit>>(json);
+            ViewData["Error"] = error;
+            return View(users.ToList());
+        }
+
         [Authorize(AuthenticationSchemes = "Cookies")]
         public UserWithRolesEdit GetCurrentUser()
         {
@@ -131,16 +141,6 @@ namespace NotebookSecond.Controllers
                 return RedirectToAction("UsersList", "Users");
             }
             return Redirect("/Users/UsersList?error= Error. User has not been deleted");
-        }
-
-        [Authorize(AuthenticationSchemes = "Cookies", Roles = "admin")]
-        public IActionResult UsersList(string? error)
-        {
-            string url = @"https://localhost:5005/api/Users/getUsers";
-            string json = httpClient.GetStringAsync(url).Result;
-            var users = JsonConvert.DeserializeObject<IEnumerable<UserWithRolesEdit>>(json);
-            ViewData["Error"] = error;
-            return View(users.ToList());
         }
 
         [Authorize(AuthenticationSchemes = "Cookies")]
