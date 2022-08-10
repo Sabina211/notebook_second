@@ -1,4 +1,4 @@
-﻿@model NotebookSecond.Entities.User 
+﻿@model NotebookSecond.Models.EditUser 
 @{
     ViewData["Title"] = "Профиль";
 }
@@ -7,8 +7,8 @@
         <h1>Профиль пользователя</h1>
         @*Ссылка на метод в контроллере*@
         <p>
-            <label asp-for="UserName" class="form-label">Логин</label><br>
-            <input asp-for="UserName" class="form-control" type="text" placeholder="" disabled />
+            <label asp-for="Login" class="form-label">Логин</label><br>
+            <input asp-for="Login" class="form-control" type="text" placeholder="" disabled />
         </p>
         <p>
             <label asp-for="Email" class="form-label"></label><br>
@@ -21,21 +21,20 @@
         </p>
     </form>
 
-    <!-- Дальше все модалка с редактированием пользователя-->
     <div class="modal" id="modal-user-edit">
         <div class="modal__content">
             <button class="modal__close-button"><img src="~/img/close.svg" width="12" alt=""></button>
             <!-- Контент модального окна-->
             <h1 class="modal__title">Редактирование пользователя</h1>
-            <form asp-controller="Users" asp-action="EditUser" method="post">
-                <input type="text" name="model.Id" value="@Model.Id" hidden />
+            <form asp-controller="Users" asp-action="EditUserEmail" method="post">
+                <input type="text" name="Id" value="@Model.Id" hidden />
                 <p>
                     <label class="form-label">Id</label><br>
-                    <input class="form-control" type="text" name="model.Id" value="@Model.Id" placeholder="Disabled input" disabled />
+                    <input class="form-control" type="text" name="model.Id" value="@Model.Id" placeholder="Disabled input" readonly />
                 </p>
                 <p>
                     <label class="form-label">Логин</label><br>
-                    <input name="model.UserName" value="@Model.UserName" class="form-control" type="text" disabled />
+                    <input name="model.Login" value="@Model.Login" class="form-control" type="text" readonly />
                 </p>
                 <p>
                     <label class="form-label">Email</label><br>

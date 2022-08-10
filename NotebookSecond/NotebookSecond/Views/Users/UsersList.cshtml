@@ -1,10 +1,16 @@
-﻿@model IEnumerable<NotebookSecond.Models.UserWithRoles>
+﻿@model IEnumerable<NotebookSecond.Models.UserWithRolesEdit>
 @{
     ViewData["Title"] = "Список пользователей";
 }
 
 <div class="page_content">
     <h1>Список пользователей системы</h1>
+    @if (!(ViewData["Error"] == null))
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewData["Error"]
+        </div>
+    }
     <table class="table caption-top">
         <thead class="table-light">
             <tr>
@@ -50,11 +56,11 @@
                                 <input type="text" name="model.Id" value="@item.Id" hidden />
                                 <p>
                                     <label class="form-label">Id</label><br>
-                                    <input class="form-control" type="text" name="model.Id" value="@item.Id" placeholder="Disabled input" disabled />
+                                    <input class="form-control" type="text" name="model.Id" value="@item.Id" placeholder="Disabled input" readonly />
                                 </p>
                                 <p>
                                     <label class="form-label">Логин</label><br>
-                                    <input class="form-control" type="text" name="model.Login" value="@item.UserName" disabled />
+                                    <input class="form-control" type="text" name="model.UserName" value="@item.UserName" readonly />
                                 </p>
                                 <p>
                                     <label class="form-label">Email</label><br>

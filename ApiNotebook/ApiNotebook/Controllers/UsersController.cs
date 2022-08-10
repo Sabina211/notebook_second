@@ -27,8 +27,7 @@ namespace ApiNotebook.Controllers
             this.logger = logger;
         }
 
-
-        [Route("api/[controller]/addUser")]
+        [Route("~/api/[controller]/addUser")]
         [HttpPost]
         [Authorize(Roles = "admin")]
         public async Task<ActionResult<UserWithRolesAdd>> AddUser(UserWithRolesAdd userWithRoles)
@@ -50,7 +49,7 @@ namespace ApiNotebook.Controllers
             if (result.Succeeded)
             {
                 logger.LogInformation("\nДобавлен новый пользователь с логином {0}, редактор {1}", userWithRoles.UserName, User.Identity.Name);
-                return Ok("Пользователь добавлен");
+                return Ok(userWithRoles);
             }
             else
             {
@@ -79,7 +78,7 @@ namespace ApiNotebook.Controllers
             return Ok(userWithRolesEdit);
         }
 
-        [Route("api/[controller]/getCurrentUser")]
+        [Route("~/api/[controller]/getCurrentUser")]
         [HttpGet]
         [Authorize]
         public async Task<ActionResult<UserWithRolesEdit>> GetCurrentUser()
@@ -93,12 +92,13 @@ namespace ApiNotebook.Controllers
                 UserName = user.UserName,
                 Email = user.Email,
                 UserRoles = await userManager.GetRolesAsync(user),
+                AllRoles = roleManager.Roles.ToList()
             };
             return Ok(userWithRolesEdit);
         }
-
+        
         [HttpPost]
-        [Route("api/[controller]/editUserEmail")]
+        [Route("~/api/[controller]/editUserEmail")]
         [Authorize]
         public async Task<ActionResult<EditUser>> EditUserEmail(EditUser model)
         {
@@ -114,7 +114,7 @@ namespace ApiNotebook.Controllers
                 }
                 user.Email = model.Email;
                 var result = await userManager.UpdateAsync(user);
-                return Ok("Почта сотрудника изменена");
+                return Ok(model);
             }
             else
             {
@@ -123,7 +123,7 @@ namespace ApiNotebook.Controllers
 
         }
 
-        [Route("api/[controller]/editUser")]
+        [Route("~/api/[controller]/editUser")]
         [HttpPost]
         [Authorize(Roles = "admin")]
         public async Task<ActionResult<UserWithRolesEdit>> EditUser(UserWithRolesEdit model)
@@ -151,7 +151,7 @@ namespace ApiNotebook.Controllers
             if (result.Succeeded & result1.Succeeded & result2.Succeeded)
             {
                 logger.LogInformation("\nОтредактирован пользователь с логином {0}, редактор {1}", user.UserName, User.Identity.Name);
-                return Ok("Сотрудник обновлен");
+                return Ok(model);
             }
             else
             {
@@ -171,7 +171,7 @@ namespace ApiNotebook.Controllers
             }
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         [Authorize(Roles = "admin")]
         public async Task<ActionResult<string>> DeleteUser(string id)
         {
@@ -185,7 +185,7 @@ namespace ApiNotebook.Controllers
             return NotFound("Пользователь с таким Id не найден");
         }
 
-        [Route("api/[controller]/getUsers")]
+        [Route("~/api/[controller]/getUsers")]
         [HttpGet]
         [Authorize(Roles = "admin")]
         public async Task<ActionResult<IEnumerable<UserWithRolesEdit>>> UsersList()
@@ -204,7 +204,7 @@ namespace ApiNotebook.Controllers
             return users;
         }
 
-        [Route("api/[controller]/changePassword")]
+        [Route("~/api/[controller]/changePassword")]
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> ChangePassword(ChangePassword model)

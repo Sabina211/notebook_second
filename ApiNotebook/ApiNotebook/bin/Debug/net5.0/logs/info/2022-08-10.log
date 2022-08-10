@@ -22,3 +22,80 @@
 
 2022-08-10 11:15:34.0579 | ApiNotebook.Program.Main | INFO | init main2 
 
+2022-08-10 11:17:27.9039 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 11:18:27.5900 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник Тестовый c id=f00b8a4c-8ace-429e-d866-08da7a982381, редактор Karl6 
+
+2022-08-10 11:18:54.3901 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник Tom902 c id=5b1eb051-7217-4555-1b4b-08da7535fc7b, редактор admin 
+
+2022-08-10 11:19:02.2006 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник Karl c id=3fa85f64-5717-4562-b3fc-2c963f66afa6, редактор admin 
+
+2022-08-10 11:19:05.4164 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник 123 c id=badab1fe-7af1-4fd9-0cd8-08da76abdb22, редактор admin 
+
+2022-08-10 11:19:08.8080 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник 123 c id=448d35cb-fb0c-490d-0cd9-08da76abdb22, редактор admin 
+
+2022-08-10 11:19:16.6838 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник цукцук c id=1a3cdac7-e37a-46d5-bf20-08da76d41dd4, редактор admin 
+
+2022-08-10 11:19:21.0074 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник mvmbv c id=be3874ab-fcda-42e4-0cda-08da76abdb22, редактор admin 
+
+2022-08-10 11:50:17.0910 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 11:53:37.1807 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 12:01:29.9408 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 12:04:08.4994 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 12:04:20.6272 | ApiNotebook.Program.Main | ERROR | Stopped program because of exception 
+
+2022-08-10 12:11:14.1985 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 12:13:05.1839 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 12:15:33.4312 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 12:16:06.1869 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 12:16:50.8865 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 12:17:44.5755 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 12:32:40.1653 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 12:41:49.4936 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 12:52:43.6691 | ApiNotebook.Controllers.UsersController.AddUser | INFO | 
+Добавлен новый пользователь с логином Karl7, редактор admin 
+
+2022-08-10 12:53:40.3072 | ApiNotebook.Controllers.UsersController.AddUser | INFO | 
+Добавлен новый пользователь с логином Karl8, редактор admin 
+
+2022-08-10 12:55:41.6114 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 12:56:21.7956 | ApiNotebook.Controllers.UsersController.AddUser | INFO | 
+Добавлен новый пользователь с логином Karl9, редактор admin 
+
+2022-08-10 14:50:31.1539 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 15:13:19.5625 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 15:13:52.5506 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник Tom903 c id=5b1eb051-7217-4555-1b4b-08da7535fc7b, редактор admin 
+
+2022-08-10 15:57:25.8710 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 16:22:37.9812 | ApiNotebook.Controllers.UsersController.EditUser | INFO | 
+Отредактирован пользователь с логином Karl6, редактор admin 
+
+2022-08-10 16:23:13.8219 | ApiNotebook.Controllers.UsersController.EditUser | INFO | 
+Отредактирован пользователь с логином Karl6, редактор admin 
+
+2022-08-10 16:41:47.2632 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 16:44:21.1444 | ApiNotebook.Controllers.UsersController.DeleteUser | INFO | 
+Удален пользователь с логином Karl2, редактор admin 
+
+2022-08-10 16:46:33.7758 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-10 16:47:05.3765 | ApiNotebook.Controllers.UsersController.DeleteUser | INFO | 
+Удален пользователь с логином 12312312, редактор admin 
+

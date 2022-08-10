@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using NotebookSecond.Entities;
@@ -24,10 +23,8 @@ namespace NotebookSecond.Data
 
         public IEnumerable<Worker> GetWorkers()
         {
-            string json = httpClient.GetStringAsync(url).Result;
-          
+            string json = httpClient.GetStringAsync(url).Result;        
             return JsonConvert.DeserializeObject<IEnumerable<Worker>>(json);
-
         }
 
         public Worker AddWorker(Worker worker)
