@@ -32,6 +32,11 @@ namespace NotebookSecond.Controllers
             return View();
         }
 
+        public IActionResult Description()
+        {
+            return View();
+        }
+
         public IActionResult View(Guid? Id)
         {
             List<Worker> workers = workerData.GetWorkers().ToList();

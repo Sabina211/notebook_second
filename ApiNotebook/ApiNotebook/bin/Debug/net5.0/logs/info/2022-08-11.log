@@ -54,3 +54,5 @@
 2022-08-11 17:26:49.5843 | ApiNotebook.Controllers.UsersController.EditUser | INFO | 
 Отредактирован пользователь с логином Karl6, редактор admin 
 
+2022-08-11 17:52:28.8676 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник 345 c id=787b2103-e232-400b-eff1-08da7b5698f8, редактор Karl 
+
