@@ -1,11 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Windows;
 using System.Windows.Input;
 using WpfNotebook.Models;
@@ -129,6 +126,7 @@ namespace WpfNotebook.ViewModels
                 {
                     MessageBox.Show("При удалении сотрудника произошла ошибка. Удаление не выполнено");
                 }
+                UpdateWorkers();
             }
         }
 

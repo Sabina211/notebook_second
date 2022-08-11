@@ -28,3 +28,14 @@ E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\
 E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\Views\AddWorkerWindow.baml
 E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\Views\EditWorkerWindow.g.cs
 E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\Views\EditWorkerWindow.baml
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\ControlzEx.dll
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\MahApps.Metro.dll
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\Microsoft.Xaml.Behaviors.dll
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\ControlzEx.pdb
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\ControlzEx.xml
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\MahApps.Metro.pdb
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\MahApps.Metro.xml
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\Microsoft.Xaml.Behaviors.xml
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\bin\Debug\de\MahApps.Metro.resources.dll
+E:\Сабина, курс\Задание 21\WpfNotebook\WpfNotebook\WpfNotebook\obj\Debug\App.baml

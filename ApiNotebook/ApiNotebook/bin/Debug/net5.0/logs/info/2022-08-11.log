@@ -8,3 +8,7 @@
 
 2022-08-11 12:00:59.0064 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник Karl2 c id=58e91227-594a-4c07-bf13-08da76d41dd4, редактор admin 
 
+2022-08-11 12:17:09.6017 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник string c id=3fa85f64-5717-4562-b3fc-2c963f66afa4, редактор admin 
+
+2022-08-11 12:20:39.3648 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник Записть от пользователя без ролей c id=91d7658e-be0e-4f57-efef-08da7b5698f8, редактор Karl 
+

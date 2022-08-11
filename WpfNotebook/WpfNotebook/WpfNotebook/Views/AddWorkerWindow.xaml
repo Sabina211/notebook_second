@@ -1,11 +1,12 @@
-﻿<Window x:Class="WpfNotebook.Views.AddWorkerWindow"
+﻿<mah:MetroWindow x:Class="WpfNotebook.Views.AddWorkerWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfNotebook.Views"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="Добавить сотрудника" Height="300.17" Width="407.317">
+        Title="Добавить сотрудника" Height="310.17" Width="407.317">
     <Grid HorizontalAlignment="Left" Height="446" VerticalAlignment="Bottom" Width="451" Margin="0,-174,-52,-3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="162*"/>
@@ -17,8 +18,8 @@
         </Grid.RowDefinitions>
         <Label Content="Фамилия" HorizontalAlignment="Left" Margin="16,191,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.815" Height="26" Width="82" FontSize="14"/>
         <Label Content="Имя*" HorizontalAlignment="Left" Margin="16,221,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.129,-2.676" Height="26" Width="157" FontSize="14" Grid.ColumnSpan="2"/>
-        <Label Content="Отчество" HorizontalAlignment="Left" Margin="15,250,0,0" VerticalAlignment="Top" Height="27" Width="137" FontSize="14"/>
-        <StackPanel Grid.Column="1" Margin="11,186,71,84" Grid.ColumnSpan="2">
+        <Label Content="Отчество" HorizontalAlignment="Left" Margin="15,253,0,0" VerticalAlignment="Top" Height="27" Width="137" FontSize="14"/>
+        <StackPanel Grid.Column="1" Margin="11,186,71,58" Grid.ColumnSpan="2">
             <TextBox x:Name="Surname"
                       Text="{Binding NewWorker.Surname, UpdateSourceTrigger=PropertyChanged}"
                      HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193"/>
@@ -40,11 +41,11 @@
         </StackPanel>
         <Button Content="Сохранить" 
                     Command="{Binding SaveCommand}"
-                    Grid.Column="2" HorizontalAlignment="Left" Margin="47,393,0,0" VerticalAlignment="Top" Width="102" Height="30" FontSize="14"/>
+                    Grid.Column="2" HorizontalAlignment="Left" Margin="47,398,0,0" VerticalAlignment="Top" Width="102" Height="30" FontSize="14"/>
         <Label Visibility="{Binding ErrorEnable, UpdateSourceTrigger=PropertyChanged}" 
-               Content="{Binding ErrorText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="16,361,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="13" Foreground="#FFB90606" Grid.ColumnSpan="3" Width="351" Height="32"/>
-        <Label Content="Номер телефона" HorizontalAlignment="Left" Margin="16,277,0,0" VerticalAlignment="Top" Height="27" Width="137" FontSize="14"/>
-        <Label Content="Адрес" HorizontalAlignment="Left" Margin="15,304,0,0" VerticalAlignment="Top" Height="27" Width="137" FontSize="14"/>
-        <Label Content="Описание" HorizontalAlignment="Left" Margin="16,336,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.815" Height="26" Width="82" FontSize="14"/>
+               Content="{Binding ErrorText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="16,371,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="13" Foreground="#FFB90606" Grid.ColumnSpan="3" Width="351" Height="32"/>
+        <Label Content="Номер телефона" HorizontalAlignment="Left" Margin="16,286,0,0" VerticalAlignment="Top" Height="27" Width="137" FontSize="14"/>
+        <Label Content="Адрес" HorizontalAlignment="Left" Margin="15,316,0,0" VerticalAlignment="Top" Height="27" Width="137" FontSize="14"/>
+        <Label Content="Описание" HorizontalAlignment="Left" Margin="16,345,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.759,-0.815" Height="26" Width="82" FontSize="14"/>
     </Grid>
-</Window>
+</mah:MetroWindow>
