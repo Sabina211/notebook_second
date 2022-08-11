@@ -12,7 +12,7 @@
                   SelectionMode="Single" 
                   AutoGenerateColumns="False" 
                   ItemsSource="{Binding ClientsData}"
-                  SelectedItem="{Binding SelectedClient}"
+                  SelectedItem="{Binding CurrentWorker}"
                   IsReadOnly="False" 
                   Margin="10,174,65,33" RenderTransformOrigin="0.499,0.688" FontSize="14" Grid.ColumnSpan="2"
                   >
@@ -48,9 +48,9 @@
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Добавить" Command="{Binding AddClientCommand}"/>
-                    <MenuItem Header="Удалить" Command="{Binding DeleteClientCommand}"/>
-                    <MenuItem Header="Изменить" Command="{Binding EditClientCommand}"/>
+                    <MenuItem Header="Добавить" Command="{Binding AddWorkerCommand}"/>
+                    <MenuItem Header="Удалить" Command="{Binding DeleteWorkerCommand}"/>
+                    <MenuItem Header="Изменить" Command="{Binding EditWorkerCommand}"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>

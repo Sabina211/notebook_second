@@ -146,3 +146,5 @@
 
 2022-08-10 18:24:15.6032 | ApiNotebook.Controllers.WorkersController.Delete | INFO | Удален сотрудник dfg c id=254fdbdf-6366-413e-bf15-08da76d41dd4, редактор Karl6 
 
+2022-08-10 20:43:16.4660 | ApiNotebook.Program.Main | INFO | init main2 
+

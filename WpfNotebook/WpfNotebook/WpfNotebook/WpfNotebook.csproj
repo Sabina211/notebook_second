@@ -53,6 +53,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -71,6 +72,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\AddWorkerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditWorkerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -83,7 +92,15 @@
     <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\RelayCommand.cs" />
     <Compile Include="Models\UserWithRolesEdit.cs" />
+    <Compile Include="ViewModels\AddWorkerVM.cs" />
+    <Compile Include="ViewModels\EditWorkerVM.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
+    <Compile Include="Views\AddWorkerWindow.xaml.cs">
+      <DependentUpon>AddWorkerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditWorkerWindow.xaml.cs">
+      <DependentUpon>EditWorkerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
