@@ -75,6 +75,7 @@ namespace WpfNotebook.ViewModels
             }
         }
         public ICommand LoginCommand { get; }
+        public ICommand LogoutCommand { get; }
         public ICommand AddWorkerCommand { get; }
         public ICommand EditWorkerCommand { get; }
         public ICommand DeleteWorkerCommand { get; }
@@ -86,6 +87,10 @@ namespace WpfNotebook.ViewModels
             {
                 Login();
             });
+            LogoutCommand = new RelayCommand(obj =>
+            {
+                Logout();
+            });
             AddWorkerCommand = new RelayCommand(obj =>
             {
                 if (CurrentUser == null) { MessageBox.Show("Для добавления сотрудника необходимо авторизоваться"); return; }
@@ -94,12 +99,37 @@ namespace WpfNotebook.ViewModels
             });
             EditWorkerCommand = new RelayCommand(obj =>
             {
-                if (CurrentUser == null || !CurrentUser.UserRoles.Contains("admin")) { MessageBox.Show("Для добавления сотрудника необходимо авторизоваться с ролью админиcтратора.\n" +
+                if (CurrentUser == null || !CurrentUser.UserRoles.Contains("admin")) { MessageBox.Show("Для редактирования сотрудника необходимо авторизоваться с ролью админиcтратора.\n" +
                     " Редактирование и удаление сотрудников может осуществлять только пользователь с ролью администратора"); return; }
                 EditWorkerWindow editClientWindow = new EditWorkerWindow(this, httpClient, baseUrl, CurrentWorker);
                 editClientWindow.Show();
             });
+            DeleteWorkerCommand = new RelayCommand(obj =>
+            {
+                if (CurrentUser == null || !CurrentUser.UserRoles.Contains("admin"))
+                {
+                    MessageBox.Show("Для удаления сотрудника необходимо авторизоваться с ролью админиcтратора.\n" +
+                                    " Редактирование и удаление сотрудников может осуществлять только пользователь с ролью администратора"); return;
+                }
+                DeleteWorker();
+
+            });
             UpdateWorkers();
+        }
+
+        private void DeleteWorker()
+        {
+            MessageBoxResult messagebox = MessageBox.Show($"Вы уверены, что хотите удалить сотрудника с именем " +
+                $"{CurrentWorker.Surname} {CurrentWorker.Name} {CurrentWorker.Patronymic}?", "Подтверждение операции", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            if (messagebox == MessageBoxResult.Yes)
+            {
+                var uri = new Uri(baseUrl + $"Workers/{CurrentWorker.Id}");
+                var result = httpClient.DeleteAsync(uri).Result;
+                if (!(result.StatusCode.ToString() == "OK"))
+                {
+                    MessageBox.Show("При удалении сотрудника произошла ошибка. Удаление не выполнено");
+                }
+            }
         }
 
         private void Login()
@@ -124,6 +154,15 @@ namespace WpfNotebook.ViewModels
             ErrorText = (loginedUser.UserRoles.Count != 0) ? $"Вы вошли как {loginedUser.UserName} с ролью {loginedUser.UserRoles[0]}"
             : $"Вы вошли как {loginedUser.UserName}, ролей нет";
             CurrentUser = GetCurrentUser();
+        }
+
+        private void Logout()
+        {
+            string url = baseUrl + "Account/logout";
+            var result = httpClient.PostAsync(url, null).Result;
+            ErrorEnable = "Hidden";
+            ErrorText = "";
+            CurrentUser = null;
         }
 
         public IEnumerable<Worker> GetWorkers()

@@ -29700,3 +29700,13 @@
 2022-08-11 10:18:53.9934 Debug Logger ApiNotebook.Controllers.UsersController [Warn] => main lifetimeConsole info
 2022-08-11 10:18:53.9934 Debug Logger ApiNotebook.Controllers.UsersController [Error] => error main lifetimeConsole info
 2022-08-11 10:18:53.9934 Debug Logger ApiNotebook.Controllers.UsersController [Fatal] => error main lifetimeConsole info
+2022-08-11 12:17:09.5379 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinder
+2022-08-11 12:17:09.5379 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinder [Info] => main
+2022-08-11 12:17:09.5379 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinder [Warn] => main
+2022-08-11 12:17:09.5379 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinder [Error] => error main
+2022-08-11 12:17:09.5379 Debug Logger Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinder [Fatal] => error main
+2022-08-11 12:43:33.0699 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.AspNetCore.Mvc.StatusCodeResult
+2022-08-11 12:43:33.0699 Debug Logger Microsoft.AspNetCore.Mvc.StatusCodeResult [Info] => main
+2022-08-11 12:43:33.0699 Debug Logger Microsoft.AspNetCore.Mvc.StatusCodeResult [Warn] => main
+2022-08-11 12:43:33.0699 Debug Logger Microsoft.AspNetCore.Mvc.StatusCodeResult [Error] => error main
+2022-08-11 12:43:33.0699 Debug Logger Microsoft.AspNetCore.Mvc.StatusCodeResult [Fatal] => error main

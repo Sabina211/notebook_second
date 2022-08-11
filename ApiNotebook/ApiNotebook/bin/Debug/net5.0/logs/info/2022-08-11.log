@@ -1,2 +1,10 @@
 2022-08-11 08:59:11.0712 | ApiNotebook.Program.Main | INFO | init main2 
 
+2022-08-11 09:55:05.1538 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-11 10:01:49.1445 | ApiNotebook.Controllers.WorkersController.Post | INFO | Создан сотрудник karl500 c id=5c0becf3-c036-4e07-efee-08da7b5698f8, редактор admin 
+
+2022-08-11 12:00:25.0707 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник Карлов c id=9ff44274-8797-4592-88f1-08da7537da5a, редактор admin 
+
+2022-08-11 12:00:59.0064 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник Karl2 c id=58e91227-594a-4c07-bf13-08da76d41dd4, редактор admin 
+

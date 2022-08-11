@@ -26,5 +26,10 @@ namespace WpfNotebook
             InitializeComponent();
             DataContext = new MainWindowVM();
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
