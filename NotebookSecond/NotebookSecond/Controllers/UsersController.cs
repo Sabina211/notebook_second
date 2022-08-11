@@ -14,18 +14,20 @@ namespace NotebookSecond.Controllers
     public class UsersController : Controller
     {
         private readonly ILogger<UsersController> logger;
-        private HttpClient httpClient { get; set; }
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly HttpClient httpClient;
 
-        public UsersController(ILogger<UsersController>? logger, HttpClient httpClient)
+        public UsersController(ILogger<UsersController>? logger, IHttpClientFactory httpClientFactory)
         {
             this.logger = logger;
-            this.httpClient = httpClient;
+            _httpClientFactory = httpClientFactory;
+            httpClient = _httpClientFactory.CreateClient("httpClient");
         }
 
         [Authorize(AuthenticationSchemes = "Cookies", Roles = "admin")]
         public IActionResult UsersList(string? error)
         {
-            string url = @"https://localhost:5005/api/Users/getUsers";
+            string url = httpClient.BaseAddress + "Users/getUsers";
             string json = httpClient.GetStringAsync(url).Result;
             var users = JsonConvert.DeserializeObject<IEnumerable<UserWithRolesEdit>>(json);
             ViewData["Error"] = error;
@@ -35,7 +37,7 @@ namespace NotebookSecond.Controllers
         [Authorize(AuthenticationSchemes = "Cookies")]
         public UserWithRolesEdit GetCurrentUser()
         {
-            string url = @"https://localhost:5005/api/Users/getCurrentUser";
+            string url = httpClient.BaseAddress + "Users/getCurrentUser";
             string json = httpClient.GetStringAsync(url).Result;
             var currentUsers = JsonConvert.DeserializeObject<UserWithRolesEdit>(json);
             return currentUsers;
@@ -65,7 +67,7 @@ namespace NotebookSecond.Controllers
         {
             userWithRoles.AllRoles = GetCurrentUser().AllRoles.ToList();
             var content = new StringContent(JsonConvert.SerializeObject(userWithRoles), Encoding.UTF8, "application/json");
-            string url = @"https://localhost:5005/api/Users/addUser";
+            string url = httpClient.BaseAddress + "Users/addUser";
             if (!ModelState.IsValid)
                 return View(userWithRoles);
             var result = httpClient.PostAsync(url, content).Result;
@@ -92,7 +94,7 @@ namespace NotebookSecond.Controllers
         public IActionResult EditUserEmail(EditUser model)
         {
             var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
-            string url = @"https://localhost:5005/api/Users/editUserEmail";
+            string url = httpClient.BaseAddress + "Users/editUserEmail";
             if (!(User.IsInRole("admin") || model.Login == User.Identity.Name))
                 return Forbid();
 
@@ -115,7 +117,7 @@ namespace NotebookSecond.Controllers
             if (!ModelState.IsValid)
                 return Redirect("/Users/UsersList?error= Error. User has not been edited");
             var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
-            string url = @"https://localhost:5005/api/Users/editUser";
+            string url = httpClient.BaseAddress + "Users/editUser";
             var result = httpClient.PostAsync(url, content).Result;
             bool success = CheckResult(result);
             if (!success)
@@ -132,8 +134,8 @@ namespace NotebookSecond.Controllers
         [Authorize(AuthenticationSchemes = "Cookies", Roles = "admin")]
         public IActionResult DeleteUser(EditUser model)
         {
-            var uri = "https://localhost:5005/api/Users" + $"/{model.Id}";
-            var result = httpClient.DeleteAsync(uri).Result;
+            string url = httpClient.BaseAddress + $"Users/{model.Id}";
+            var result = httpClient.DeleteAsync(url).Result;
             bool success = CheckResult(result);
             if (success)
             {
@@ -158,7 +160,7 @@ namespace NotebookSecond.Controllers
             if (!ModelState.IsValid)
                 return View(model);
             var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
-            string url = @"https://localhost:5005/api/Users/changePassword";
+            string url = httpClient.BaseAddress + "Users/changePassword";
             var result = httpClient.PostAsync(url, content).Result;
             bool success = CheckResult(result);
             if (!success)
@@ -166,7 +168,7 @@ namespace NotebookSecond.Controllers
                 ModelState.AddModelError(string.Empty, $"При редактировании пароля произошла ошибка\n {result.Content.ReadAsStringAsync().Result}");
                 return View(model);
             }
-            logger.LogInformation("\nУдален пользователь с логином {0}, редактор {1}", model.Login, User.Identity.Name);
+            logger.LogInformation("\nИзменен пароль пользователя {0}, редактор {1}", model.Login, User.Identity.Name);
             return View(model);
         }
 

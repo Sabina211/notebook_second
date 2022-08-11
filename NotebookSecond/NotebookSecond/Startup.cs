@@ -35,10 +35,10 @@ namespace NotebookSecond
                         options.LogoutPath = "/Account/Logout";
                     });
             services.AddAuthorization();
-            services.AddHttpClient("httpClient", c => c.BaseAddress = new System.Uri("https://localhost:5005"));
+            services.AddHttpClient("httpClient", c => c.BaseAddress = new System.Uri("https://localhost:5005/api/"));
             services.AddTransient<IWorkerData, ApiWorkerData>();
 
-            services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddMvc(options => options.EnableEndpointRouting = false) ;
             services.AddControllersWithViews();
             services.Configure<IdentityOptions>(options =>
             {

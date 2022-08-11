@@ -11,14 +11,17 @@ namespace NotebookSecond.Data
 {
     public class ApiWorkerData : IWorkerData
     {
-        private HttpClient httpClient { get; set; }
-        private string url = @"https://localhost:5005/api/Workers";
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly HttpClient httpClient;
+        private string url;
         private readonly ILogger<ApiWorkerData> logger;
 
-        public ApiWorkerData(ILogger<ApiWorkerData> logger, HttpClient httpClient)
+        public ApiWorkerData(ILogger<ApiWorkerData> logger, IHttpClientFactory httpClientFactory)
         {
-            this.httpClient = httpClient;
+            _httpClientFactory = httpClientFactory;
             this.logger = logger;
+            httpClient = _httpClientFactory.CreateClient("httpClient");
+            url = httpClient.BaseAddress + "Workers";
         }
 
         public IEnumerable<Worker> GetWorkers()
