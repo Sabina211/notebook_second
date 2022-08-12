@@ -1,14 +1,11 @@
 ﻿using ApiNotebook.Data;
 using ApiNotebook.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 
 namespace ApiNotebook.Controllers
@@ -88,7 +85,6 @@ namespace ApiNotebook.Controllers
             Worker worker = db.Workers.FirstOrDefault(x => x.Id.ToString() == id);
             if (worker == null)
             {
-                //return NotFound("Сотрудник с таким Id не найден");
                 return NotFound(new { message = "Сотрудник с таким Id не найден" });
             }
             db.Workers.Remove(worker);

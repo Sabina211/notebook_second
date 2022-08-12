@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using NotebookSecond.Models;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Security.Claims;
@@ -55,7 +56,7 @@ namespace NotebookSecond.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Не удалось зарегистрировать пользователя");
+                    ModelState.AddModelError(string.Empty, $"Не удалось зарегистрировать пользователя StatusCode = {result.StatusCode}\n {result.Content.ReadAsStringAsync().Result}");
                 }
             }
             return View(registerUser);
@@ -71,6 +72,7 @@ namespace NotebookSecond.Controllers
                 var content = new StringContent(JsonConvert.SerializeObject(loginUser), Encoding.UTF8, "application/json");
                 var result = httpClient.PostAsync(url, content).Result;
                 bool success = CheckResult(result);
+             
                 if (success)
                 {
                     await LoginInSystem(loginUser.Login, result);
@@ -104,13 +106,16 @@ namespace NotebookSecond.Controllers
             var identity = new ClaimsIdentity(new[] { roleClaim, nameClame }, CookieAuthenticationDefaults.AuthenticationScheme);
             var principal = new ClaimsPrincipal(identity);
             HttpContext.User = principal;
-            var prop = new AuthenticationProperties();
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity), prop);
+            var prop = new AuthenticationProperties { 
+                ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(60) , 
+                IssuedUtc = DateTimeOffset.UtcNow.AddMinutes(60) };
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(identity), prop);
 
             logger.LogInformation($"Авторизация прошла успешно.\n " +
                 $"Сообщение от api: {result.Content.ReadAsStringAsync().Result}\n " +
                 $"User.Identity.IsAuthenticated = {User.Identity.IsAuthenticated}\n" +
-                $"HttpContext.User.Identity.IsAuthenticated = {HttpContext.User.Identity.IsAuthenticated}\n" +
                 $"HttpContext.User.Identity.Name = {HttpContext.User.Identity.Name}\n" +
                 $"admin role={HttpContext.User.IsInRole("admin")}");
         }

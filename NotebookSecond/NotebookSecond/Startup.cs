@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NotebookSecond.Data;
 using System;
+using System.Threading.Tasks;
 
 namespace NotebookSecond
 {
@@ -31,11 +32,18 @@ namespace NotebookSecond
                     CookieAuthenticationDefaults.AuthenticationScheme, (options) =>
                     {
                         options.Cookie.HttpOnly = true;
+                        options.SlidingExpiration = true;
+                        options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                        options.Cookie.MaxAge = options.ExpireTimeSpan; // optional
                         options.LoginPath = "/Account/Login";
                         options.LogoutPath = "/Account/Logout";
+                        options.Events.OnSigningIn = (context) => { 
+                            context.CookieOptions.Expires = DateTimeOffset.UtcNow.AddDays(30);
+                            return Task.CompletedTask;
+                        };
                     });
             services.AddAuthorization();
-            services.AddHttpClient("httpClient", c => c.BaseAddress = new System.Uri("https://localhost:5005/api/"));
+            services.AddHttpClient("httpClient", c => c.BaseAddress = new System.Uri("https://localhost:5005/api/")).SetHandlerLifetime(TimeSpan.FromMinutes(30)) ;
             services.AddTransient<IWorkerData, ApiWorkerData>();
 
             services.AddMvc(options => options.EnableEndpointRouting = false) ;
@@ -45,7 +53,7 @@ namespace NotebookSecond
                 options.Password.RequiredLength = 4; // минимальное количество знаков в пароле
                 options.Password.RequireNonAlphanumeric = false;   // требуются ли не алфавитно-цифровые символы
                 options.Lockout.MaxFailedAccessAttempts = 10; // количество попыток до блокировки
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(60);
                 options.Lockout.AllowedForNewUsers = true;
             });
         }

@@ -19,7 +19,6 @@ namespace NotebookSecond.Controllers
 
         public WorkerController(IWorkerData WorkerData, ILogger<WorkerController> logger)
         {
-            httpClient = new HttpClient();
             this.workerData = WorkerData;
             this.logger = logger;
         }
@@ -77,7 +76,7 @@ namespace NotebookSecond.Controllers
         [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "admin")]
         public IActionResult EditWorker(Worker worker)
         {
-            Worker editedWorker= workerData.EditWorker(worker);
+            Worker editedWorker = workerData.EditWorker(worker);
             if (editedWorker.Id == Guid.Empty)
                 return Redirect("/Worker/Index?error= Error. Employee has not been edited");
             logger.LogInformation("Отредактирован сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
@@ -92,6 +91,7 @@ namespace NotebookSecond.Controllers
             bool success = workerData.RemoveWorker(curentWorker);
             if (!success)
                 return Redirect("/Worker/Index?error= Error. Employee has not been deleted");
+
             logger.LogInformation("Сотрудник {0} c id={1} был удален, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
             return Redirect("/Worker/Index");
         }
