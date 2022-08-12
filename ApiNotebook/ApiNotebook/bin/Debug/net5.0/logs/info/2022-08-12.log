@@ -88,3 +88,5 @@
 2022-08-12 22:42:47.3659 | ApiNotebook.Controllers.UsersController.DeleteUser | INFO | 
 Удален пользователь с логином Karl6789, редактор admin 
 
+2022-08-12 20:12:57.7530 | ApiNotebook.Program.Main | INFO | init main2 
+

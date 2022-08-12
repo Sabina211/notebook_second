@@ -16003,3 +16003,5 @@ FROM [Workers] AS [w]
 
 2022-08-12 22:42:50.9128 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://localhost:5005/api/Workers - - - 200 - application/json;+charset=utf-8 8.0788ms 
 
+2022-08-12 20:12:57.7530 | ApiNotebook.Program.Main | INFO | init main2 
+

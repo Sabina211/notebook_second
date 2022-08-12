@@ -33909,3 +33909,206 @@
 2022-08-12 22:43:27.6464 Debug FileTarget(Name=info): Closed.
 2022-08-12 22:43:27.6464 Debug Finished closing logging configuration.
 2022-08-12 22:43:27.6464 Info LogFactory has been closed.
+2022-08-12 20:12:57.3917 Info Message Template Auto Format enabled
+2022-08-12 20:12:57.4218 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-12 20:12:57.4289 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-12 20:12:57.4737 Debug Setting 'NLog.Targets.FileTarget.name' to 'main'
+2022-08-12 20:12:57.4978 Debug Setting 'NLog.Targets.FileTarget.fileName' to '${basedir}/logs/${shortdate}.log'
+2022-08-12 20:12:57.5287 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} | ${callsite} | ${uppercase:${level}} | ${message} ${newline}'
+2022-08-12 20:12:57.5287 Debug Setting 'NLog.LayoutRenderers.Wrappers.UppercaseLayoutRendererWrapper.Inner' to '${level}'
+2022-08-12 20:12:57.5440 Info Adding target FileTarget(Name=main)
+2022-08-12 20:12:57.5479 Debug Registered target main: NLog.Targets.FileTarget
+2022-08-12 20:12:57.5479 Debug Setting 'NLog.Targets.FileTarget.name' to 'error'
+2022-08-12 20:12:57.5479 Debug Setting 'NLog.Targets.FileTarget.fileName' to '${basedir}/logs/errors/${shortdate}.log'
+2022-08-12 20:12:57.5569 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} | ${callsite} | ${uppercase:${level}} | ${message} ${exception:format=ToString,StackTrace} ${newline}'
+2022-08-12 20:12:57.5569 Debug Setting 'NLog.LayoutRenderers.Wrappers.UppercaseLayoutRendererWrapper.Inner' to '${level}'
+2022-08-12 20:12:57.5765 Info Adding target FileTarget(Name=error)
+2022-08-12 20:12:57.5788 Debug Registered target error: NLog.Targets.FileTarget
+2022-08-12 20:12:57.5788 Debug Setting 'NLog.Targets.FileTarget.name' to 'info'
+2022-08-12 20:12:57.5788 Debug Setting 'NLog.Targets.FileTarget.fileName' to '${basedir}/logs/info/${shortdate}.log'
+2022-08-12 20:12:57.5878 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} | ${callsite} | ${uppercase:${level}} | ${message} ${newline}'
+2022-08-12 20:12:57.5878 Debug Setting 'NLog.LayoutRenderers.Wrappers.UppercaseLayoutRendererWrapper.Inner' to '${level}'
+2022-08-12 20:12:57.5878 Info Adding target FileTarget(Name=info)
+2022-08-12 20:12:57.6004 Debug Registered target info: NLog.Targets.FileTarget
+2022-08-12 20:12:57.6095 Debug Setting 'NLog.Targets.ColoredConsoleTarget.name' to 'lifetimeConsole'
+2022-08-12 20:12:57.6095 Debug Setting 'NLog.Targets.ColoredConsoleTarget.layout' to '${MicrosoftConsoleLayout}'
+2022-08-12 20:12:57.6095 Info Adding target ColoredConsoleTarget(Name=lifetimeConsole)
+2022-08-12 20:12:57.6095 Debug Registered target lifetimeConsole: NLog.Targets.ColoredConsoleTarget
+2022-08-12 20:12:57.6379 Debug Watching file-filter 'NLog.config' in directory: /app/bin/Debug/net5.0
+2022-08-12 20:12:57.6379 Debug --- NLog configuration dump ---
+2022-08-12 20:12:57.6379 Debug Targets:
+2022-08-12 20:12:57.6498 Debug FileTarget(Name=main)
+2022-08-12 20:12:57.6498 Debug FileTarget(Name=error)
+2022-08-12 20:12:57.6498 Debug FileTarget(Name=info)
+2022-08-12 20:12:57.6587 Debug ColoredConsoleTarget(Name=lifetimeConsole)
+2022-08-12 20:12:57.6587 Debug Rules:
+2022-08-12 20:12:57.6587 Debug logNamePattern: (:All) levels: [ Error Fatal ] writeTo: [ error ]
+2022-08-12 20:12:57.6673 Debug logNamePattern: (:All) levels: [ Info Warn Error Fatal ] writeTo: [ main ]
+2022-08-12 20:12:57.6673 Debug logNamePattern: (ApiNotebook.:StartsWith) levels: [ Info Warn Error Fatal ] writeTo: [ lifetimeConsole info ]
+2022-08-12 20:12:57.6673 Debug --- End of NLog configuration dump ---
+2022-08-12 20:12:57.6881 Info Validating config: TargetNames=error, main, lifetimeConsole, info, ConfigItems=56, FilePath=/app/bin/Debug/net5.0/NLog.config
+2022-08-12 20:12:57.6881 Debug Unused target checking is started... Rule Count: 3, Target Count: 4
+2022-08-12 20:12:57.7022 Debug Unused target checking is completed. Total Rule Count: 3, Total Target Count: 4, Unused Target Count: 0
+2022-08-12 20:12:57.7342 Debug Targets configured when LogLevel >= Info for Logger: ApiNotebook.Program
+2022-08-12 20:12:57.7373 Debug Logger ApiNotebook.Program [Info] => main lifetimeConsole info
+2022-08-12 20:12:57.7373 Debug Logger ApiNotebook.Program [Warn] => main lifetimeConsole info
+2022-08-12 20:12:57.7373 Debug Logger ApiNotebook.Program [Error] => error main lifetimeConsole info
+2022-08-12 20:12:57.7373 Debug Logger ApiNotebook.Program [Fatal] => error main lifetimeConsole info
+2022-08-12 20:12:57.7734 Debug FileTarget(Name=main): Preparing for new file '/app/bin/Debug/net5.0/logs/2022-08-12.log'
+2022-08-12 20:12:57.7819 Debug FileTarget(Name=main): Creating file appender: /app/bin/Debug/net5.0/logs/2022-08-12.log
+2022-08-12 20:12:57.8204 Debug FileTarget(Name=info): Preparing for new file '/app/bin/Debug/net5.0/logs/info/2022-08-12.log'
+2022-08-12 20:12:57.8268 Debug FileTarget(Name=info): Creating file appender: /app/bin/Debug/net5.0/logs/info/2022-08-12.log
+2022-08-12 20:12:59.0167 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-12 20:12:59.0935 Debug Hide assemblies for callsite
+2022-08-12 20:12:59.0969 Debug ScanAssembly('NLog.Extensions.Logging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-12 20:12:59.1085 Debug Skip loading NLogLoggingConfiguration from empty config section: NLog
+2022-08-12 20:12:59.1085 Info Validating config: TargetNames=error, main, lifetimeConsole, info, ConfigItems=56, FilePath=/app/bin/Debug/net5.0/NLog.config
+2022-08-12 20:12:59.1202 Debug Targets configured when LogLevel >= Info for Logger: ApiNotebook.Program
+2022-08-12 20:12:59.1202 Debug Logger ApiNotebook.Program [Info] => main lifetimeConsole info
+2022-08-12 20:12:59.1202 Debug Logger ApiNotebook.Program [Warn] => main lifetimeConsole info
+2022-08-12 20:12:59.1285 Debug Logger ApiNotebook.Program [Error] => error main lifetimeConsole info
+2022-08-12 20:12:59.1285 Debug Logger ApiNotebook.Program [Fatal] => error main lifetimeConsole info
+2022-08-12 20:12:59.1551 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.Extensions.Hosting.Internal.ApplicationLifetime
+2022-08-12 20:12:59.1580 Debug Logger Microsoft.Extensions.Hosting.Internal.ApplicationLifetime [Info] => main
+2022-08-12 20:12:59.1580 Debug Logger Microsoft.Extensions.Hosting.Internal.ApplicationLifetime [Warn] => main
+2022-08-12 20:12:59.1686 Debug Logger Microsoft.Extensions.Hosting.Internal.ApplicationLifetime [Error] => error main
+2022-08-12 20:12:59.1686 Debug Logger Microsoft.Extensions.Hosting.Internal.ApplicationLifetime [Fatal] => error main
+2022-08-12 20:12:59.1798 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.Extensions.Hosting.Internal.Host
+2022-08-12 20:12:59.1874 Debug Logger Microsoft.Extensions.Hosting.Internal.Host [Info] => main
+2022-08-12 20:12:59.1874 Debug Logger Microsoft.Extensions.Hosting.Internal.Host [Warn] => main
+2022-08-12 20:12:59.1874 Debug Logger Microsoft.Extensions.Hosting.Internal.Host [Error] => error main
+2022-08-12 20:12:59.1987 Debug Logger Microsoft.Extensions.Hosting.Internal.Host [Fatal] => error main
+2022-08-12 20:12:59.1987 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.Hosting.Lifetime
+2022-08-12 20:12:59.2071 Debug Logger Microsoft.Hosting.Lifetime [Info] => main
+2022-08-12 20:12:59.2071 Debug Logger Microsoft.Hosting.Lifetime [Warn] => main
+2022-08-12 20:12:59.2071 Debug Logger Microsoft.Hosting.Lifetime [Error] => error main
+2022-08-12 20:12:59.2195 Debug Logger Microsoft.Hosting.Lifetime [Fatal] => error main
+2022-08-12 20:12:59.7686 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Infrastructure
+2022-08-12 20:12:59.7686 Debug Logger Microsoft.EntityFrameworkCore.Infrastructure [Info] => main
+2022-08-12 20:12:59.7686 Debug Logger Microsoft.EntityFrameworkCore.Infrastructure [Warn] => main
+2022-08-12 20:12:59.7686 Debug Logger Microsoft.EntityFrameworkCore.Infrastructure [Error] => error main
+2022-08-12 20:12:59.7790 Debug Logger Microsoft.EntityFrameworkCore.Infrastructure [Fatal] => error main
+2022-08-13 01:13:14.1777 Info Message Template Auto Format enabled
+2022-08-13 01:13:14.2182 Info Loading assembly: NLog.Web.AspNetCore
+2022-08-13 01:13:14.2182 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-13 01:13:14.2700 Debug Setting 'NLog.Targets.FileTarget.name' to 'main'
+2022-08-13 01:13:14.2744 Debug Setting 'NLog.Targets.FileTarget.fileName' to '${basedir}/logs/${shortdate}.log'
+2022-08-13 01:13:14.2943 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} | ${callsite} | ${uppercase:${level}} | ${message} ${newline}'
+2022-08-13 01:13:14.2943 Debug Setting 'NLog.LayoutRenderers.Wrappers.UppercaseLayoutRendererWrapper.Inner' to '${level}'
+2022-08-13 01:13:14.3062 Info Adding target FileTarget(Name=main)
+2022-08-13 01:13:14.3062 Debug Registered target main: NLog.Targets.FileTarget
+2022-08-13 01:13:14.3062 Debug Setting 'NLog.Targets.FileTarget.name' to 'error'
+2022-08-13 01:13:14.3062 Debug Setting 'NLog.Targets.FileTarget.fileName' to '${basedir}/logs/errors/${shortdate}.log'
+2022-08-13 01:13:14.3062 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} | ${callsite} | ${uppercase:${level}} | ${message} ${exception:format=ToString,StackTrace} ${newline}'
+2022-08-13 01:13:14.3062 Debug Setting 'NLog.LayoutRenderers.Wrappers.UppercaseLayoutRendererWrapper.Inner' to '${level}'
+2022-08-13 01:13:14.3263 Info Adding target FileTarget(Name=error)
+2022-08-13 01:13:14.3263 Debug Registered target error: NLog.Targets.FileTarget
+2022-08-13 01:13:14.3263 Debug Setting 'NLog.Targets.FileTarget.name' to 'info'
+2022-08-13 01:13:14.3263 Debug Setting 'NLog.Targets.FileTarget.fileName' to '${basedir}/logs/info/${shortdate}.log'
+2022-08-13 01:13:14.3263 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate} | ${callsite} | ${uppercase:${level}} | ${message} ${newline}'
+2022-08-13 01:13:14.3263 Debug Setting 'NLog.LayoutRenderers.Wrappers.UppercaseLayoutRendererWrapper.Inner' to '${level}'
+2022-08-13 01:13:14.3263 Info Adding target FileTarget(Name=info)
+2022-08-13 01:13:14.3263 Debug Registered target info: NLog.Targets.FileTarget
+2022-08-13 01:13:14.3371 Debug Setting 'NLog.Targets.ColoredConsoleTarget.name' to 'lifetimeConsole'
+2022-08-13 01:13:14.3371 Debug Setting 'NLog.Targets.ColoredConsoleTarget.layout' to '${MicrosoftConsoleLayout}'
+2022-08-13 01:13:14.3371 Info Adding target ColoredConsoleTarget(Name=lifetimeConsole)
+2022-08-13 01:13:14.3371 Debug Registered target lifetimeConsole: NLog.Targets.ColoredConsoleTarget
+2022-08-13 01:13:14.4228 Debug Watching file-filter 'NLog.config' in directory: E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0
+2022-08-13 01:13:14.4228 Debug --- NLog configuration dump ---
+2022-08-13 01:13:14.4228 Debug Targets:
+2022-08-13 01:13:14.4228 Debug FileTarget(Name=main)
+2022-08-13 01:13:14.4228 Debug FileTarget(Name=error)
+2022-08-13 01:13:14.4228 Debug FileTarget(Name=info)
+2022-08-13 01:13:14.4228 Debug ColoredConsoleTarget(Name=lifetimeConsole)
+2022-08-13 01:13:14.4228 Debug Rules:
+2022-08-13 01:13:14.4299 Debug logNamePattern: (:All) levels: [ Error Fatal ] writeTo: [ error ]
+2022-08-13 01:13:14.4299 Debug logNamePattern: (:All) levels: [ Info Warn Error Fatal ] writeTo: [ main ]
+2022-08-13 01:13:14.4299 Debug logNamePattern: (ApiNotebook.:StartsWith) levels: [ Info Warn Error Fatal ] writeTo: [ lifetimeConsole info ]
+2022-08-13 01:13:14.4299 Debug --- End of NLog configuration dump ---
+2022-08-13 01:13:14.4299 Info Validating config: TargetNames=error, main, lifetimeConsole, info, ConfigItems=56, FilePath=E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\NLog.config
+2022-08-13 01:13:14.4299 Debug Unused target checking is started... Rule Count: 3, Target Count: 4
+2022-08-13 01:13:14.4485 Debug Unused target checking is completed. Total Rule Count: 3, Total Target Count: 4, Unused Target Count: 0
+2022-08-13 01:13:14.5339 Debug Targets configured when LogLevel >= Info for Logger: ApiNotebook.Program
+2022-08-13 01:13:14.5339 Debug Logger ApiNotebook.Program [Info] => main lifetimeConsole info
+2022-08-13 01:13:14.5339 Debug Logger ApiNotebook.Program [Warn] => main lifetimeConsole info
+2022-08-13 01:13:14.5339 Debug Logger ApiNotebook.Program [Error] => error main lifetimeConsole info
+2022-08-13 01:13:14.5339 Debug Logger ApiNotebook.Program [Fatal] => error main lifetimeConsole info
+2022-08-13 01:13:14.5668 Debug FileTarget(Name=main): Preparing for new file 'E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\logs\2022-08-13.log'
+2022-08-13 01:13:14.5754 Debug FileTarget(Name=main): Creating file appender: E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\logs\2022-08-13.log
+2022-08-13 01:13:14.6442 Debug FileTarget(Name=info): Preparing for new file 'E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\logs\info\2022-08-13.log'
+2022-08-13 01:13:14.6442 Debug FileTarget(Name=info): Creating file appender: E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\logs\info\2022-08-13.log
+2022-08-13 01:13:16.8973 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-13 01:13:16.9954 Debug Hide assemblies for callsite
+2022-08-13 01:13:16.9954 Debug ScanAssembly('NLog.Extensions.Logging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-08-13 01:13:16.9954 Debug Skip loading NLogLoggingConfiguration from empty config section: NLog
+2022-08-13 01:13:16.9954 Info Validating config: TargetNames=error, main, lifetimeConsole, info, ConfigItems=56, FilePath=E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\NLog.config
+2022-08-13 01:13:16.9954 Debug Targets configured when LogLevel >= Info for Logger: ApiNotebook.Program
+2022-08-13 01:13:16.9954 Debug Logger ApiNotebook.Program [Info] => main lifetimeConsole info
+2022-08-13 01:13:16.9954 Debug Logger ApiNotebook.Program [Warn] => main lifetimeConsole info
+2022-08-13 01:13:16.9954 Debug Logger ApiNotebook.Program [Error] => error main lifetimeConsole info
+2022-08-13 01:13:17.0093 Debug Logger ApiNotebook.Program [Fatal] => error main lifetimeConsole info
+2022-08-13 01:13:17.0559 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.Extensions.Hosting.Internal.ApplicationLifetime
+2022-08-13 01:13:17.0559 Debug Logger Microsoft.Extensions.Hosting.Internal.ApplicationLifetime [Info] => main
+2022-08-13 01:13:17.0559 Debug Logger Microsoft.Extensions.Hosting.Internal.ApplicationLifetime [Warn] => main
+2022-08-13 01:13:17.0559 Debug Logger Microsoft.Extensions.Hosting.Internal.ApplicationLifetime [Error] => error main
+2022-08-13 01:13:17.0559 Debug Logger Microsoft.Extensions.Hosting.Internal.ApplicationLifetime [Fatal] => error main
+2022-08-13 01:13:17.0559 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.Extensions.Hosting.Internal.Host
+2022-08-13 01:13:17.0559 Debug Logger Microsoft.Extensions.Hosting.Internal.Host [Info] => main
+2022-08-13 01:13:17.0559 Debug Logger Microsoft.Extensions.Hosting.Internal.Host [Warn] => main
+2022-08-13 01:13:17.0559 Debug Logger Microsoft.Extensions.Hosting.Internal.Host [Error] => error main
+2022-08-13 01:13:17.0559 Debug Logger Microsoft.Extensions.Hosting.Internal.Host [Fatal] => error main
+2022-08-13 01:13:17.0559 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.Hosting.Lifetime
+2022-08-13 01:13:17.0688 Debug Logger Microsoft.Hosting.Lifetime [Info] => main
+2022-08-13 01:13:17.0688 Debug Logger Microsoft.Hosting.Lifetime [Warn] => main
+2022-08-13 01:13:17.0688 Debug Logger Microsoft.Hosting.Lifetime [Error] => error main
+2022-08-13 01:13:17.0688 Debug Logger Microsoft.Hosting.Lifetime [Fatal] => error main
+2022-08-13 01:13:17.2622 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Infrastructure
+2022-08-13 01:13:17.2622 Debug Logger Microsoft.EntityFrameworkCore.Infrastructure [Info] => main
+2022-08-13 01:13:17.2622 Debug Logger Microsoft.EntityFrameworkCore.Infrastructure [Warn] => main
+2022-08-13 01:13:17.2622 Debug Logger Microsoft.EntityFrameworkCore.Infrastructure [Error] => error main
+2022-08-13 01:13:17.2622 Debug Logger Microsoft.EntityFrameworkCore.Infrastructure [Fatal] => error main
+2022-08-13 01:13:17.4007 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.ChangeTracking
+2022-08-13 01:13:17.4007 Debug Logger Microsoft.EntityFrameworkCore.ChangeTracking [Info] => main
+2022-08-13 01:13:17.4007 Debug Logger Microsoft.EntityFrameworkCore.ChangeTracking [Warn] => main
+2022-08-13 01:13:17.4007 Debug Logger Microsoft.EntityFrameworkCore.ChangeTracking [Error] => error main
+2022-08-13 01:13:17.4160 Debug Logger Microsoft.EntityFrameworkCore.ChangeTracking [Fatal] => error main
+2022-08-13 01:13:17.4397 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Model
+2022-08-13 01:13:17.4397 Debug Logger Microsoft.EntityFrameworkCore.Model [Info] => main
+2022-08-13 01:13:17.4397 Debug Logger Microsoft.EntityFrameworkCore.Model [Warn] => main
+2022-08-13 01:13:17.4397 Debug Logger Microsoft.EntityFrameworkCore.Model [Error] => error main
+2022-08-13 01:13:17.4397 Debug Logger Microsoft.EntityFrameworkCore.Model [Fatal] => error main
+2022-08-13 01:13:17.4397 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Model.Validation
+2022-08-13 01:13:17.4397 Debug Logger Microsoft.EntityFrameworkCore.Model.Validation [Info] => main
+2022-08-13 01:13:17.4397 Debug Logger Microsoft.EntityFrameworkCore.Model.Validation [Warn] => main
+2022-08-13 01:13:17.4397 Debug Logger Microsoft.EntityFrameworkCore.Model.Validation [Error] => error main
+2022-08-13 01:13:17.4397 Debug Logger Microsoft.EntityFrameworkCore.Model.Validation [Fatal] => error main
+2022-08-13 01:13:18.1928 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Database.Command
+2022-08-13 01:13:18.1928 Debug Logger Microsoft.EntityFrameworkCore.Database.Command [Info] => main
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Database.Command [Warn] => main
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Database.Command [Error] => error main
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Database.Command [Fatal] => error main
+2022-08-13 01:13:18.1935 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Query
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Query [Info] => main
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Query [Warn] => main
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Query [Error] => error main
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Query [Fatal] => error main
+2022-08-13 01:13:18.1935 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Database.Transaction
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Database.Transaction [Info] => main
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Database.Transaction [Warn] => main
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Database.Transaction [Error] => error main
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Database.Transaction [Fatal] => error main
+2022-08-13 01:13:18.1935 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Database.Connection
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Database.Connection [Info] => main
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Database.Connection [Warn] => main
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Database.Connection [Error] => error main
+2022-08-13 01:13:18.1935 Debug Logger Microsoft.EntityFrameworkCore.Database.Connection [Fatal] => error main
+2022-08-13 01:13:18.2165 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Update
+2022-08-13 01:13:18.2165 Debug Logger Microsoft.EntityFrameworkCore.Update [Info] => main
+2022-08-13 01:13:18.2165 Debug Logger Microsoft.EntityFrameworkCore.Update [Warn] => main
+2022-08-13 01:13:18.2165 Debug Logger Microsoft.EntityFrameworkCore.Update [Error] => error main
+2022-08-13 01:13:18.2165 Debug Logger Microsoft.EntityFrameworkCore.Update [Fatal] => error main
+2022-08-13 01:13:18.2421 Debug Targets configured when LogLevel >= Info for Logger: Microsoft.EntityFrameworkCore.Migrations
+2022-08-13 01:13:18.2421 Debug Logger Microsoft.EntityFrameworkCore.Migrations [Info] => main
+2022-08-13 01:13:18.2421 Debug Logger Microsoft.EntityFrameworkCore.Migrations [Warn] => main
+2022-08-13 01:13:18.2421 Debug Logger Microsoft.EntityFrameworkCore.Migrations [Error] => error main
+2022-08-13 01:13:18.2421 Debug Logger Microsoft.EntityFrameworkCore.Migrations [Fatal] => error main

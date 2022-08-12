@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+ notebook-mssql:
+  container_name: notebook-mssql
+  image: mcr.microsoft.com/mssql/server
+  env_file: notebook.env
+  restart: unless-stopped
+ 
+ notebook-api:
+  container_name: notebook-api
+  build:
+   context: ApiNotebook
+   dockerfile: ApiNotebook\Dockerfile
+  image: notebook-api-image
+  env_file: notebook.env
+  restart: unless-stopped
+  ports:
+   - 83:80
+  
+ notebook-webui:
+  container_name: notebook-webui
+  build:
+   context: NotebookSecond
+   dockerfile: NotebookSecond\Dockerfile
+  image: notebook-webui-image
+  env_file: notebook.env
+  restart: unless-stopped
+  ports:
+   - 82:80
