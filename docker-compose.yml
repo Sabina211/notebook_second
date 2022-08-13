@@ -11,7 +11,7 @@ services:
   container_name: notebook-api
   build:
    context: ApiNotebook
-   dockerfile: ApiNotebook\Dockerfile
+   dockerfile: ./ApiNotebook/Dockerfile
   image: notebook-api-image
   env_file: notebook.env
   restart: unless-stopped
@@ -22,7 +22,7 @@ services:
   container_name: notebook-webui
   build:
    context: NotebookSecond
-   dockerfile: NotebookSecond\Dockerfile
+   dockerfile: ./NotebookSecond/Dockerfile
   image: notebook-webui-image
   env_file: notebook.env
   restart: unless-stopped
