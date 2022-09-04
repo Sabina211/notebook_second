@@ -12,33 +12,33 @@ namespace NotebookSecond.Data
     public class ApiWorkerData : IWorkerData
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        private readonly HttpClient httpClient;
-        private string url;
-        private readonly ILogger<ApiWorkerData> logger;
+        private readonly HttpClient _httpClient;
+        private readonly string _url;
+        private readonly ILogger<ApiWorkerData> _logger;
 
         public ApiWorkerData(ILogger<ApiWorkerData> logger, IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
-            this.logger = logger;
-            httpClient = _httpClientFactory.CreateClient("httpClient");
-            url = httpClient.BaseAddress + "Workers";
+            _logger = logger;
+            _httpClient = _httpClientFactory.CreateClient("httpClient");
+            _url = _httpClient.BaseAddress + "Workers";
         }
 
         public IEnumerable<Worker> GetWorkers()
         {
             try
             {
-                string json = httpClient.GetStringAsync(url).Result;
+                string json = _httpClient.GetStringAsync(_url).Result;
                 return JsonConvert.DeserializeObject<IEnumerable<Worker>>(json);
             }
             catch (AggregateException ex)
             {
-                logger.LogError(ex, $"Нужно запустить приложение с апи\n {ex.Message}");
+                _logger.LogError(ex, $"Нужно запустить приложение с апи\n {ex.Message}");
                 throw;
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, ex.Message);
+                _logger.LogError(ex, ex.Message);
                 throw;
             }    
         }
@@ -46,7 +46,7 @@ namespace NotebookSecond.Data
         public Worker AddWorker(Worker worker)
         {
             var content = new StringContent(JsonConvert.SerializeObject(worker), Encoding.UTF8, "application/json");
-            var result = httpClient.PostAsync(url, content).Result;
+            var result = _httpClient.PostAsync(_url, content).Result;
             bool success = CheckResult(result);
             if (success)
             {
@@ -57,7 +57,7 @@ namespace NotebookSecond.Data
                 }
                 catch (Exception ex)
                 {
-                    logger.LogError(ex, "При добавлении сотрудника не удалось преобразовать ответ в Worker");
+                    _logger.LogError(ex, "При добавлении сотрудника не удалось преобразовать ответ в Worker");
                     throw;
                 }
             }
@@ -67,8 +67,8 @@ namespace NotebookSecond.Data
         [Authorize]
         public Worker EditWorker(Worker worker)
         {
-            var result = httpClient.PutAsync(
-                requestUri: url,
+            var result = _httpClient.PutAsync(
+                requestUri: _url,
                 content: new StringContent(JsonConvert.SerializeObject(worker), Encoding.UTF8,
                 mediaType: "application/json")
                 ).Result;
@@ -82,7 +82,7 @@ namespace NotebookSecond.Data
                 }
                 catch (Exception ex)
                 {
-                    logger.LogError(ex, "При изменении сотрудника не удалось преобразовать ответ в Worker");
+                    _logger.LogError(ex, "При изменении сотрудника не удалось преобразовать ответ в Worker");
                     throw;
                 }
             }
@@ -92,8 +92,8 @@ namespace NotebookSecond.Data
         [Authorize]
         public bool RemoveWorker(Worker worker)
         {
-            var uri = new Uri(url + $"/{worker.Id}") ;
-            var result = httpClient.DeleteAsync(uri).Result;
+            var uri = new Uri(_url + $"/{worker.Id}") ;
+            var result = _httpClient.DeleteAsync(uri).Result;
             return CheckResult(result); ;
         }
 
@@ -101,8 +101,8 @@ namespace NotebookSecond.Data
         {
             if (!(result.StatusCode.ToString() == "OK"))
             {
-                logger.LogError($"Ошибка при обращении к апи result.StatusCode = {result.StatusCode}");
-                logger.LogError($"Ошибка при обращении к апи result.StatusCode = {result.Content.ReadAsStringAsync().Result}");
+                _logger.LogError($"Ошибка при обращении к апи result.StatusCode = {result.StatusCode}");
+                _logger.LogError($"Ошибка при обращении к апи result.StatusCode = {result.Content.ReadAsStringAsync().Result}");
                 return false;
             }
             else return true;

@@ -8,41 +8,41 @@ namespace ApiNotebook.Data
 {
     public class WorkerData
     {
-        private readonly DataContext Context;
+        private readonly DataContext _context;
 
-        public WorkerData(DataContext Context)
+        public WorkerData(DataContext context)
         {
-            this.Context = Context;
+            _context = context;
         }
 
         public string AddWorker(Worker worker)
         {
-            var id = Context.Workers.Add(worker).Entity.Id.ToString();
-            Context.SaveChanges();
+            var id = _context.Workers.Add(worker).Entity.Id.ToString();
+            _context.SaveChanges();
             return id;
         }
 
         public void EditWorker(Worker worker)
         {
-            var curentWorker = Context.Workers.ToList().Find(e => e.Id == worker.Id);
+            var curentWorker = _context.Workers.ToList().Find(e => e.Id == worker.Id);
             curentWorker.Name = worker.Name;
             curentWorker.Surname = worker.Surname;
             curentWorker.Patronymic = worker.Patronymic;
             curentWorker.Address = worker.Address;
             curentWorker.PhoneNumber = worker.PhoneNumber;
             curentWorker.Description = worker.Description;
-            Context.SaveChanges();
+            _context.SaveChanges();
         }
 
         public void RemoveWorker(Worker worker)
         {
-            Context.Workers.Remove(worker);
-            Context.SaveChanges();
+            _context.Workers.Remove(worker);
+            _context.SaveChanges();
         }
 
         public IEnumerable<Worker> GetWorkers()
         {
-            return this.Context.Workers;
+            return this._context.Workers;
         }
     }
 }

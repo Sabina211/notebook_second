@@ -13,20 +13,19 @@ namespace NotebookSecond.Controllers
 {
     public class WorkerController : Controller
     {
-        private readonly IWorkerData workerData;
-        private readonly ILogger<WorkerController> logger;
-        private HttpClient httpClient { get; set; }
+        private readonly IWorkerData _workerData;
+        private readonly ILogger<WorkerController> _logger;
 
         public WorkerController(IWorkerData WorkerData, ILogger<WorkerController> logger)
         {
-            this.workerData = WorkerData;
-            this.logger = logger;
+            _workerData = WorkerData;
+            _logger = logger;
         }
 
         public IActionResult Index(string? error)
         {
-            ViewBag.Workers = workerData.GetWorkers();
-            ViewBag.Count = workerData.GetWorkers().Count();
+            ViewBag.Workers = _workerData.GetWorkers();
+            ViewBag.Count = _workerData.GetWorkers().Count();
             ViewData["Error"] = error;
             return View();
         }
@@ -38,7 +37,7 @@ namespace NotebookSecond.Controllers
 
         public IActionResult View(Guid? Id)
         {
-            List<Worker> workers = workerData.GetWorkers().ToList();
+            List<Worker> workers = _workerData.GetWorkers().ToList();
             var worker = workers.Find(e => e.Id == Id);
             return View(worker);
         }
@@ -56,7 +55,7 @@ namespace NotebookSecond.Controllers
         {
             if (!ModelState.IsValid)
                 return View(worker);
-            Worker newWorker = workerData.AddWorker(new Worker()
+            Worker newWorker = _workerData.AddWorker(new Worker()
             {
                 Name = worker.Name,
                 Surname = worker.Surname,
@@ -68,7 +67,7 @@ namespace NotebookSecond.Controllers
             if (newWorker.Id == Guid.Empty)
                 return Redirect("/Worker/Index?error= Error. Employee has not been added");
 
-            logger.LogInformation("Создан сотрудник {0} c id={1}, редактор {2}", newWorker.Name, newWorker.Id, User.Identity.Name);
+            _logger.LogInformation("Создан сотрудник {0} c id={1}, редактор {2}", newWorker.Name, newWorker.Id, User.Identity.Name);
             return Redirect("/Worker/Index");
         }
 
@@ -76,10 +75,10 @@ namespace NotebookSecond.Controllers
         [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "admin")]
         public IActionResult EditWorker(Worker worker)
         {
-            Worker editedWorker = workerData.EditWorker(worker);
+            Worker editedWorker = _workerData.EditWorker(worker);
             if (editedWorker.Id == Guid.Empty)
                 return Redirect("/Worker/Index?error= Error. Employee has not been edited");
-            logger.LogInformation("Отредактирован сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
+            _logger.LogInformation("Отредактирован сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
             return Redirect("/Worker/Index");
         }
 
@@ -87,12 +86,12 @@ namespace NotebookSecond.Controllers
         [Authorize(AuthenticationSchemes = "Cookies", Roles = "admin")]
         public IActionResult DeleteWorkerFromViewDB(Worker worker)
         {
-            var curentWorker = workerData.GetWorkers().ToList().Find(e => e.Id == worker.Id);
-            bool success = workerData.RemoveWorker(curentWorker);
+            var curentWorker = _workerData.GetWorkers().ToList().Find(e => e.Id == worker.Id);
+            bool success = _workerData.RemoveWorker(curentWorker);
             if (!success)
                 return Redirect("/Worker/Index?error= Error. Employee has not been deleted");
 
-            logger.LogInformation("Сотрудник {0} c id={1} был удален, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
+            _logger.LogInformation("Сотрудник {0} c id={1} был удален, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
             return Redirect("/Worker/Index");
         }
     }

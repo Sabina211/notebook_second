@@ -11,7 +11,7 @@ namespace WpfNotebook.ViewModels
 {
     class EditWorkerVM : Bindable
     {
-        private HttpClient httpClient { get; set; }
+        private readonly HttpClient _httpClient;
         private Worker editWorker;
         public Worker EditWorker
         {
@@ -64,7 +64,7 @@ namespace WpfNotebook.ViewModels
                 Address = currentWorker.Address,
                 Description = currentWorker.Description
             };
-            this.httpClient = httpClient;
+            _httpClient = httpClient;
             SaveCommand = new RelayCommand(obj =>
             {
                 if (EditWorker.Name == null || EditWorker.Name == "")

@@ -1,6 +1,5 @@
 ﻿using ApiNotebook.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -16,15 +15,15 @@ namespace ApiNotebook.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly UserManager<User> userManager;
-        private readonly RoleManager<IdentityRole> roleManager;
-        private readonly ILogger<UsersController> logger;
+        private readonly UserManager<User> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ILogger<UsersController> _logger;
 
         public UsersController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, ILogger<UsersController> logger)
         {
-            this.userManager = userManager;
-            this.roleManager = roleManager;
-            this.logger = logger;
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _logger = logger;
         }
 
         [Route("~/api/[controller]/addUser")]
@@ -32,7 +31,7 @@ namespace ApiNotebook.Controllers
         [Authorize(Roles = "admin")]
         public async Task<ActionResult<UserWithRolesAdd>> AddUser(UserWithRolesAdd userWithRoles)
         {
-            userWithRoles.AllRoles = roleManager.Roles.ToList();
+            userWithRoles.AllRoles = _roleManager.Roles.ToList();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
@@ -41,14 +40,14 @@ namespace ApiNotebook.Controllers
                 Email = userWithRoles.Email,
                 UserName = userWithRoles.UserName
             };
-            var result = await userManager.CreateAsync(user, userWithRoles.Password);
+            var result = await _userManager.CreateAsync(user, userWithRoles.Password);
 
             //добавление роли пользователя
-            await userManager.AddToRolesAsync(user, userWithRoles.UserRoles);
+            await _userManager.AddToRolesAsync(user, userWithRoles.UserRoles);
 
             if (result.Succeeded)
             {
-                logger.LogInformation("\nДобавлен новый пользователь с логином {0}, редактор {1}", userWithRoles.UserName, User.Identity.Name);
+                _logger.LogInformation("\nДобавлен новый пользователь с логином {0}, редактор {1}", userWithRoles.UserName, User.Identity.Name);
                 return Ok(userWithRoles);
             }
             else
@@ -65,15 +64,15 @@ namespace ApiNotebook.Controllers
         [Authorize(Roles = "admin")]
         public async Task<ActionResult<UserWithRolesEdit>> GetUser(Guid id)
         {
-            User user = await userManager.FindByIdAsync(id.ToString());
+            User user = await _userManager.FindByIdAsync(id.ToString());
             if (user == null) return NotFound("Пользователь с таким Id не найден");
             UserWithRolesEdit userWithRolesEdit = new UserWithRolesEdit
             {
                 Id = id,
                 UserName = user.UserName,
                 Email = user.Email,
-                UserRoles = await userManager.GetRolesAsync(user),
-                AllRoles = roleManager.Roles.ToList()
+                UserRoles = await _userManager.GetRolesAsync(user),
+                AllRoles = _roleManager.Roles.ToList()
             };
             return Ok(userWithRolesEdit);
         }
@@ -84,15 +83,15 @@ namespace ApiNotebook.Controllers
         public async Task<ActionResult<UserWithRolesEdit>> GetCurrentUser()
         {
             string id = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            User user = await userManager.FindByIdAsync(id.ToString());
+            User user = await _userManager.FindByIdAsync(id.ToString());
             if (user == null) return NotFound("Пользователь с таким Id не найден");
             UserWithRolesEdit userWithRolesEdit = new UserWithRolesEdit
             {
                 Id = Guid.Parse(user.Id),
                 UserName = user.UserName,
                 Email = user.Email,
-                UserRoles = await userManager.GetRolesAsync(user),
-                AllRoles = roleManager.Roles.ToList()
+                UserRoles = await _userManager.GetRolesAsync(user),
+                AllRoles = _roleManager.Roles.ToList()
             };
             return Ok(userWithRolesEdit);
         }
@@ -105,7 +104,7 @@ namespace ApiNotebook.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            User user = await userManager.FindByIdAsync(model.Id);
+            User user = await _userManager.FindByIdAsync(model.Id);
             if (User.IsInRole("admin") || model.Id == User.FindFirstValue(ClaimTypes.NameIdentifier))
             {
                 if (user == null)
@@ -113,7 +112,7 @@ namespace ApiNotebook.Controllers
                     return NotFound("Пользователь с таким Id не найден");
                 }
                 user.Email = model.Email;
-                var result = await userManager.UpdateAsync(user);
+                var result = await _userManager.UpdateAsync(user);
                 return Ok(model);
             }
             else
@@ -131,26 +130,26 @@ namespace ApiNotebook.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            User user = await userManager.FindByIdAsync(model.Id.ToString());
-            model.AllRoles = roleManager.Roles.ToList();
+            User user = await _userManager.FindByIdAsync(model.Id.ToString());
+            model.AllRoles = _roleManager.Roles.ToList();
 
             if (user == null) return NotFound("Пользователь с таким Id не найден");
 
             user.Email = model.Email;
             // получем список ролей пользователя
-            var oldUserRoles = await userManager.GetRolesAsync(user);
+            var oldUserRoles = await _userManager.GetRolesAsync(user);
             // получаем список ролей, которые были добавлены
             var addedRoles = model.UserRoles.Except(oldUserRoles);
             // получаем роли, которые были удалены
             var removedRoles = oldUserRoles.Except(model.UserRoles);
 
-            var result1 = await userManager.AddToRolesAsync(user, addedRoles);
-            var result2 = await userManager.RemoveFromRolesAsync(user, removedRoles);
-            var result = await userManager.UpdateAsync(user);
+            var result1 = await _userManager.AddToRolesAsync(user, addedRoles);
+            var result2 = await _userManager.RemoveFromRolesAsync(user, removedRoles);
+            var result = await _userManager.UpdateAsync(user);
 
             if (result.Succeeded & result1.Succeeded & result2.Succeeded)
             {
-                logger.LogInformation("\nОтредактирован пользователь с логином {0}, редактор {1}", user.UserName, User.Identity.Name);
+                _logger.LogInformation("\nОтредактирован пользователь с логином {0}, редактор {1}", user.UserName, User.Identity.Name);
                 return Ok(model);
             }
             else
@@ -175,11 +174,11 @@ namespace ApiNotebook.Controllers
         [Authorize(Roles = "admin")]
         public async Task<ActionResult<string>> DeleteUser(string id)
         {
-            User user = await userManager.FindByIdAsync(id);
+            User user = await _userManager.FindByIdAsync(id);
             if (user != null)
             {
-                await userManager.DeleteAsync(user);
-                logger.LogInformation("\nУдален пользователь с логином {0}, редактор {1}", user.UserName, User.Identity.Name);
+                await _userManager.DeleteAsync(user);
+                _logger.LogInformation("\nУдален пользователь с логином {0}, редактор {1}", user.UserName, User.Identity.Name);
                 return Ok("Пользователь удален");
             }
             return NotFound("Пользователь с таким Id не найден");
@@ -191,14 +190,14 @@ namespace ApiNotebook.Controllers
         public async Task<ActionResult<IEnumerable<UserWithRolesEdit>>> UsersList()
         {
             List<UserWithRolesEdit> users = new List<UserWithRolesEdit>();
-            foreach (var item in userManager.Users.ToList())
+            foreach (var item in _userManager.Users.ToList())
             {
                 UserWithRolesEdit user = new UserWithRolesEdit();
                 user.Id = Guid.Parse(item.Id);
                 user.UserName = item.UserName;
                 user.Email = item.Email;
-                user.UserRoles = await userManager.GetRolesAsync(item);
-                user.AllRoles = roleManager.Roles.ToList();
+                user.UserRoles = await _userManager.GetRolesAsync(item);
+                user.AllRoles = _roleManager.Roles.ToList();
                 users.Add(user);
             }
             return users;
@@ -214,13 +213,13 @@ namespace ApiNotebook.Controllers
             if (!(User.IsInRole("admin") || model.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)))
                 return Forbid();
 
-            User user = await userManager.FindByIdAsync(model.Id);
+            User user = await _userManager.FindByIdAsync(model.Id);
             if (user != null)
             {
-                IdentityResult result = await userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+                IdentityResult result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
                 if (result.Succeeded)
                 {
-                    logger.LogInformation("\nИзменен пароль для пользователя с логином {0}, редактор {1}", user.UserName, User.Identity.Name);
+                    _logger.LogInformation("\nИзменен пароль для пользователя с логином {0}, редактор {1}", user.UserName, User.Identity.Name);
                     return Ok("Пароель изменен");
                 }
                 else

@@ -15,7 +15,7 @@ namespace NotebookSecond
             var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
             try
             {
-                logger.Info("init main2");
+                logger.Info("Запуск веб приложения");
                 var init = CreateHostBuilder(args).Build();
                 init.Run();
             }

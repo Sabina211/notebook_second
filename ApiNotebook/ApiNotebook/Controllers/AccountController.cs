@@ -1,12 +1,8 @@
 ﻿using ApiNotebook.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace ApiNotebook.Controllers
@@ -14,13 +10,13 @@ namespace ApiNotebook.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly UserManager<User> userManager;
-        private readonly SignInManager<User> signInManager;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
 
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
-            this.userManager = userManager;
-            this.signInManager = signInManager;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         [Route("api/[controller]/register")]
@@ -40,16 +36,16 @@ namespace ApiNotebook.Controllers
                 UserName = registerUser.Login
             };
 
-            var result = await userManager.CreateAsync(user, registerUser.Password);
+            var result = await _userManager.CreateAsync(user, registerUser.Password);
             if (result.Succeeded)
             {
-                await signInManager.SignInAsync(user, false);
+                await _signInManager.SignInAsync(user, false);
                 UserWithRolesEdit userWithRolesEdit = new UserWithRolesEdit
                 {
                     Id = Guid.Parse(user.Id),
                     UserName = user.UserName,
                     Email = user.Email,
-                    UserRoles = await userManager.GetRolesAsync(user),
+                    UserRoles = await _userManager.GetRolesAsync(user),
                 };
                 return Ok(userWithRolesEdit);
             }
@@ -72,17 +68,17 @@ namespace ApiNotebook.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = await signInManager.PasswordSignInAsync(loginUser.Login, loginUser.Password, false, false);
+            var result = await _signInManager.PasswordSignInAsync(loginUser.Login, loginUser.Password, false, false);
             if (result.Succeeded)
             {
-                User user = await userManager.FindByNameAsync(loginUser.Login);
+                User user = await _userManager.FindByNameAsync(loginUser.Login);
                 if (user == null) return NotFound("Пользователь с таким Id не найден");
                 UserWithRolesEdit userWithRolesEdit = new UserWithRolesEdit
                 {
                     Id = Guid.Parse(user.Id),
                     UserName = user.UserName,
                     Email = user.Email,
-                    UserRoles = await userManager.GetRolesAsync(user),
+                    UserRoles = await _userManager.GetRolesAsync(user),
                 };
                 return Ok(userWithRolesEdit);
             }
@@ -98,7 +94,7 @@ namespace ApiNotebook.Controllers
         [Route("api/[controller]/logout")]
         public async Task<IActionResult> Logout()
         {
-            await signInManager.SignOutAsync();
+            await _signInManager.SignOutAsync();
             return Ok();
         }
     }

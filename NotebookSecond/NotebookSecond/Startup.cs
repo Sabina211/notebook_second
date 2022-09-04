@@ -12,12 +12,11 @@ namespace NotebookSecond
 {
     public class Startup
     {
+        public readonly IConfiguration Configuration;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -44,6 +43,7 @@ namespace NotebookSecond
                     });
             services.AddAuthorization();
             services.AddHttpClient("httpClient", c => c.BaseAddress = new System.Uri("http://notebook-api/api/")).SetHandlerLifetime(TimeSpan.FromMinutes(30)) ;
+            //services.AddHttpClient("httpClient", c => c.BaseAddress = new System.Uri("https://localhost:5005/api/")).SetHandlerLifetime(TimeSpan.FromMinutes(30));
             services.AddTransient<IWorkerData, ApiWorkerData>();
 
             services.AddMvc(options => options.EnableEndpointRouting = false) ;

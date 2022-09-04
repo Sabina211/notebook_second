@@ -14,25 +14,25 @@ namespace ApiNotebook.Controllers
     [ApiController]
     public class WorkersController : ControllerBase
     {
-        DataContext db;
-        private readonly ILogger<WorkersController> logger;
+        private readonly DataContext _db;
+        private readonly ILogger<WorkersController> _logger;
         public WorkersController(DataContext context, ILogger<WorkersController> logger)
         {
-            db = context;
-            this.logger = logger;
+            _db = context;
+            _logger = logger;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Worker>>> Get()
         {
-            return await db.Workers.ToListAsync();
+            return await _db.Workers.ToListAsync();
         }
 
         // GET api/Workers/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Worker>> Get(string id)
         {
-            Worker worker = await db.Workers.FirstOrDefaultAsync(x => x.Id.ToString() == id);
+            Worker worker = await _db.Workers.FirstOrDefaultAsync(x => x.Id.ToString() == id);
             if (worker == null)
                 return NotFound();
             return new ObjectResult(worker);
@@ -51,9 +51,9 @@ namespace ApiNotebook.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            db.Workers.Add(worker);
-            await db.SaveChangesAsync();
-            logger.LogInformation("Создан сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
+            _db.Workers.Add(worker);
+            await _db.SaveChangesAsync();
+            _logger.LogInformation("Создан сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
             return worker;
         }
 
@@ -66,14 +66,14 @@ namespace ApiNotebook.Controllers
             {
                 return BadRequest();
             }
-            if (!db.Workers.Any(x => x.Id == worker.Id))
+            if (!_db.Workers.Any(x => x.Id == worker.Id))
             {
                 return NotFound();
             }
 
-            db.Update(worker);
-            await db.SaveChangesAsync();
-            logger.LogInformation("Отредактирован сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
+            _db.Update(worker);
+            await _db.SaveChangesAsync();
+            _logger.LogInformation("Отредактирован сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
             return Ok(worker);
         }
 
@@ -82,14 +82,14 @@ namespace ApiNotebook.Controllers
         [Authorize(Roles = "admin")]
         public async Task<ActionResult<Worker>> Delete(string id)
         {
-            Worker worker = db.Workers.FirstOrDefault(x => x.Id.ToString() == id);
+            Worker worker = _db.Workers.FirstOrDefault(x => x.Id.ToString() == id);
             if (worker == null)
             {
                 return NotFound(new { message = "Сотрудник с таким Id не найден" });
             }
-            db.Workers.Remove(worker);
-            await db.SaveChangesAsync();
-            logger.LogInformation("Удален сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
+            _db.Workers.Remove(worker);
+            await _db.SaveChangesAsync();
+            _logger.LogInformation("Удален сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
             return Ok(worker);
         }
     }

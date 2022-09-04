@@ -16,15 +16,15 @@ namespace NotebookSecond.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly ILogger<AccountController> logger;
+        private readonly ILogger<AccountController> _logger;
         private readonly IHttpClientFactory _httpClientFactory;
-        private readonly HttpClient httpClient;
+        private readonly HttpClient _httpClient;
 
         public AccountController(ILogger<AccountController> logger, IHttpClientFactory httpClientFactory)
         {
-            this.logger = logger;
+            _logger = logger;
             _httpClientFactory = httpClientFactory;
-            httpClient = _httpClientFactory.CreateClient("httpClient");
+            _httpClient = _httpClientFactory.CreateClient("httpClient");
         }
 
         [HttpGet]
@@ -44,14 +44,14 @@ namespace NotebookSecond.Controllers
         {
             if (ModelState.IsValid)
             {
-                string url = httpClient.BaseAddress + "Account/register";
+                string url = _httpClient.BaseAddress + "Account/register";
                 var content = new StringContent(JsonConvert.SerializeObject(registerUser), Encoding.UTF8, "application/json");
-                var result = httpClient.PostAsync(url, content).Result;
+                var result = _httpClient.PostAsync(url, content).Result;
                 bool success = CheckResult(result);
                 if (success)
                 {
                     await LoginInSystem(registerUser.Login, result);
-                    logger.LogInformation("Зарегистрировался новый пользователь с логином {0}", registerUser.Login);
+                    _logger.LogInformation("Зарегистрировался новый пользователь с логином {0}", registerUser.Login);
                     return RedirectToAction("index", "Worker");
                 }
                 else
@@ -68,9 +68,9 @@ namespace NotebookSecond.Controllers
         {
             if (ModelState.IsValid)
             {
-                string url = httpClient.BaseAddress + "Account/login";
+                string url = _httpClient.BaseAddress + "Account/login";
                 var content = new StringContent(JsonConvert.SerializeObject(loginUser), Encoding.UTF8, "application/json");
-                var result = httpClient.PostAsync(url, content).Result;
+                var result = _httpClient.PostAsync(url, content).Result;
                 bool success = CheckResult(result);
              
                 if (success)
@@ -113,7 +113,7 @@ namespace NotebookSecond.Controllers
                 CookieAuthenticationDefaults.AuthenticationScheme,
                 new ClaimsPrincipal(identity), prop);
 
-            logger.LogInformation($"Авторизация прошла успешно.\n " +
+            _logger.LogInformation($"Авторизация прошла успешно.\n " +
                 $"Сообщение от api: {result.Content.ReadAsStringAsync().Result}\n " +
                 $"User.Identity.IsAuthenticated = {User.Identity.IsAuthenticated}\n" +
                 $"HttpContext.User.Identity.Name = {HttpContext.User.Identity.Name}\n" +
@@ -124,8 +124,8 @@ namespace NotebookSecond.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
-            string url = httpClient.BaseAddress + "Account/logout";
-            var result = httpClient.PostAsync(url, null).Result;
+            string url = _httpClient.BaseAddress + "Account/logout";
+            var result = _httpClient.PostAsync(url, null).Result;
             await HttpContext.SignOutAsync(
                     CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("index", "Worker");
@@ -135,7 +135,7 @@ namespace NotebookSecond.Controllers
         {
             if (!(result.StatusCode.ToString() == "OK"))
             {
-                logger.LogError($"Ошибка при обращении к апи result.StatusCode = {result.StatusCode}\n {result.Content.ReadAsStringAsync().Result}");
+                _logger.LogError($"Ошибка при обращении к апи result.StatusCode = {result.StatusCode}\n {result.Content.ReadAsStringAsync().Result}");
                 return false;
             }
             else return true;

@@ -20,7 +20,7 @@ namespace ApiNotebook
             try
             {
 
-                logger.Info("init main2");
+                logger.Info("Запуск апи");
                 var init = CreateHostBuilder(args).Build();
                 using (var scope = init.Services.CreateScope())
                 {
@@ -46,7 +46,6 @@ namespace ApiNotebook
             {
                 //NLog: catch setup errors
                 logger.Error(exception, "Stopped program because of exception");
-                throw;
             }
             finally
             {
