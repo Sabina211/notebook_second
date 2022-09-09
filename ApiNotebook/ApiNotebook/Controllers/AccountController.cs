@@ -1,9 +1,13 @@
 ﻿using ApiNotebook.Models;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace ApiNotebook.Controllers
@@ -75,14 +79,31 @@ namespace ApiNotebook.Controllers
             if (result.Succeeded)
             {
                 User user = await _userManager.FindByNameAsync(loginUser.Login);
-                if (user == null) return NotFound("Пользователь с таким Id не найден");
-                /*UserWithRolesEdit userWithRolesEdit = new UserWithRolesEdit
+                ////
+                UserWithRolesEdit userWithRoles = _mapper.Map<UserWithRolesEdit>(user);
+                userWithRoles.UserRoles =  await _userManager.GetRolesAsync(user);
+
+                var claims = (userWithRoles.UserRoles.Count != 0) ?
+                  new List<Claim> { new Claim(ClaimTypes.Name, userWithRoles.UserName), new Claim(ClaimTypes.Role, userWithRoles.UserRoles[0]) } :
+                  new List<Claim> { new Claim(ClaimTypes.Name, userWithRoles.UserName) };
+                var roleClaim = (userWithRoles.UserRoles.Count != 0) ? new Claim(ClaimTypes.Role, userWithRoles.UserRoles[0].ToString()) : null;
+                var nameClame = new Claim(ClaimTypes.Name, userWithRoles.UserName);
+                var identity = new ClaimsIdentity(new[] { roleClaim, nameClame }, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
+                HttpContext.User = principal;
+                var prop = new AuthenticationProperties
                 {
-                    Id = Guid.Parse(user.Id),
-                    UserName = user.UserName,
-                    Email = user.Email,
-                    UserRoles = await _userManager.GetRolesAsync(user),
-                };*/
+                    ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(60),
+                    IssuedUtc = DateTimeOffset.UtcNow.AddMinutes(60)
+                };
+                await HttpContext.SignInAsync(
+                    CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(identity), prop);
+
+                Console.WriteLine(User.Identity.Name);
+                //
+
+                if (user == null) return NotFound("Пользователь с таким Id не найден");
                 UserWithRolesEdit userWithRolesEdit = _mapper.Map<UserWithRolesEdit>(user);
                 userWithRolesEdit.UserRoles = await _userManager.GetRolesAsync(user);
                 return Ok(userWithRolesEdit);

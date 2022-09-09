@@ -1,0 +1,247 @@
+2022-09-09 09:47:07.8579 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 10:46:35.9699 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 10:47:40.9754 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.EditUser (ApiNotebook) возникло исключение: 
+ Role STRING does not exist. 
+    at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRolesAsync(TUser user, IEnumerable`1 roles)
+   at ApiNotebook.BusinessLogic.UserService.EditUser(UserWithRolesEdit model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 62
+   at ApiNotebook.Controllers.UsersController.EditUser(UserWithRolesEdit model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 104
+   at lambda_method168(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-09 11:18:37.3078 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 11:29:28.5794 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 11:32:27.2269 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.EditUser (ApiNotebook) возникло исключение: 
+ Object reference not set to an instance of an object. 
+    at ApiNotebook.BusinessLogic.UserService.EditUser(UserWithRolesEdit model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 87
+   at ApiNotebook.Controllers.UsersController.EditUser(UserWithRolesEdit model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 76
+   at lambda_method229(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-09 11:33:59.0842 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 11:49:19.9059 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 11:50:51.8901 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.GetCurrentUser (ApiNotebook) возникло исключение: 
+ Value cannot be null. (Parameter 'principal') 
+    at System.Security.Claims.PrincipalExtensions.FindFirstValue(ClaimsPrincipal principal, String claimType)
+   at ApiNotebook.BusinessLogic.UserService.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 104
+   at ApiNotebook.Controllers.UsersController.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 52
+   at lambda_method223(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-09 11:55:50.8101 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 11:56:28.7787 | ApiNotebook.BusinessLogic.UserService.EditUser | INFO | 
+Отредактирован пользователь с логином Karl, редактор test 
+
+2022-09-09 12:29:02.2926 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 12:30:15.0108 | ApiNotebook.BusinessLogic.UserService.EditUser | INFO | 
+Отредактирован пользователь с логином admin, редактор test 
+
+2022-09-09 12:30:48.7160 | ApiNotebook.BusinessLogic.UserService.EditUser | INFO | 
+Отредактирован пользователь с логином admin, редактор test 
+
+2022-09-09 12:32:21.6671 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 12:34:38.0315 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.GetCurrentUser (ApiNotebook) возникло исключение: 
+ Value cannot be null. (Parameter 'principal') 
+    at System.Security.Claims.PrincipalExtensions.FindFirstValue(ClaimsPrincipal principal, String claimType)
+   at ApiNotebook.BusinessLogic.UserService.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 104
+   at ApiNotebook.Controllers.UsersController.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 52
+   at lambda_method166(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-09 12:35:07.9793 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.GetCurrentUser (ApiNotebook) возникло исключение: 
+ Value cannot be null. (Parameter 'principal') 
+    at System.Security.Claims.PrincipalExtensions.FindFirstValue(ClaimsPrincipal principal, String claimType)
+   at ApiNotebook.BusinessLogic.UserService.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 104
+   at ApiNotebook.Controllers.UsersController.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 52
+   at lambda_method166(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-09 12:36:28.0119 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 12:37:14.1337 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.GetCurrentUser (ApiNotebook) возникло исключение: 
+ Value cannot be null. (Parameter 'principal') 
+    at System.Security.Claims.PrincipalExtensions.FindFirstValue(ClaimsPrincipal principal, String claimType)
+   at ApiNotebook.BusinessLogic.UserService.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 104
+   at ApiNotebook.Controllers.UsersController.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 52
+   at lambda_method166(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-09 12:42:33.3129 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 12:43:00.6319 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.GetCurrentUser (ApiNotebook) возникло исключение: 
+ Value cannot be null. (Parameter 'principal') 
+    at System.Security.Claims.PrincipalExtensions.FindFirstValue(ClaimsPrincipal principal, String claimType)
+   at ApiNotebook.BusinessLogic.UserService.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 104
+   at ApiNotebook.Controllers.UsersController.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 52
+   at lambda_method166(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-09 12:44:42.0907 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 12:55:35.8782 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 12:59:24.8414 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 13:00:06.2287 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.GetCurrentUser (ApiNotebook) возникло исключение: 
+ Value cannot be null. (Parameter 'principal') 
+    at System.Security.Claims.PrincipalExtensions.FindFirstValue(ClaimsPrincipal principal, String claimType)
+   at ApiNotebook.BusinessLogic.UserService.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 105
+   at ApiNotebook.Controllers.UsersController.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 52
+   at lambda_method166(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-09 13:02:49.7525 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 13:07:27.9436 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.GetCurrentUser (ApiNotebook) возникло исключение: 
+ Value cannot be null. (Parameter 'principal') 
+    at System.Security.Claims.PrincipalExtensions.FindFirstValue(ClaimsPrincipal principal, String claimType)
+   at ApiNotebook.BusinessLogic.UserService.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 105
+   at ApiNotebook.Controllers.UsersController.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 53
+   at lambda_method166(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-09 13:09:45.6928 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 13:10:48.7960 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 13:27:21.4549 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 13:28:01.9638 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 13:29:05.7316 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 13:29:40.0605 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.GetCurrentUser (ApiNotebook) возникло исключение: 
+ Value cannot be null. (Parameter 'principal') 
+    at System.Security.Claims.PrincipalExtensions.FindFirstValue(ClaimsPrincipal principal, String claimType)
+   at ApiNotebook.BusinessLogic.UserService.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 107
+   at ApiNotebook.Controllers.UsersController.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 53
+   at lambda_method166(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-09 13:30:50.5781 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 13:36:49.9066 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 13:38:34.6518 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.GetCurrentUser (ApiNotebook) возникло исключение: 
+ Value cannot be null. (Parameter 'principal') 
+    at System.Security.Claims.PrincipalExtensions.FindFirstValue(ClaimsPrincipal principal, String claimType)
+   at ApiNotebook.BusinessLogic.UserService.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 106
+   at ApiNotebook.Controllers.UsersController.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 53
+   at lambda_method166(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-09 13:43:57.5425 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-09 13:47:55.6243 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.GetCurrentUser (ApiNotebook) возникло исключение: 
+ Value cannot be null. (Parameter 'principal') 
+    at System.Security.Claims.PrincipalExtensions.FindFirstValue(ClaimsPrincipal principal, String claimType)
+   at ApiNotebook.BusinessLogic.UserService.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 106
+   at ApiNotebook.Controllers.UsersController.GetCurrentUser() in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 53
+   at lambda_method166(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-09 14:01:22.7552 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
