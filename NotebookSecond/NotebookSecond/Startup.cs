@@ -42,8 +42,8 @@ namespace NotebookSecond
                         };
                     });
             services.AddAuthorization();
-            services.AddHttpClient("httpClient", c => c.BaseAddress = new System.Uri("http://notebook-api/api/")).SetHandlerLifetime(TimeSpan.FromMinutes(30)) ;
-            //services.AddHttpClient("httpClient", c => c.BaseAddress = new System.Uri("https://localhost:5005/api/")).SetHandlerLifetime(TimeSpan.FromMinutes(30));
+            //services.AddHttpClient("httpClient", c => c.BaseAddress = new System.Uri("http://notebook-api/api/")).SetHandlerLifetime(TimeSpan.FromMinutes(30)) ;
+            services.AddHttpClient("httpClient", c => c.BaseAddress = new System.Uri(Configuration["HttpClient:BaseUrl"])).SetHandlerLifetime(TimeSpan.FromMinutes(30));
             services.AddTransient<IWorkerData, ApiWorkerData>();
 
             services.AddMvc(options => options.EnableEndpointRouting = false) ;

@@ -19,3 +19,7 @@
 
 2022-09-04 16:13:00.3339 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник Tom9034 c id=5b1eb051-7217-4555-1b4b-08da7535fc7b, редактор admin 
 
+2022-09-04 22:06:45.0599 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-04 22:08:40.9880 | ApiNotebook.Program.Main | INFO | Запуск апи 
+

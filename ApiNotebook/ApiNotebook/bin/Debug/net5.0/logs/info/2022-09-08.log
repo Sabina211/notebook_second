@@ -1,0 +1,112 @@
+2022-09-08 13:32:22.7799 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-08 13:40:40.8085 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-08 14:04:24.4962 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-08 14:12:15.2364 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-08 14:17:44.9662 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-08 14:48:43.0898 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-08 14:49:32.9495 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Role STRING does not exist. 
+    at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRolesAsync(TUser user, IEnumerable`1 roles)
+   at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 35
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 45
+   at lambda_method168(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted) 
+
+2022-09-08 14:52:14.6058 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-08 14:53:02.1687 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Role STRING does not exist. 
+    at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRolesAsync(TUser user, IEnumerable`1 roles)
+   at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 35
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 45
+   at lambda_method168(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted) 
+
+2022-09-08 14:59:11.0118 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-08 14:59:38.4924 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Role STRING does not exist. 
+    at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRolesAsync(TUser user, IEnumerable`1 roles)
+   at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 35
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 41
+   at lambda_method168(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted) 
+
+2022-09-08 15:00:01.9966 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Exception of type 'System.Exception' was thrown. 
+    at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 37
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 41
+   at lambda_method168(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted) 
+
+2022-09-08 15:01:47.6429 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Exception of type 'System.Exception' was thrown. 
+    at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 37
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 41
+   at lambda_method168(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted) 
+
+2022-09-08 15:02:13.8177 | ApiNotebook.BusinessLogic.UserService.Create | INFO | 
+Добавлен новый пользователь с логином moderatorTest, редактор admintest 
+
+2022-09-08 15:04:25.3589 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-08 15:05:00.6538 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Role STRING does not exist. 
+    at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRolesAsync(TUser user, IEnumerable`1 roles)
+   at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 35
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 40
+   at lambda_method168(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-08 15:05:29.1235 | ApiNotebook.BusinessLogic.UserService.Create | INFO | 
+Добавлен новый пользователь с логином string100 
+

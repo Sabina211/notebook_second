@@ -1,4 +1,6 @@
+using ApiNotebook.BusinessLogic;
 using ApiNotebook.Data;
+using ApiNotebook.Mappings;
 using ApiNotebook.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -37,6 +39,7 @@ namespace ApiNotebook
                     .AddEntityFrameworkStores<DataContext>()
                     .AddDefaultTokenProviders();
             services.AddControllersWithViews();
+            services.AddAutoMapper(typeof(AppMappingProfile));
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequiredLength = 4; // минимальное количество знаков в пароле
@@ -46,7 +49,7 @@ namespace ApiNotebook
                 options.Lockout.AllowedForNewUsers = true;
             });
 
-
+            services.AddScoped<IUserService, UserService>();
             services.AddAuthentication(options =>
             {
                 options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -79,6 +82,10 @@ namespace ApiNotebook
                     context.Response.StatusCode = 403;
                     return Task.CompletedTask;
                 };
+            });
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(typeof(CustomExceptionFilter));
             });
         }
 

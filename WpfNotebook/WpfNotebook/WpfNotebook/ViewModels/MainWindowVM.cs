@@ -12,8 +12,8 @@ namespace WpfNotebook.ViewModels
 {
     class MainWindowVM : Bindable
     {
-        string baseUrl = @"http://localhost:83/api/";
-        //string baseUrl = @"https://localhost:5005/api/";
+        //string baseUrl = @"http://localhost:83/api/";
+        string baseUrl = @"https://localhost:5005/api/";
         HttpClient httpClient = new HttpClient();
         public UserWithRolesEdit CurrentUser { get; set; } = null;
         private object clientsData;

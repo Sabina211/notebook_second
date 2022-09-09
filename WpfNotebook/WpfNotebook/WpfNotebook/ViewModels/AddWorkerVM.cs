@@ -11,7 +11,7 @@ namespace WpfNotebook.ViewModels
 {
     class AddWorkerVM : Bindable
     {
-        private readonly HttpClient _httpClient;
+        //private readonly HttpClient _httpClient;
         private Worker newWorker;
         public Worker NewWorker
         {
@@ -53,7 +53,7 @@ namespace WpfNotebook.ViewModels
         public AddWorkerVM(MainWindowVM mainWindowVM, HttpClient httpClient, string baseUrl)
         {
             NewWorker = new Worker();
-            _httpClient = httpClient;
+            //_httpClient = httpClient;
             SaveCommand = new RelayCommand(obj =>
             {
                 if (NewWorker.Name==null || NewWorker.Name == "")

@@ -1,4 +1,5 @@
 ﻿using ApiNotebook.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,11 +13,13 @@ namespace ApiNotebook.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly IMapper _mapper;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IMapper mapper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _mapper = mapper;
         }
 
         [Route("api/[controller]/register")]
@@ -73,13 +76,15 @@ namespace ApiNotebook.Controllers
             {
                 User user = await _userManager.FindByNameAsync(loginUser.Login);
                 if (user == null) return NotFound("Пользователь с таким Id не найден");
-                UserWithRolesEdit userWithRolesEdit = new UserWithRolesEdit
+                /*UserWithRolesEdit userWithRolesEdit = new UserWithRolesEdit
                 {
                     Id = Guid.Parse(user.Id),
                     UserName = user.UserName,
                     Email = user.Email,
                     UserRoles = await _userManager.GetRolesAsync(user),
-                };
+                };*/
+                UserWithRolesEdit userWithRolesEdit = _mapper.Map<UserWithRolesEdit>(user);
+                userWithRolesEdit.UserRoles = await _userManager.GetRolesAsync(user);
                 return Ok(userWithRolesEdit);
             }
             else

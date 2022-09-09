@@ -1,4 +1,6 @@
-﻿using ApiNotebook.Models;
+﻿using ApiNotebook.BusinessLogic;
+using ApiNotebook.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -18,12 +20,16 @@ namespace ApiNotebook.Controllers
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ILogger<UsersController> _logger;
+        private readonly IMapper _mapper;
+        private readonly IUserService _userService;
 
-        public UsersController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, ILogger<UsersController> logger)
+        public UsersController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, ILogger<UsersController> logger, IMapper mapper, IUserService userService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _logger = logger;
+            _mapper = mapper;
+            _userService = userService;
         }
 
         [Route("~/api/[controller]/addUser")]
@@ -31,33 +37,8 @@ namespace ApiNotebook.Controllers
         [Authorize(Roles = "admin")]
         public async Task<ActionResult<UserWithRolesAdd>> AddUser(UserWithRolesAdd userWithRoles)
         {
-            userWithRoles.AllRoles = _roleManager.Roles.ToList();
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            User user = new User
-            {
-                Email = userWithRoles.Email,
-                UserName = userWithRoles.UserName
-            };
-            var result = await _userManager.CreateAsync(user, userWithRoles.Password);
-
-            //добавление роли пользователя
-            await _userManager.AddToRolesAsync(user, userWithRoles.UserRoles);
-
-            if (result.Succeeded)
-            {
-                _logger.LogInformation("\nДобавлен новый пользователь с логином {0}, редактор {1}", userWithRoles.UserName, User.Identity.Name);
-                return Ok(userWithRoles);
-            }
-            else
-            {
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
-                return BadRequest(ModelState);
-            }
+            var result = await _userService.Create(userWithRoles);
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
@@ -66,14 +47,9 @@ namespace ApiNotebook.Controllers
         {
             User user = await _userManager.FindByIdAsync(id.ToString());
             if (user == null) return NotFound("Пользователь с таким Id не найден");
-            UserWithRolesEdit userWithRolesEdit = new UserWithRolesEdit
-            {
-                Id = id,
-                UserName = user.UserName,
-                Email = user.Email,
-                UserRoles = await _userManager.GetRolesAsync(user),
-                AllRoles = _roleManager.Roles.ToList()
-            };
+            UserWithRolesEdit userWithRolesEdit = _mapper.Map<UserWithRolesEdit>(user);
+            userWithRolesEdit.UserRoles = await _userManager.GetRolesAsync(user);
+            userWithRolesEdit.AllRoles = _roleManager.Roles.ToList();
             return Ok(userWithRolesEdit);
         }
 
@@ -95,7 +71,7 @@ namespace ApiNotebook.Controllers
             };
             return Ok(userWithRolesEdit);
         }
-        
+
         [HttpPost]
         [Route("~/api/[controller]/editUserEmail")]
         [Authorize]
