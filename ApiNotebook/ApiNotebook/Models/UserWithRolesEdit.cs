@@ -15,7 +15,7 @@ namespace ApiNotebook.Models
         public List<IdentityRole> AllRoles { get; set; }
         public IList<string> UserRoles { get; set; }
 
-        [Email]
+        [Email(ErrorMessage = "Некорректный формат email")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Необходимо заполнить поле Логин")]

@@ -1,4 +1,5 @@
-﻿using ApiNotebook.Models;
+﻿using ApiNotebook.BusinessLogic;
+using ApiNotebook.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -18,12 +19,14 @@ namespace ApiNotebook.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IMapper _mapper;
+        private readonly IAccountService _accountService;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IMapper mapper)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IMapper mapper, IAccountService accountService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _mapper = mapper;
+            _accountService = accountService;
         }
 
         [Route("api/[controller]/register")]
@@ -66,42 +69,16 @@ namespace ApiNotebook.Controllers
             }
         }
 
-       // [ValidateAntiForgeryToken]
         [AllowAnonymous]
         [Route("api/[controller]/login")]
         [HttpPost]
         public async Task<ActionResult<UserWithRolesEdit>> Post(LoginUser loginUser)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var result = await _signInManager.PasswordSignInAsync(loginUser.Login, loginUser.Password, false, false);
+            /*var result = await _signInManager.PasswordSignInAsync(loginUser.Login, loginUser.Password, false, false);
             if (result.Succeeded)
             {
                 User user = await _userManager.FindByNameAsync(loginUser.Login);
-                ////
-                UserWithRolesEdit userWithRoles = _mapper.Map<UserWithRolesEdit>(user);
-                userWithRoles.UserRoles =  await _userManager.GetRolesAsync(user);
-
-                var claims = (userWithRoles.UserRoles.Count != 0) ?
-                  new List<Claim> { new Claim(ClaimTypes.Name, userWithRoles.UserName), new Claim(ClaimTypes.Role, userWithRoles.UserRoles[0]) } :
-                  new List<Claim> { new Claim(ClaimTypes.Name, userWithRoles.UserName) };
-                var roleClaim = (userWithRoles.UserRoles.Count != 0) ? new Claim(ClaimTypes.Role, userWithRoles.UserRoles[0].ToString()) : null;
-                var nameClame = new Claim(ClaimTypes.Name, userWithRoles.UserName);
-                var identity = new ClaimsIdentity(new[] { roleClaim, nameClame }, CookieAuthenticationDefaults.AuthenticationScheme);
-                var principal = new ClaimsPrincipal(identity);
-                HttpContext.User = principal;
-                var prop = new AuthenticationProperties
-                {
-                    ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(60),
-                    IssuedUtc = DateTimeOffset.UtcNow.AddMinutes(60)
-                };
-                await HttpContext.SignInAsync(
-                    CookieAuthenticationDefaults.AuthenticationScheme,
-                    new ClaimsPrincipal(identity), prop);
-
-                Console.WriteLine(User.Identity.Name);
-                //
+                Console.WriteLine($" авторизован как {User.Identity.Name}");
 
                 if (user == null) return NotFound("Пользователь с таким Id не найден");
                 UserWithRolesEdit userWithRolesEdit = _mapper.Map<UserWithRolesEdit>(user);
@@ -112,11 +89,13 @@ namespace ApiNotebook.Controllers
             {
                 ModelState.AddModelError("", "Некорректный логин и/или пароль");
                 return BadRequest(ModelState);
-            }
+            }*/
+            var result = await _accountService.Login(loginUser);
+            if (result == null) return BadRequest("Некорректный логин и/или пароль");
+            return Ok(result);
         }
 
         [HttpPost]
-        //[ValidateAntiForgeryToken]
         [Route("api/[controller]/logout")]
         public async Task<IActionResult> Logout()
         {

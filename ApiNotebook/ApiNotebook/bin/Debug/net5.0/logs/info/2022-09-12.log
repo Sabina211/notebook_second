@@ -1,0 +1,112 @@
+2022-09-12 14:45:01.1444 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 14:47:52.0912 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 14:50:13.9341 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 14:59:16.5917 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 15:05:42.3875 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 15:13:05.6267 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 15:15:52.3780 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 15:16:58.4208 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 15:22:19.4471 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 15:22:56.8367 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Role STRING does not exist. 
+    at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRolesAsync(TUser user, IEnumerable`1 roles)
+   at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 50
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 30
+   at lambda_method168(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-12 15:24:12.2942 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 15:37:54.8206 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 15:57:20.6133 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 15:58:11.9205 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Post (ApiNotebook) возникло исключение: 
+ Object reference not set to an instance of an object. 
+    at ApiNotebook.Controllers.AccountController.Post(LoginUser loginUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 92
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-12 15:58:46.2665 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Post (ApiNotebook) возникло исключение: 
+ Object reference not set to an instance of an object. 
+    at ApiNotebook.Controllers.AccountController.Post(LoginUser loginUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 92
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-12 15:59:34.2008 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 16:00:21.8459 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Post (ApiNotebook) возникло исключение: 
+ Object reference not set to an instance of an object. 
+    at ApiNotebook.Controllers.AccountController.Post(LoginUser loginUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 92
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-12 16:01:23.5809 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 16:01:44.1963 | ApiNotebook.BusinessLogic.AccountService.Login | INFO | Выполнен вход в систему от admin 
+
+2022-09-12 16:02:41.4970 | ApiNotebook.BusinessLogic.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Role STRING does not exist. 
+    at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRolesAsync(TUser user, IEnumerable`1 roles)
+   at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 50
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 30
+   at lambda_method181(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-12 17:38:15.3787 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 17:38:35.5220 | ApiNotebook.BusinessLogic.AccountService.Login | INFO | Выполнен вход в систему от admin 
+
+2022-09-12 17:39:10.6435 | ApiNotebook.BusinessLogic.WorkerService.Add | INFO | Создан сотрудник Karl900 c id=3fa85f64-5717-4562-b3fc-2c963f66afa0, редактор !!Изменить User.Identity.Name 
+
+2022-09-12 17:39:32.1445 | ApiNotebook.BusinessLogic.WorkerService.Add | INFO | Создан сотрудник Karl901 c id=3fa85f64-5717-4562-b3fc-2c963f66afa1, редактор !!Изменить User.Identity.Name 
+

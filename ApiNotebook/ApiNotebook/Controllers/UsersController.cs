@@ -45,6 +45,7 @@ namespace ApiNotebook.Controllers
         [Authorize]
         public async Task<ActionResult<UserWithRolesEdit>> GetCurrentUser()
         {
+            Console.WriteLine($"User {User.Identity.Name}");
             string id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var result = await _userService.GetCurrentUser(id);
             if(result==null) return NotFound("Пользователь с таким Id не найден");

@@ -50,6 +50,10 @@ namespace ApiNotebook
             });
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IWorkerService, WorkerService>();
+            services.AddScoped<IWorkerData, WorkerData>();
+
             services.AddAuthentication(options =>
             {
                 options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -65,10 +69,20 @@ namespace ApiNotebook
                 options.Cookie.MaxAge = options.ExpireTimeSpan; // optional
                         options.LoginPath = "/Account/Login";
                 options.LogoutPath = "/Account/Logout";
+                options.Events.OnRedirectToAccessDenied = context =>
+                {
+                    context.Response.StatusCode = 403;
+                    return Task.CompletedTask;
+                };
+                options.Events.OnRedirectToLogin = context =>
+                {
+                    context.Response.StatusCode = 401;
+                    return Task.CompletedTask;
+                };
             });
             services.AddAuthorization();
 
-            services.ConfigureApplicationCookie(options =>
+            /*services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = "/Account/Login";
                 options.LogoutPath = "/Account/Logout";
@@ -82,7 +96,7 @@ namespace ApiNotebook
                     context.Response.StatusCode = 403;
                     return Task.CompletedTask;
                 };
-            });
+            });*/
             services.AddMvc(options =>
             {
                 options.Filters.Add(typeof(CustomExceptionFilter));

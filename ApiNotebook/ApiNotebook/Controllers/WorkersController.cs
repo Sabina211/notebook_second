@@ -1,4 +1,5 @@
-﻿using ApiNotebook.Data;
+﻿using ApiNotebook.BusinessLogic;
+using ApiNotebook.Data;
 using ApiNotebook.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,10 +17,12 @@ namespace ApiNotebook.Controllers
     {
         private readonly DataContext _db;
         private readonly ILogger<WorkersController> _logger;
-        public WorkersController(DataContext context, ILogger<WorkersController> logger)
+        private readonly IWorkerService _workerService;
+        public WorkersController(DataContext context, ILogger<WorkersController> logger, IWorkerService workerService)
         {
             _db = context;
             _logger = logger;
+            _workerService = workerService;
         }
 
         [HttpGet]
@@ -43,18 +46,21 @@ namespace ApiNotebook.Controllers
         [Authorize]
         public async Task<ActionResult<Worker>> Post([FromBody] Worker worker)
         {
-            if (worker.Name == "admin")
-            {
-                ModelState.AddModelError("Name", "Недопустимое имя пользователя - admin");
-            }
+            /* if (worker.Name == "admin")
+             {
+                 ModelState.AddModelError("Name", "Недопустимое имя пользователя - admin");
+             }
 
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+             if (!ModelState.IsValid)
+                 return BadRequest(ModelState);
 
-            _db.Workers.Add(worker);
-            await _db.SaveChangesAsync();
-            _logger.LogInformation("Создан сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
-            return worker;
+             _db.Workers.Add(worker);
+             await _db.SaveChangesAsync();
+             _logger.LogInformation("Создан сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
+             return worker;*/
+            var result = await _workerService.Add(worker);
+            if(result==null) return  BadRequest("Ошибка при добавлении пользователя");
+            return result;
         }
 
         // PUT api/Workers/
