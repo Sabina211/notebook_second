@@ -9,8 +9,8 @@ namespace ApiNotebook.BusinessLogic
     public interface IUserService
     {
         Task<UserWithRolesAdd> Create(UserWithRolesAdd user);
-        Task<UserWithRolesEdit> GetUser(Guid id);
-        Task<UserWithRolesEdit> GetCurrentUser(string id);
+        Task<UserWithRolesEdit> GetUserById(Guid id);
+        Task<UserWithRolesEdit> GetCurrentUser();
         Task<EditUser> EditUserEmail(EditUser model);
         Task<UserWithRolesEdit> EditUser(UserWithRolesEdit model);
         Task<string> DeleteUser(string id);

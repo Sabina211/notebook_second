@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ApiNotebook.Data
 {
-    public class DataContext : IdentityDbContext<User>
+    public sealed class DataContext : IdentityDbContext<User>
     {
         public DataContext(DbContextOptions options) : base(options)
         {

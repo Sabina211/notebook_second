@@ -110,3 +110,9 @@
 
 2022-09-12 17:39:32.1445 | ApiNotebook.BusinessLogic.WorkerService.Add | INFO | Создан сотрудник Karl901 c id=3fa85f64-5717-4562-b3fc-2c963f66afa1, редактор !!Изменить User.Identity.Name 
 
+2022-09-12 18:48:09.9275 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 18:49:00.1907 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-12 18:49:43.2427 | ApiNotebook.Program.Main | INFO | Запуск апи 
+

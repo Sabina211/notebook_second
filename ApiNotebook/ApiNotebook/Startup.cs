@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -33,7 +34,8 @@ namespace ApiNotebook
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiNotebook", Version = "v1" });
-                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                var filePath = Path.Combine(System.AppContext.BaseDirectory, "MyApi.xml");
+                c.IncludeXmlComments(filePath);
             });
             services.AddIdentity<User, IdentityRole>()
                     .AddEntityFrameworkStores<DataContext>()
@@ -52,7 +54,7 @@ namespace ApiNotebook
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IWorkerService, WorkerService>();
-            services.AddScoped<IWorkerData, WorkerData>();
+            services.AddScoped<IWorkerRepository, WorkerRepository>();
 
             services.AddAuthentication(options =>
             {
@@ -97,6 +99,7 @@ namespace ApiNotebook
                     return Task.CompletedTask;
                 };
             });*/
+            services.AddHttpContextAccessor();
             services.AddMvc(options =>
             {
                 options.Filters.Add(typeof(CustomExceptionFilter));

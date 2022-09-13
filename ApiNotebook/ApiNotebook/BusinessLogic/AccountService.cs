@@ -1,11 +1,10 @@
-﻿using ApiNotebook.Models;
+﻿using System;
+using ApiNotebook.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using ApiNotebook.Exceptions;
 
 namespace ApiNotebook.BusinessLogic
 {
@@ -16,7 +15,11 @@ namespace ApiNotebook.BusinessLogic
         private readonly IMapper _mapper;
         private readonly ILogger<AccountService> _logger;
 
-        public AccountService(UserManager<User> userManager, SignInManager<User> signInManager = null, IMapper mapper = null, ILogger<AccountService> logger = null)
+        public AccountService(
+            UserManager<User> userManager, 
+            SignInManager<User> signInManager, 
+            IMapper mapper, 
+            ILogger<AccountService> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -27,7 +30,7 @@ namespace ApiNotebook.BusinessLogic
         public async Task<UserWithRolesEdit> Login(LoginUser loginUser)
         {
             var result = await _signInManager.PasswordSignInAsync(loginUser.Login, loginUser.Password, false, false);
-            if (!result.Succeeded) return null;
+            if (!result.Succeeded) throw new ApiAuthenticationException();
             User user = await _userManager.FindByNameAsync(loginUser.Login);
             UserWithRolesEdit userWithRolesEdit = _mapper.Map<UserWithRolesEdit>(user);
             userWithRolesEdit.UserRoles = await _userManager.GetRolesAsync(user);

@@ -1,9 +1,7 @@
 ﻿using ApiNotebook.BusinessLogic;
 using ApiNotebook.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -22,7 +20,10 @@ namespace ApiNotebook.Controllers
             _userService = userService;
         }
 
-        [Route("~/api/[controller]/addUser")]
+        /// <summary>
+        /// Создание пользователя
+        /// </summary>
+        /// <param name="userWithRoles"></param>
         [HttpPost]
         [Authorize(Roles = "admin")]
         public async Task<ActionResult<UserWithRolesAdd>> AddUser(UserWithRolesAdd userWithRoles)
@@ -31,48 +32,44 @@ namespace ApiNotebook.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:guid}")]
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult<UserWithRolesEdit>> GetUser(Guid id)
+        public async Task<ActionResult<UserWithRolesEdit>> GetUserById(Guid id)
         {
-            var result = await _userService.GetUser(id);
-            if (result == null) return NotFound("Пользователь с таким Id не найден");
+            var result = await _userService.GetUserById(id);               
             return Ok(result);
         }
 
-        [Route("~/api/[controller]/getCurrentUser")]
-        [HttpGet]
+        /// <summary>
+        /// Получение текущего пользователя
+        /// </summary>
+        [HttpGet("current")]
         [Authorize]
         public async Task<ActionResult<UserWithRolesEdit>> GetCurrentUser()
         {
-            Console.WriteLine($"User {User.Identity.Name}");
-            string id = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var result = await _userService.GetCurrentUser(id);
-            if(result==null) return NotFound("Пользователь с таким Id не найден");
+            var result = await _userService.GetCurrentUser();
             return Ok(result); 
         }
 
-        [HttpPost]
-        [Route("~/api/[controller]/editUserEmail")]
+        [HttpPatch("email")]
         [Authorize]
         public async Task<ActionResult<EditUser>> EditUserEmail(EditUser model)
         {
-            if (User.IsInRole("admin") || model.Id == User.FindFirstValue(ClaimTypes.NameIdentifier))
-            {
-                var result = await _userService.EditUserEmail(model);
-                if (result == null) return NotFound("Пользователь с таким Id не найден");              
-                return Ok(result);
-            }
-            else return Forbid();
+            if (!(User.IsInRole("admin") || model.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)))
+                return Forbid();
+            var result = await _userService.EditUserEmail(model);
+            return Ok(result); 
         }
 
-        [Route("~/api/[controller]/editUser")]
-        [HttpPost]
+        /// <summary>
+        /// Редактирование пользователя
+        /// </summary>
+        /// <param name="model"></param>
+        [HttpPut]
         [Authorize(Roles = "admin")]
         public async Task<ActionResult<UserWithRolesEdit>> EditUser(UserWithRolesEdit model)
         {
             var result = await _userService.EditUser(model);
-            if (result == null) return NotFound("Пользователь с таким Id не найден");
             return Ok(result);
         }
 
@@ -81,11 +78,12 @@ namespace ApiNotebook.Controllers
         public async Task<ActionResult<string>> DeleteUser(string id)
         {
             var result = await _userService.DeleteUser(id);
-            if (result == null) return NotFound("Пользователь с таким Id не найден");
             return Ok(result);
         }
 
-        [Route("~/api/[controller]/getUsers")]
+        /// <summary>
+        /// Список пользователей
+        /// </summary>
         [HttpGet]
         [Authorize(Roles = "admin")]
         public async Task<IEnumerable<UserWithRolesEdit>> UsersList()
@@ -93,15 +91,13 @@ namespace ApiNotebook.Controllers
             return await _userService.UsersList();
         }
 
-        [Route("~/api/[controller]/changePassword")]
-        [HttpPost]
+        [HttpPatch("password")]
         [Authorize]
         public async Task<IActionResult> ChangePassword(ChangePassword model)
         {
             if (!(User.IsInRole("admin") || model.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)))
                 return Forbid();
             var result = await _userService.ChangePassword(model);
-            if(result==null)  return NotFound("Пользователь не найден");
             return Ok(result);
         }
     }

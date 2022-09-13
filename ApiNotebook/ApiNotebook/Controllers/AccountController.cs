@@ -1,19 +1,16 @@
 ﻿using ApiNotebook.BusinessLogic;
 using ApiNotebook.Models;
 using AutoMapper;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ApiNotebook.Controllers
 {
     [ApiController]
+    [Route("api/accounts")]
     public class AccountController : ControllerBase
     {
         private readonly UserManager<User> _userManager;
@@ -28,10 +25,9 @@ namespace ApiNotebook.Controllers
             _mapper = mapper;
             _accountService = accountService;
         }
-
-        [Route("api/[controller]/register")]
-        [HttpPost]
-        public async Task<ActionResult<RegisterUser>> Post(RegisterUser registerUser)
+        
+        [HttpPost("register")]
+        public async Task<ActionResult<RegisterUser>> Register(RegisterUser registerUser)
         {
             if (registerUser.Login == "admin")
             {
@@ -40,7 +36,7 @@ namespace ApiNotebook.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            User user = new User
+            var user = new User
             {
                 Email = registerUser.Email,
                 UserName = registerUser.Login
@@ -59,43 +55,23 @@ namespace ApiNotebook.Controllers
                 };
                 return Ok(userWithRolesEdit);
             }
-            else
+
+            foreach (var error in result.Errors)
             {
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
-                return BadRequest(ModelState);
+                ModelState.AddModelError(string.Empty, error.Description);
             }
+            return BadRequest(ModelState);
         }
 
-        [AllowAnonymous]
-        [Route("api/[controller]/login")]
-        [HttpPost]
-        public async Task<ActionResult<UserWithRolesEdit>> Post(LoginUser loginUser)
+        [HttpPost("login")]
+        public async Task<ActionResult<UserWithRolesEdit>> Login(LoginUser loginUser)
         {
-            /*var result = await _signInManager.PasswordSignInAsync(loginUser.Login, loginUser.Password, false, false);
-            if (result.Succeeded)
-            {
-                User user = await _userManager.FindByNameAsync(loginUser.Login);
-                Console.WriteLine($" авторизован как {User.Identity.Name}");
-
-                if (user == null) return NotFound("Пользователь с таким Id не найден");
-                UserWithRolesEdit userWithRolesEdit = _mapper.Map<UserWithRolesEdit>(user);
-                userWithRolesEdit.UserRoles = await _userManager.GetRolesAsync(user);
-                return Ok(userWithRolesEdit);
-            }
-            else
-            {
-                ModelState.AddModelError("", "Некорректный логин и/или пароль");
-                return BadRequest(ModelState);
-            }*/
             var result = await _accountService.Login(loginUser);
-            if (result == null) return BadRequest("Некорректный логин и/или пароль");
             return Ok(result);
         }
 
         [HttpPost]
+        [Authorize]
         [Route("api/[controller]/logout")]
         public async Task<IActionResult> Logout()
         {

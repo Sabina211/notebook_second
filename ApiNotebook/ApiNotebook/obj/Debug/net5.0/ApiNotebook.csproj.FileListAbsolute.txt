@@ -11,7 +11,6 @@ E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\ne
 E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.csproj.AssemblyReference.cache
 E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.GeneratedMSBuildEditorConfig.editorconfig
 E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.AssemblyInfoInputs.cache
 E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.AssemblyInfo.cs
@@ -76,3 +75,83 @@ E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\ne
 E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
 E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\appsettings.Development.json
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\appsettings.json
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\nlog.config
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\ApiNotebook.StaticWebAssets.xml
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\ApiNotebook.exe
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\ApiNotebook.deps.json
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\ApiNotebook.runtimeconfig.json
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\ApiNotebook.runtimeconfig.dev.json
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\ApiNotebook.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\ApiNotebook.pdb
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\AutoMapper.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\DataAnnotationsExtensions.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.AspNetCore.NodeServices.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.AspNetCore.SpaServices.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\NLog.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\NLog.Extensions.Logging.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\NLog.Web.AspNetCore.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\System.Runtime.Caching.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.csproj.AssemblyReference.cache
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.AssemblyInfoInputs.cache
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.AssemblyInfo.cs
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.csproj.CoreCompileInputs.cache
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.MvcApplicationPartsAssemblyInfo.cache
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\scopedcss\bundle\ApiNotebook.styles.css
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\staticwebassets\ApiNotebook.StaticWebAssets.Manifest.cache
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.RazorTargetAssemblyInfo.cache
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.csproj.CopyComplete
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\refint\ApiNotebook.dll
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.pdb
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.genruntimeconfig.cache
+C:\Projects\notebook_second\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ref\ApiNotebook.dll
+E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\obj\Debug\net5.0\ApiNotebook.csproj.AssemblyReference.cache
+E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\bin\Debug\net5.0\MyApi.xml

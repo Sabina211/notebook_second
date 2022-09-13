@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace ApiNotebook.Data
 {
+    // Seeder
+    // Seed data
     public class DbInitializer
     {
         public static void Initialize(DataContext context)
