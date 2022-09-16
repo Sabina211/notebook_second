@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -8,6 +9,7 @@ namespace ApiNotebook.Exceptions
     public class FailedActionExeption: Exception, ISerializable
     {
         public override string Message { get; }
+
         public FailedActionExeption(string message = "Не удалось выполнить действие") : base(message)
         {
         }

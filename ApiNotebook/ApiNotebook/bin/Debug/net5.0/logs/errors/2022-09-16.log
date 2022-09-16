@@ -307,3 +307,235 @@ Passwords must have at least one uppercase ('A'-'Z').
    at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
   
 
+2022-09-16 13:54:30.2824 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.ChangePassword (ApiNotebook) возникло исключение: 
+ Не удалось изменить пароль 
+    at ApiNotebook.BusinessLogic.UserService.ChangePassword(ChangePassword model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 42
+   at ApiNotebook.Controllers.UsersController.ChangePassword(ChangePassword model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 100
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 13:56:45.8723 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.ChangePassword (ApiNotebook) возникло исключение: 
+ Не удалось изменить пароль 
+    at ApiNotebook.BusinessLogic.UserService.ChangePassword(ChangePassword model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 42
+   at ApiNotebook.Controllers.UsersController.ChangePassword(ChangePassword model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 100
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 13:59:47.9066 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.ChangePassword (ApiNotebook) возникло исключение: 
+ Не удалось изменить пароль 
+    at ApiNotebook.BusinessLogic.UserService.ChangePassword(ChangePassword model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 42
+   at ApiNotebook.Controllers.UsersController.ChangePassword(ChangePassword model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 100
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 14:04:42.2198 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.ChangePassword (ApiNotebook) возникло исключение: 
+  Incorrect password.  
+    at ApiNotebook.BusinessLogic.UserService.ChangePassword(ChangePassword model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 42
+   at ApiNotebook.Controllers.UsersController.ChangePassword(ChangePassword model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 100
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 14:06:05.5402 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.ChangePassword (ApiNotebook) возникло исключение: 
+  Incorrect password.  
+    at ApiNotebook.BusinessLogic.UserService.ChangePassword(ChangePassword model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 42
+   at ApiNotebook.Controllers.UsersController.ChangePassword(ChangePassword model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 100
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 14:08:46.0550 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.ChangePassword (ApiNotebook) возникло исключение: 
+  Incorrect password.  
+    at ApiNotebook.BusinessLogic.UserService.ChangePassword(ChangePassword model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 42
+   at ApiNotebook.Controllers.UsersController.ChangePassword(ChangePassword model) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 100
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 14:10:49.3565 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Не удалось создать пользователя: sabina@gmail.com 
+    at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 61
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 31
+   at lambda_method208(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 14:13:58.5306 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Не удалось создать пользователя: sabina@gmail.com 
+    at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 61
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 31
+   at lambda_method208(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 14:22:20.8788 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Не удалось создать пользователя: test@gmal.com 
+    at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 61
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 31
+   at lambda_method208(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 14:23:29.4853 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Не удалось создать пользователя: test@gmal.com 
+    at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 61
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 31
+   at lambda_method208(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 14:35:12.7868 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Не удалось создать пользователя: sabina@gmail.com 
+    at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 61
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 31
+   at lambda_method208(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 14:36:14.2576 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Не удалось создать пользователя: sabina@gmail.com 
+    at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 61
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 31
+   at lambda_method208(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 14:37:22.5614 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Не удалось создать пользователя: test@gmal.com 
+    at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 61
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 31
+   at lambda_method208(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 16:17:56.6083 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Microsoft.AspNetCore.Mvc.JsonResult 
+    at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 65
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 31
+   at lambda_method192(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 16:20:37.6455 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Не удалось создать пользователя: admin 
+    at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 63
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 31
+   at lambda_method192(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 16:22:38.4459 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+ Не удалось создать пользователя: admin 
+    at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 63
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 31
+   at lambda_method192(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 16:24:10.4326 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.AddUser (ApiNotebook) возникло исключение: 
+  Username 'admin' is already taken.  
+    at ApiNotebook.BusinessLogic.UserService.Create(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 63
+   at ApiNotebook.Controllers.UsersController.AddUser(UserWithRolesAdd userWithRoles) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 31
+   at lambda_method192(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+

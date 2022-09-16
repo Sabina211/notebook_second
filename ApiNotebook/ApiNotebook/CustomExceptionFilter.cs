@@ -35,7 +35,7 @@ namespace ApiNotebook
                     }
             }
 
-            context.Result = new JsonResult(new { exceptionMessage })
+            context.Result = new JsonResult( exceptionMessage )
             {
                 StatusCode = statusCode
             };

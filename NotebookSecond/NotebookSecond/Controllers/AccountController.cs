@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using NotebookSecond.Data;
 using NotebookSecond.Models;
 using System;
 using System.Collections.Generic;
@@ -42,22 +43,21 @@ namespace NotebookSecond.Controllers
         [HttpPost]
         public async Task<IActionResult> Registration(RegisterUser registerUser)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+                return View(registerUser);
+            string url = _httpClient.BaseAddress + "Accounts/register";
+            var content = new StringContent(JsonConvert.SerializeObject(registerUser), Encoding.UTF8, "application/json");
+            var result = _httpClient.PostAsync(url, content).Result;
+            bool success = CheckResult(result);
+            if (success)
             {
-                string url = _httpClient.BaseAddress + "Account/register";
-                var content = new StringContent(JsonConvert.SerializeObject(registerUser), Encoding.UTF8, "application/json");
-                var result = _httpClient.PostAsync(url, content).Result;
-                bool success = CheckResult(result);
-                if (success)
-                {
-                    await LoginInSystem(registerUser.Login, result);
-                    _logger.LogInformation("Зарегистрировался новый пользователь с логином {0}", registerUser.Login);
-                    return RedirectToAction("index", "Worker");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, $"Не удалось зарегистрировать пользователя StatusCode = {result.StatusCode}\n {result.Content.ReadAsStringAsync().Result}");
-                }
+                await LoginInSystem(registerUser.Login, result);
+                _logger.LogInformation("Зарегистрировался новый пользователь с логином {0}", registerUser.Login);
+                return RedirectToAction("index", "Worker");
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, $"Не удалось зарегистрировать пользователя\n {result.Content.ReadAsStringAsync().Result.UnescapeUnicode()}");
             }
             return View(registerUser);
         }
@@ -66,13 +66,14 @@ namespace NotebookSecond.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginUser loginUser)
         {
-            if (ModelState.IsValid)
-            {
-                string url = _httpClient.BaseAddress + "Account/login";
+            if (!ModelState.IsValid)
+                return View(loginUser);
+            
+                string url = _httpClient.BaseAddress + "Accounts/login";
                 var content = new StringContent(JsonConvert.SerializeObject(loginUser), Encoding.UTF8, "application/json");
                 var result = _httpClient.PostAsync(url, content).Result;
                 bool success = CheckResult(result);
-             
+
                 if (success)
                 {
                     await LoginInSystem(loginUser.Login, result);
@@ -89,8 +90,6 @@ namespace NotebookSecond.Controllers
                 {
                     ModelState.AddModelError("", "Некорректный логин и/или пароль");
                 }
-            }
-
             return View(loginUser);
         }
 
@@ -106,15 +105,17 @@ namespace NotebookSecond.Controllers
             var identity = new ClaimsIdentity(new[] { roleClaim, nameClame }, CookieAuthenticationDefaults.AuthenticationScheme);
             var principal = new ClaimsPrincipal(identity);
             HttpContext.User = principal;
-            var prop = new AuthenticationProperties { 
-                ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(60) , 
-                IssuedUtc = DateTimeOffset.UtcNow.AddMinutes(60) };
+            var prop = new AuthenticationProperties
+            {
+                ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(60),
+                IssuedUtc = DateTimeOffset.UtcNow.AddMinutes(60)
+            };
             await HttpContext.SignInAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme,
                 new ClaimsPrincipal(identity), prop);
 
             _logger.LogInformation($"Авторизация прошла успешно.\n " +
-                $"Сообщение от api: {result.Content.ReadAsStringAsync().Result}\n " +
+                $"Сообщение от api: {result.Content.ReadAsStringAsync().Result.UnescapeUnicode()}\n " +
                 $"User.Identity.IsAuthenticated = {User.Identity.IsAuthenticated}\n" +
                 $"HttpContext.User.Identity.Name = {HttpContext.User.Identity.Name}\n" +
                 $"admin role={HttpContext.User.IsInRole("admin")}");
@@ -124,7 +125,7 @@ namespace NotebookSecond.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
-            string url = _httpClient.BaseAddress + "Account/logout";
+            string url = _httpClient.BaseAddress + "Accounts/logout";
             var result = _httpClient.PostAsync(url, null).Result;
             await HttpContext.SignOutAsync(
                     CookieAuthenticationDefaults.AuthenticationScheme);
@@ -135,7 +136,7 @@ namespace NotebookSecond.Controllers
         {
             if (!(result.StatusCode.ToString() == "OK"))
             {
-                _logger.LogError($"Ошибка при обращении к апи result.StatusCode = {result.StatusCode}\n {result.Content.ReadAsStringAsync().Result}");
+                _logger.LogError($"Ошибка при обращении к апи result.StatusCode = {result.StatusCode}\n {result.Content.ReadAsStringAsync().Result.UnescapeUnicode()}");
                 return false;
             }
             else return true;

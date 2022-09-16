@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 using ApiNotebook.Exceptions;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ApiNotebook.BusinessLogic
 {
@@ -39,7 +40,7 @@ namespace ApiNotebook.BusinessLogic
             var user = await _userManager.FindByIdAsync(model.Id);
             if (user == null) throw new EntityNotFoundException($"Пользователь с id = {model.Id} не найден");
             var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
-            if (!result.Succeeded) throw new Exception("Не удалось изменить пароль");
+            if (!result.Succeeded) throw new FailedActionExeption(result.Errors);
             _logger.LogInformation("\nИзменен пароль для пользователя с логином {0}, редактор {1}", 
                 user.UserName, 
                 _httpContextAccessor.HttpContext.User.Identity.Name);
@@ -58,7 +59,8 @@ namespace ApiNotebook.BusinessLogic
             //добавление роли пользователя
             await _userManager.AddToRolesAsync(user, userWithRoles.UserRoles);
 
-            if (!result.Succeeded) throw new Exception($"Не удалось создать пользователя: {userWithRoles.Email}");
+            if (!result.Succeeded) 
+                throw new FailedActionExeption(result.Errors);
             _logger.LogInformation("\nДобавлен новый пользователь с логином {0}, редактор: {1}", userWithRoles.UserName, _httpContextAccessor.HttpContext.User.Identity.Name);
             return userWithRoles;
         }
