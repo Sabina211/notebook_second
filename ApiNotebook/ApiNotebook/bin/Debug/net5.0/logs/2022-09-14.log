@@ -1,0 +1,995 @@
+2022-09-14 10:11:16.2087 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-14 10:11:20.1849 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`4.Log | INFO | Entity Framework Core 5.0.17 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+
+2022-09-14 10:11:23.6190 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (33ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 10:11:23.8033 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (171ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 10:11:23.8404 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 10:11:23.8404 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 10:11:24.2093 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Workers] AS [w]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+
+2022-09-14 10:11:24.2914 | Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.GetFallbackKeyRepositoryEncryptorPair | INFO | User profile is available. Using 'C:\Users\Ferdenant\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+
+2022-09-14 10:11:24.4744 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (58ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0 
+
+2022-09-14 10:11:24.5550 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 10:11:24.6136 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 10:11:25.5777 | Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync | INFO | Now listening on: https://localhost:5005 
+
+2022-09-14 10:11:25.5807 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Application started. Press Ctrl+C to shut down. 
+
+2022-09-14 10:11:25.5807 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Hosting environment: Development 
+
+2022-09-14 10:11:25.5807 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Content root path: E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook 
+
+2022-09-14 10:11:28.1756 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger - - 
+
+2022-09-14 10:11:28.2866 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/index.html - - 
+
+2022-09-14 10:11:28.2866 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger - - - 301 0 - 112.2710ms 
+
+2022-09-14 10:11:28.3618 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/index.html - - - 200 - text/html;charset=utf-8 75.0796ms 
+
+2022-09-14 10:11:28.4099 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui.css - - 
+
+2022-09-14 10:11:28.4099 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui-bundle.js - - 
+
+2022-09-14 10:11:28.4099 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js - - 
+
+2022-09-14 10:11:28.4970 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+
+2022-09-14 10:11:28.5071 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+
+2022-09-14 10:11:28.5071 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js - - - 200 311804 application/javascript 91.3748ms 
+
+2022-09-14 10:11:28.5071 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui.css - - - 200 142933 text/css 97.7431ms 
+
+2022-09-14 10:11:28.5328 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+
+2022-09-14 10:11:28.5337 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui-bundle.js - - - 200 986342 application/javascript 117.2202ms 
+
+2022-09-14 10:11:28.8086 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-bundle.js.map - - 
+
+2022-09-14 10:11:28.8555 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/v1/swagger.json - - 
+
+2022-09-14 10:11:28.8765 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js.map - - 
+
+2022-09-14 10:11:29.0171 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-bundle.js.map - - - 404 0 - 208.5055ms 
+
+2022-09-14 10:11:29.0171 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js.map - - - 404 0 - 140.5391ms 
+
+2022-09-14 10:11:29.0643 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-bundle.js.map - - 
+
+2022-09-14 10:11:29.0669 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-standalone-preset.js.map - - 
+
+2022-09-14 10:11:29.0669 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-bundle.js.map - - - 404 0 - 4.3834ms 
+
+2022-09-14 10:11:29.0669 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-standalone-preset.js.map - - - 404 0 - 1.7168ms 
+
+2022-09-14 10:11:29.2189 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 363.3495ms 
+
+2022-09-14 10:13:01.0270 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 POST https://localhost:5005/api/accounts/login application/json 62 
+
+2022-09-14 10:13:01.0445 | Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke | INFO | Executing endpoint 'ApiNotebook.Controllers.AccountController.Login (ApiNotebook)' 
+
+2022-09-14 10:13:01.1430 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ExecutingAction | INFO | Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ApiNotebook.Models.UserWithRolesEdit]] Login(ApiNotebook.Models.LoginUser) on controller ApiNotebook.Controllers.AccountController (ApiNotebook). 
+
+2022-09-14 10:13:01.1590 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`4.Log | INFO | Entity Framework Core 5.0.17 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+
+2022-09-14 10:13:01.1590 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 10:13:01.1590 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 10:13:01.3037 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 10:13:01.3493 | Microsoft.AspNetCore.Identity.UserManager`1.CheckPasswordAsync | WARN | Invalid password for user. 
+
+2022-09-14 10:13:01.3493 | Microsoft.AspNetCore.Identity.SignInManager`1.CheckPasswordSignInAsync | WARN | User failed to provide the correct password. 
+
+2022-09-14 10:13:01.5738 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Login (ApiNotebook) возникло исключение: 
+ Не удалось аутентифицироваться 
+    at ApiNotebook.BusinessLogic.AccountService.Login(LoginUser loginUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\AccountService.cs:line 33
+   at ApiNotebook.Controllers.AccountController.Login(LoginUser loginUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 69
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-14 10:13:01.5816 | Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor+Log.JsonResultExecuting | INFO | Executing JsonResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+
+2022-09-14 10:13:01.6045 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ExecutedAction | INFO | Executed action ApiNotebook.Controllers.AccountController.Login (ApiNotebook) in 446.6436ms 
+
+2022-09-14 10:13:01.6045 | Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke | INFO | Executed endpoint 'ApiNotebook.Controllers.AccountController.Login (ApiNotebook)' 
+
+2022-09-14 10:13:01.6045 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 POST https://localhost:5005/api/accounts/login application/json 62 - 400 - application/json;+charset=utf-8 583.3966ms 
+
+2022-09-14 10:13:10.0910 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 POST https://localhost:5005/api/accounts/login application/json 61 
+
+2022-09-14 10:13:10.0910 | Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke | INFO | Executing endpoint 'ApiNotebook.Controllers.AccountController.Login (ApiNotebook)' 
+
+2022-09-14 10:13:10.0910 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ExecutingAction | INFO | Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ApiNotebook.Models.UserWithRolesEdit]] Login(ApiNotebook.Models.LoginUser) on controller ApiNotebook.Controllers.AccountController (ApiNotebook). 
+
+2022-09-14 10:13:10.1369 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`4.Log | INFO | Entity Framework Core 5.0.17 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+
+2022-09-14 10:13:10.1433 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 10:13:10.1433 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 10:13:10.1641 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 10:13:10.2379 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0 
+
+2022-09-14 10:13:10.2838 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0 
+
+2022-09-14 10:13:10.2838 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0 
+
+2022-09-14 10:13:10.2996 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (2ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0 
+
+2022-09-14 10:13:10.3215 | Microsoft.Extensions.Logging.LoggingExtensions.AuthenticationSchemeSignedIn | INFO | AuthenticationScheme: Identity.Application signed in. 
+
+2022-09-14 10:13:10.3215 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 10:13:10.3359 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0 
+
+2022-09-14 10:13:10.3359 | ApiNotebook.BusinessLogic.AccountService.Login | INFO | Выполнен вход в систему от admin 
+
+2022-09-14 10:13:10.3461 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ObjectResultExecuting | INFO | Executing OkObjectResult, writing value of type 'ApiNotebook.Models.UserWithRolesEdit'. 
+
+2022-09-14 10:13:10.3714 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ExecutedAction | INFO | Executed action ApiNotebook.Controllers.AccountController.Login (ApiNotebook) in 276.0556ms 
+
+2022-09-14 10:13:10.3770 | Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke | INFO | Executed endpoint 'ApiNotebook.Controllers.AccountController.Login (ApiNotebook)' 
+
+2022-09-14 10:13:10.3770 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 POST https://localhost:5005/api/accounts/login application/json 61 - 200 - application/json;+charset=utf-8 289.2689ms 
+
+2022-09-14 10:13:37.7308 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/api/Users/3fa85f64-5717-4562-b3fc-2c963f66afa6 - - 
+
+2022-09-14 10:13:37.7396 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`4.Log | INFO | Entity Framework Core 5.0.17 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+
+2022-09-14 10:13:37.7396 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 10:13:37.7396 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 10:13:37.7790 | Microsoft.AspNetCore.Authorization.DefaultAuthorizationService.AuthorizeAsync | INFO | Authorization was successful. 
+
+2022-09-14 10:13:37.7790 | Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke | INFO | Executing endpoint 'ApiNotebook.Controllers.UsersController.GetUserById (ApiNotebook)' 
+
+2022-09-14 10:13:37.7865 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ExecutingAction | INFO | Route matched with {action = "GetUserById", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ApiNotebook.Models.UserWithRolesEdit]] GetUserById(System.Guid) on controller ApiNotebook.Controllers.UsersController (ApiNotebook). 
+
+2022-09-14 10:13:37.8146 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (3ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0 
+
+2022-09-14 10:13:37.9270 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.GetUserById (ApiNotebook) возникло исключение: 
+ Entity user with id: 3fa85f64-5717-4562-b3fc-2c963f66afa6 not found 
+    at ApiNotebook.BusinessLogic.UserService.GetUserById(Guid id) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 119
+   at ApiNotebook.Controllers.UsersController.GetUserById(Guid id) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 39
+   at lambda_method168(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-14 10:13:37.9270 | Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor+Log.JsonResultExecuting | INFO | Executing JsonResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+
+2022-09-14 10:13:37.9402 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ExecutedAction | INFO | Executed action ApiNotebook.Controllers.UsersController.GetUserById (ApiNotebook) in 150.4761ms 
+
+2022-09-14 10:13:37.9402 | Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke | INFO | Executed endpoint 'ApiNotebook.Controllers.UsersController.GetUserById (ApiNotebook)' 
+
+2022-09-14 10:13:37.9402 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/api/Users/3fa85f64-5717-4562-b3fc-2c963f66afa6 - - - 400 - application/json;+charset=utf-8 213.5194ms 
+
+2022-09-14 10:15:50.5200 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-14 10:15:52.8787 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`4.Log | INFO | Entity Framework Core 5.0.17 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+
+2022-09-14 10:15:53.3111 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 10:15:53.3679 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (47ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 10:15:53.3776 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 10:15:53.3776 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 10:15:53.5987 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Workers] AS [w]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+
+2022-09-14 10:15:53.6603 | Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.GetFallbackKeyRepositoryEncryptorPair | INFO | User profile is available. Using 'C:\Users\Ferdenant\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+
+2022-09-14 10:15:53.8145 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (35ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0 
+
+2022-09-14 10:15:53.8818 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (4ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 10:15:53.9272 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 10:15:54.3069 | Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync | INFO | Now listening on: https://localhost:5005 
+
+2022-09-14 10:15:54.3069 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Application started. Press Ctrl+C to shut down. 
+
+2022-09-14 10:15:54.3069 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Hosting environment: Development 
+
+2022-09-14 10:15:54.3069 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Content root path: E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook 
+
+2022-09-14 10:15:56.0159 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger - - 
+
+2022-09-14 10:15:56.0822 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger - - - 301 0 - 68.3508ms 
+
+2022-09-14 10:15:56.0822 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/index.html - - 
+
+2022-09-14 10:15:56.1936 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/index.html - - - 200 - text/html;charset=utf-8 108.2622ms 
+
+2022-09-14 10:15:56.2266 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui.css - - 
+
+2022-09-14 10:15:56.2266 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui-bundle.js - - 
+
+2022-09-14 10:15:56.2266 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js - - 
+
+2022-09-14 10:15:56.3282 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+
+2022-09-14 10:15:56.3282 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+
+2022-09-14 10:15:56.3481 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js - - - 200 311804 application/javascript 120.5377ms 
+
+2022-09-14 10:15:56.3481 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui.css - - - 200 142933 text/css 125.2035ms 
+
+2022-09-14 10:15:56.3481 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+
+2022-09-14 10:15:56.3481 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui-bundle.js - - - 200 986342 application/javascript 126.2379ms 
+
+2022-09-14 10:15:56.5868 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js.map - - 
+
+2022-09-14 10:15:56.5868 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-bundle.js.map - - 
+
+2022-09-14 10:15:56.5988 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/v1/swagger.json - - 
+
+2022-09-14 10:15:56.7302 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js.map - - - 404 0 - 143.4211ms 
+
+2022-09-14 10:15:56.7302 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-bundle.js.map - - - 404 0 - 143.4211ms 
+
+2022-09-14 10:15:56.7599 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-standalone-preset.js.map - - 
+
+2022-09-14 10:15:56.7599 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-bundle.js.map - - 
+
+2022-09-14 10:15:56.7599 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-bundle.js.map - - - 404 0 - 3.1830ms 
+
+2022-09-14 10:15:56.7599 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-standalone-preset.js.map - - - 404 0 - 3.2981ms 
+
+2022-09-14 10:15:56.8851 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 286.2447ms 
+
+2022-09-14 10:16:11.1364 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 POST https://localhost:5005/api/accounts/login application/json 61 
+
+2022-09-14 10:16:11.1601 | Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke | INFO | Executing endpoint 'ApiNotebook.Controllers.AccountController.Login (ApiNotebook)' 
+
+2022-09-14 10:16:11.2596 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ExecutingAction | INFO | Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ApiNotebook.Models.UserWithRolesEdit]] Login(ApiNotebook.Models.LoginUser) on controller ApiNotebook.Controllers.AccountController (ApiNotebook). 
+
+2022-09-14 10:16:11.2596 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`4.Log | INFO | Entity Framework Core 5.0.17 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+
+2022-09-14 10:16:11.2721 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 10:16:11.2721 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 10:16:11.4269 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 10:16:11.5447 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0 
+
+2022-09-14 10:16:11.5879 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0 
+
+2022-09-14 10:16:11.5879 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (2ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0 
+
+2022-09-14 10:16:11.6102 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (2ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0 
+
+2022-09-14 10:16:11.6384 | Microsoft.Extensions.Logging.LoggingExtensions.AuthenticationSchemeSignedIn | INFO | AuthenticationScheme: Identity.Application signed in. 
+
+2022-09-14 10:16:11.6435 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 10:16:11.6657 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0 
+
+2022-09-14 10:16:11.6657 | ApiNotebook.BusinessLogic.AccountService.Login | INFO | Выполнен вход в систему от admin 
+
+2022-09-14 10:16:11.7067 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ObjectResultExecuting | INFO | Executing OkObjectResult, writing value of type 'ApiNotebook.Models.UserWithRolesEdit'. 
+
+2022-09-14 10:16:11.7426 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ExecutedAction | INFO | Executed action ApiNotebook.Controllers.AccountController.Login (ApiNotebook) in 477.0782ms 
+
+2022-09-14 10:16:11.7426 | Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke | INFO | Executed endpoint 'ApiNotebook.Controllers.AccountController.Login (ApiNotebook)' 
+
+2022-09-14 10:16:11.7426 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 POST https://localhost:5005/api/accounts/login application/json 61 - 200 - application/json;+charset=utf-8 612.9704ms 
+
+2022-09-14 10:16:26.1469 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/api/Users/3fa85f64-5717-4562-b3fc-2c963f66afa6 - - 
+
+2022-09-14 10:16:26.1841 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`4.Log | INFO | Entity Framework Core 5.0.17 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+
+2022-09-14 10:16:26.1934 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 10:16:26.1934 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 10:16:26.2051 | Microsoft.AspNetCore.Authorization.DefaultAuthorizationService.AuthorizeAsync | INFO | Authorization was successful. 
+
+2022-09-14 10:16:26.2051 | Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke | INFO | Executing endpoint 'ApiNotebook.Controllers.UsersController.GetUserById (ApiNotebook)' 
+
+2022-09-14 10:16:26.2251 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ExecutingAction | INFO | Route matched with {action = "GetUserById", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ApiNotebook.Models.UserWithRolesEdit]] GetUserById(System.Guid) on controller ApiNotebook.Controllers.UsersController (ApiNotebook). 
+
+2022-09-14 10:16:26.2557 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0 
+
+2022-09-14 10:16:26.4503 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.GetUserById (ApiNotebook) возникло исключение: 
+ Entity user with id: 3fa85f64-5717-4562-b3fc-2c963f66afa6 not found 
+    at ApiNotebook.BusinessLogic.UserService.GetUserById(Guid id) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 120
+   at ApiNotebook.Controllers.UsersController.GetUserById(Guid id) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 39
+   at lambda_method168(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-14 10:16:26.4566 | Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor+Log.JsonResultExecuting | INFO | Executing JsonResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+
+2022-09-14 10:16:26.4566 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ExecutedAction | INFO | Executed action ApiNotebook.Controllers.UsersController.GetUserById (ApiNotebook) in 236.53ms 
+
+2022-09-14 10:16:26.4566 | Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke | INFO | Executed endpoint 'ApiNotebook.Controllers.UsersController.GetUserById (ApiNotebook)' 
+
+2022-09-14 10:16:26.4746 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/api/Users/3fa85f64-5717-4562-b3fc-2c963f66afa6 - - - 404 - application/json;+charset=utf-8 327.7309ms 
+
+2022-09-14 10:16:59.6418 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/api/Users/226fb4e5-717c-46bf-a150-766e672fc3bf - - 
+
+2022-09-14 10:16:59.6444 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`4.Log | INFO | Entity Framework Core 5.0.17 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+
+2022-09-14 10:16:59.6444 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 10:16:59.6444 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 10:16:59.6444 | Microsoft.AspNetCore.Authorization.DefaultAuthorizationService.AuthorizeAsync | INFO | Authorization was successful. 
+
+2022-09-14 10:16:59.6444 | Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke | INFO | Executing endpoint 'ApiNotebook.Controllers.UsersController.GetUserById (ApiNotebook)' 
+
+2022-09-14 10:16:59.6590 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ExecutingAction | INFO | Route matched with {action = "GetUserById", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ApiNotebook.Models.UserWithRolesEdit]] GetUserById(System.Guid) on controller ApiNotebook.Controllers.UsersController (ApiNotebook). 
+
+2022-09-14 10:16:59.6590 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0 
+
+2022-09-14 10:16:59.6590 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0 
+
+2022-09-14 10:16:59.6767 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a] 
+
+2022-09-14 10:16:59.6767 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ObjectResultExecuting | INFO | Executing OkObjectResult, writing value of type 'ApiNotebook.Models.UserWithRolesEdit'. 
+
+2022-09-14 10:16:59.6767 | Microsoft.AspNetCore.Mvc.MvcCoreLoggerExtensions.ExecutedAction | INFO | Executed action ApiNotebook.Controllers.UsersController.GetUserById (ApiNotebook) in 20.4844ms 
+
+2022-09-14 10:16:59.6767 | Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke | INFO | Executed endpoint 'ApiNotebook.Controllers.UsersController.GetUserById (ApiNotebook)' 
+
+2022-09-14 10:16:59.6767 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/api/Users/226fb4e5-717c-46bf-a150-766e672fc3bf - - - 200 - application/json;+charset=utf-8 46.8160ms 
+
+2022-09-14 11:37:05.6140 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-14 11:37:07.8868 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`4.Log | INFO | Entity Framework Core 5.0.17 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+
+2022-09-14 11:37:09.4156 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 11:37:09.5750 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (150ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 11:37:09.5861 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 11:37:09.5861 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 11:37:09.8167 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Workers] AS [w]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+
+2022-09-14 11:37:09.8772 | Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.GetFallbackKeyRepositoryEncryptorPair | INFO | User profile is available. Using 'C:\Users\Ferdenant\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+
+2022-09-14 11:37:10.0401 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (38ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0 
+
+2022-09-14 11:37:10.1105 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 11:37:10.1521 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 11:37:10.5540 | Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync | INFO | Now listening on: https://localhost:5005 
+
+2022-09-14 11:37:10.5540 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Application started. Press Ctrl+C to shut down. 
+
+2022-09-14 11:37:10.5540 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Hosting environment: Development 
+
+2022-09-14 11:37:10.5540 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Content root path: E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook 
+
+2022-09-14 11:37:12.1299 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger - - 
+
+2022-09-14 11:37:12.2056 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger - - - 301 0 - 73.9591ms 
+
+2022-09-14 11:37:12.2228 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/index.html - - 
+
+2022-09-14 11:37:12.2882 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/index.html - - - 200 - text/html;charset=utf-8 65.2776ms 
+
+2022-09-14 11:37:12.3266 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui.css - - 
+
+2022-09-14 11:37:12.3266 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui-bundle.js - - 
+
+2022-09-14 11:37:12.3266 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js - - 
+
+2022-09-14 11:37:12.4092 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+
+2022-09-14 11:37:12.4092 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+
+2022-09-14 11:37:12.4092 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui.css - - - 200 142933 text/css 89.1721ms 
+
+2022-09-14 11:37:12.4092 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js - - - 200 311804 application/javascript 91.9210ms 
+
+2022-09-14 11:37:12.4527 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+
+2022-09-14 11:37:12.4527 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui-bundle.js - - - 200 986342 application/javascript 127.1432ms 
+
+2022-09-14 11:37:12.6572 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-bundle.js.map - - 
+
+2022-09-14 11:37:12.6572 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js.map - - 
+
+2022-09-14 11:37:12.7000 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/v1/swagger.json - - 
+
+2022-09-14 11:37:12.8311 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js.map - - - 404 0 - 173.8785ms 
+
+2022-09-14 11:37:12.8311 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-bundle.js.map - - - 404 0 - 173.8786ms 
+
+2022-09-14 11:37:12.8856 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-bundle.js.map - - 
+
+2022-09-14 11:37:12.8856 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-standalone-preset.js.map - - 
+
+2022-09-14 11:37:12.8856 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-standalone-preset.js.map - - - 404 0 - 1.1494ms 
+
+2022-09-14 11:37:12.8856 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-bundle.js.map - - - 404 0 - 3.1344ms 
+
+2022-09-14 11:37:12.9821 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 282.1056ms 
+
+2022-09-14 13:17:09.2686 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-14 13:17:11.4628 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`4.Log | INFO | Entity Framework Core 5.0.17 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+
+2022-09-14 13:17:12.9338 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 13:17:13.0256 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (83ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 13:17:13.0364 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 13:17:13.0364 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 13:17:13.3069 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Workers] AS [w]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+
+2022-09-14 13:17:13.3340 | Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.GetFallbackKeyRepositoryEncryptorPair | INFO | User profile is available. Using 'C:\Users\Ferdenant\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+
+2022-09-14 13:17:13.4766 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (39ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0 
+
+2022-09-14 13:17:13.5694 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 13:17:13.6171 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (4ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 13:17:14.0103 | Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync | INFO | Now listening on: https://localhost:5005 
+
+2022-09-14 13:17:14.0103 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Application started. Press Ctrl+C to shut down. 
+
+2022-09-14 13:17:14.0103 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Hosting environment: Development 
+
+2022-09-14 13:17:14.0103 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Content root path: E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook 
+
+2022-09-14 13:17:15.5753 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger - - 
+
+2022-09-14 13:17:15.6449 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger - - - 301 0 - 71.7814ms 
+
+2022-09-14 13:17:15.6915 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/index.html - - 
+
+2022-09-14 13:17:15.7760 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/index.html - - - 200 - text/html;charset=utf-8 84.4016ms 
+
+2022-09-14 13:17:15.7985 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui.css - - 
+
+2022-09-14 13:17:15.7985 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js - - 
+
+2022-09-14 13:17:15.7985 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui-bundle.js - - 
+
+2022-09-14 13:17:15.8906 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+
+2022-09-14 13:17:15.8906 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+
+2022-09-14 13:17:15.8968 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui.css - - - 200 142933 text/css 98.2277ms 
+
+2022-09-14 13:17:15.9204 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js - - - 200 311804 application/javascript 121.1872ms 
+
+2022-09-14 13:17:15.9204 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+
+2022-09-14 13:17:15.9204 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui-bundle.js - - - 200 986342 application/javascript 124.3800ms 
+
+2022-09-14 13:17:16.0864 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js.map - - 
+
+2022-09-14 13:17:16.0864 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-bundle.js.map - - 
+
+2022-09-14 13:17:16.1284 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/v1/swagger.json - - 
+
+2022-09-14 13:17:16.2365 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js.map - - - 404 0 - 150.0525ms 
+
+2022-09-14 13:17:16.2365 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-bundle.js.map - - - 404 0 - 150.0525ms 
+
+2022-09-14 13:17:16.2738 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-standalone-preset.js.map - - 
+
+2022-09-14 13:17:16.2738 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-bundle.js.map - - 
+
+2022-09-14 13:17:16.2738 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-standalone-preset.js.map - - - 404 0 - 4.7329ms 
+
+2022-09-14 13:17:16.2738 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-bundle.js.map - - - 404 0 - 2.1810ms 
+
+2022-09-14 13:17:16.4283 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 299.9047ms 
+
+2022-09-14 13:19:07.5825 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-14 13:19:09.8712 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`4.Log | INFO | Entity Framework Core 5.0.17 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+
+2022-09-14 13:19:10.2657 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 13:19:10.3224 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (47ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 13:19:10.3321 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+
+2022-09-14 13:19:10.3321 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+
+2022-09-14 13:19:10.5610 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Workers] AS [w]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+
+2022-09-14 13:19:10.6017 | Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.GetFallbackKeyRepositoryEncryptorPair | INFO | User profile is available. Using 'C:\Users\Ferdenant\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+
+2022-09-14 13:19:10.7565 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (36ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0 
+
+2022-09-14 13:19:10.8257 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (4ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 13:19:10.8725 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log | INFO | Executed DbCommand (4ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0 
+
+2022-09-14 13:19:11.2568 | Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync | INFO | Now listening on: https://localhost:5005 
+
+2022-09-14 13:19:11.2568 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Application started. Press Ctrl+C to shut down. 
+
+2022-09-14 13:19:11.2568 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Hosting environment: Development 
+
+2022-09-14 13:19:11.2568 | Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted | INFO | Content root path: E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook 
+
+2022-09-14 13:19:12.6098 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger - - 
+
+2022-09-14 13:19:12.6697 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger - - - 301 0 - 64.5924ms 
+
+2022-09-14 13:19:12.6787 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/index.html - - 
+
+2022-09-14 13:19:12.7434 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/index.html - - - 200 - text/html;charset=utf-8 64.6293ms 
+
+2022-09-14 13:19:12.7684 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui.css - - 
+
+2022-09-14 13:19:12.7684 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui-bundle.js - - 
+
+2022-09-14 13:19:12.7684 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js - - 
+
+2022-09-14 13:19:12.8404 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+
+2022-09-14 13:19:12.8404 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+
+2022-09-14 13:19:12.8501 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js - - - 200 311804 application/javascript 80.8638ms 
+
+2022-09-14 13:19:12.8501 | Microsoft.AspNetCore.StaticFiles.LoggerExtensions.FileServed | INFO | Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+
+2022-09-14 13:19:12.8501 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui.css - - - 200 142933 text/css 86.3486ms 
+
+2022-09-14 13:19:12.8501 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/swagger-ui-bundle.js - - - 200 986342 application/javascript 87.6068ms 
+
+2022-09-14 13:19:13.0486 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-bundle.js.map - - 
+
+2022-09-14 13:19:13.0653 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js.map - - 
+
+2022-09-14 13:19:13.1402 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/2 GET https://localhost:5005/swagger/v1/swagger.json - - 
+
+2022-09-14 13:19:13.2196 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-bundle.js.map - - - 404 0 - 170.9390ms 
+
+2022-09-14 13:19:13.2196 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://localhost:5005/swagger/swagger-ui-standalone-preset.js.map - - - 404 0 - 154.5311ms 
+
+2022-09-14 13:19:13.2394 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-standalone-preset.js.map - - 
+
+2022-09-14 13:19:13.2394 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-standalone-preset.js.map - - - 404 0 - 2.7798ms 
+
+2022-09-14 13:19:13.2394 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestStarting | INFO | Request starting HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-bundle.js.map - - 
+
+2022-09-14 13:19:13.2394 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/1.1 GET https://127.0.0.1:5005/swagger/swagger-ui-bundle.js.map - - - 404 0 - 0.7250ms 
+
+2022-09-14 13:19:13.3584 | Microsoft.AspNetCore.Hosting.HostingApplicationDiagnostics.LogRequestFinished | INFO | Request finished HTTP/2 GET https://localhost:5005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 218.2088ms 
+

@@ -1,0 +1,56 @@
+2022-09-14 10:11:16.2087 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-14 10:13:01.5738 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Login (ApiNotebook) возникло исключение: 
+ Не удалось аутентифицироваться 
+    at ApiNotebook.BusinessLogic.AccountService.Login(LoginUser loginUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\AccountService.cs:line 33
+   at ApiNotebook.Controllers.AccountController.Login(LoginUser loginUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 69
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-14 10:13:10.3359 | ApiNotebook.BusinessLogic.AccountService.Login | INFO | Выполнен вход в систему от admin 
+
+2022-09-14 10:13:37.9270 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.GetUserById (ApiNotebook) возникло исключение: 
+ Entity user with id: 3fa85f64-5717-4562-b3fc-2c963f66afa6 not found 
+    at ApiNotebook.BusinessLogic.UserService.GetUserById(Guid id) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 119
+   at ApiNotebook.Controllers.UsersController.GetUserById(Guid id) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 39
+   at lambda_method168(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-14 10:15:50.5200 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-14 10:16:11.6657 | ApiNotebook.BusinessLogic.AccountService.Login | INFO | Выполнен вход в систему от admin 
+
+2022-09-14 10:16:26.4503 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.UsersController.GetUserById (ApiNotebook) возникло исключение: 
+ Entity user with id: 3fa85f64-5717-4562-b3fc-2c963f66afa6 not found 
+    at ApiNotebook.BusinessLogic.UserService.GetUserById(Guid id) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\UserService.cs:line 120
+   at ApiNotebook.Controllers.UsersController.GetUserById(Guid id) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\UsersController.cs:line 39
+   at lambda_method168(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ 
+
+2022-09-14 11:37:05.6140 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-14 13:17:09.2686 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-14 13:19:07.5825 | ApiNotebook.Program.Main | INFO | Запуск апи 
+

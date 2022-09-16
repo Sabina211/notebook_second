@@ -1,0 +1,182 @@
+2022-09-16 09:51:30.2691 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Register (ApiNotebook) возникло исключение: 
+ Недопустимое имя пользователя - admin 
+    at ApiNotebook.BusinessLogic.AccountService.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\AccountService.cs:line 44
+   at ApiNotebook.Controllers.AccountController.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 32
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 09:51:40.2588 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Register (ApiNotebook) возникло исключение: 
+ Не удалось зарегистрировать пользователя 
+    at ApiNotebook.BusinessLogic.AccountService.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\AccountService.cs:line 52
+   at ApiNotebook.Controllers.AccountController.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 32
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 10:00:01.2630 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Register (ApiNotebook) возникло исключение: 
+ Не удалось зарегистрировать пользователя: System.Collections.Generic.List`1[System.String] 
+    at ApiNotebook.BusinessLogic.AccountService.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\AccountService.cs:line 57
+   at ApiNotebook.Controllers.AccountController.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 32
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 10:00:42.0526 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Register (ApiNotebook) возникло исключение: 
+ Не удалось зарегистрировать пользователя: System.Collections.Generic.List`1[System.String] 
+    at ApiNotebook.BusinessLogic.AccountService.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\AccountService.cs:line 57
+   at ApiNotebook.Controllers.AccountController.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 32
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 10:22:52.9938 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Register (ApiNotebook) возникло исключение: 
+ Не удалось зарегистрировать пользователя: Passwords must have at least one digit ('0'-'9').
+Passwords must have at least one uppercase ('A'-'Z').
+ 
+    at ApiNotebook.BusinessLogic.AccountService.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\AccountService.cs:line 57
+   at ApiNotebook.Controllers.AccountController.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 32
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 10:24:40.4204 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Register (ApiNotebook) возникло исключение: 
+  Passwords must have at least one digit ('0'-'9').
+ Passwords must have at least one uppercase ('A'-'Z').
+ 
+    at ApiNotebook.BusinessLogic.AccountService.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\AccountService.cs:line 57
+   at ApiNotebook.Controllers.AccountController.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 32
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 10:26:32.2293 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Login (ApiNotebook) возникло исключение: 
+ Не удалось аутентифицироваться 
+    at ApiNotebook.BusinessLogic.AccountService.Login(LoginUser loginUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\AccountService.cs:line 34
+   at ApiNotebook.Controllers.AccountController.Login(LoginUser loginUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 39
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 10:48:32.6564 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Login (ApiNotebook) возникло исключение: 
+ Не удалось аутентифицироваться 
+    at ApiNotebook.BusinessLogic.AccountService.Login(LoginUser loginUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\AccountService.cs:line 34
+   at ApiNotebook.Controllers.AccountController.Login(LoginUser loginUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 39
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 11:13:32.5560 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Register (ApiNotebook) возникло исключение: 
+  Microsoft.AspNetCore.Identity.IdentityError  Microsoft.AspNetCore.Identity.IdentityError  
+    at ApiNotebook.BusinessLogic.AccountService.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\AccountService.cs:line 58
+   at ApiNotebook.Controllers.AccountController.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 32
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 11:14:18.7351 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Register (ApiNotebook) возникло исключение: 
+  Passwords must have at least one digit ('0'-'9').  Passwords must have at least one uppercase ('A'-'Z').  
+    at ApiNotebook.BusinessLogic.AccountService.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\AccountService.cs:line 58
+   at ApiNotebook.Controllers.AccountController.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 32
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 11:19:54.2467 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Register (ApiNotebook) возникло исключение: 
+  Passwords must have at least one digit ('0'-'9').  Passwords must have at least one uppercase ('A'-'Z').  
+    at ApiNotebook.BusinessLogic.AccountService.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\AccountService.cs:line 57
+   at ApiNotebook.Controllers.AccountController.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 23
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+
+2022-09-16 11:20:02.3992 | ApiNotebook.CustomExceptionFilter.OnException | ERROR | В методе ApiNotebook.Controllers.AccountController.Register (ApiNotebook) возникло исключение: 
+ Недопустимое имя пользователя - admin 
+    at ApiNotebook.BusinessLogic.AccountService.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\BusinessLogic\AccountService.cs:line 49
+   at ApiNotebook.Controllers.AccountController.Register(RegisterUser registerUser) in E:\Сабина, курс\Задание 21\ApiNotebook\ApiNotebook\Controllers\AccountController.cs:line 23
+   at lambda_method153(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+  
+

@@ -13,9 +13,9 @@ namespace ApiNotebook.BusinessLogic
         Task<UserWithRolesEdit> GetCurrentUser();
         Task<EditUser> EditUserEmail(EditUser model);
         Task<UserWithRolesEdit> EditUser(UserWithRolesEdit model);
-        Task<string> DeleteUser(string id);
+        Task DeleteUser(string id);
         Task<IEnumerable<UserWithRolesEdit>> UsersList();
-        Task<string> ChangePassword(ChangePassword model);
+        Task ChangePassword(ChangePassword model);
 
     }
 }

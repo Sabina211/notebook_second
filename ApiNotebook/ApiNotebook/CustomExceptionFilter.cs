@@ -20,15 +20,25 @@ namespace ApiNotebook
             var actionName = context.ActionDescriptor.DisplayName;
             var exceptionStack = context.Exception.StackTrace;
             var exceptionMessage = context.Exception.Message;
-            if (context.Exception is ApiAuthenticationException)
+            var statusCode = 400;
+
+            switch (true)
             {
-                
+                case { } when context.Exception is EntityNotFoundException:
+                    {
+                        statusCode = 404;
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
             }
-            context.Result = new JsonResult(
-                new {error = $"{exceptionMessage} \n {exceptionStack}"}) 
-                {
-                    StatusCode = 400
-                };
+
+            context.Result = new JsonResult(new { exceptionMessage })
+            {
+                StatusCode = statusCode
+            };
             _logger.LogError($"В методе {actionName} возникло исключение: \n {exceptionMessage} \n {exceptionStack}\n");
         }
     }

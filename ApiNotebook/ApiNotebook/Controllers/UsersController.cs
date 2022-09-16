@@ -75,10 +75,10 @@ namespace ApiNotebook.Controllers
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult<string>> DeleteUser(string id)
+        public async Task<ActionResult> DeleteUser(string id)
         {
-            var result = await _userService.DeleteUser(id);
-            return Ok(result);
+            await _userService.DeleteUser(id);
+            return Ok();
         }
 
         /// <summary>
@@ -97,8 +97,8 @@ namespace ApiNotebook.Controllers
         {
             if (!(User.IsInRole("admin") || model.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)))
                 return Forbid();
-            var result = await _userService.ChangePassword(model);
-            return Ok(result);
+            await _userService.ChangePassword(model);
+            return Ok();
         }
     }
 }

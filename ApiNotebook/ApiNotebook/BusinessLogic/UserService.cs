@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
+using ApiNotebook.Exceptions;
 
 namespace ApiNotebook.BusinessLogic
 {
@@ -19,7 +20,12 @@ namespace ApiNotebook.BusinessLogic
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UserService(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, ILogger<UserService> logger, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public UserService(
+            RoleManager<IdentityRole> roleManager, 
+            UserManager<User> userManager, 
+            ILogger<UserService> logger, 
+            IMapper mapper, 
+            IHttpContextAccessor httpContextAccessor)
         {
             _roleManager = roleManager;
             _userManager = userManager;
@@ -28,14 +34,15 @@ namespace ApiNotebook.BusinessLogic
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<string> ChangePassword(ChangePassword model)
+        public async Task ChangePassword(ChangePassword model)
         {
-            User user = await _userManager.FindByIdAsync(model.Id);
-            if (user == null) throw new Exception($"Пользователь с id = {model.Id} не найден");
-            IdentityResult result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+            var user = await _userManager.FindByIdAsync(model.Id);
+            if (user == null) throw new EntityNotFoundException($"Пользователь с id = {model.Id} не найден");
+            var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
             if (!result.Succeeded) throw new Exception("Не удалось изменить пароль");
-            _logger.LogInformation("\nИзменен пароль для пользователя с логином {0}, редактор {1}", user.UserName, "!исправить! User.Identity.Name");
-            return "Пароль изменен";
+            _logger.LogInformation("\nИзменен пароль для пользователя с логином {0}, редактор {1}", 
+                user.UserName, 
+                _httpContextAccessor.HttpContext.User.Identity.Name);
         }
 
         public async Task<UserWithRolesAdd> Create(UserWithRolesAdd userWithRoles)
@@ -52,26 +59,24 @@ namespace ApiNotebook.BusinessLogic
             await _userManager.AddToRolesAsync(user, userWithRoles.UserRoles);
 
             if (!result.Succeeded) throw new Exception($"Не удалось создать пользователя: {userWithRoles.Email}");
-            _logger.LogInformation("\nДобавлен новый пользователь с логином {0}", userWithRoles.UserName);
+            _logger.LogInformation("\nДобавлен новый пользователь с логином {0}, редактор: {1}", userWithRoles.UserName, _httpContextAccessor.HttpContext.User.Identity.Name);
             return userWithRoles;
         }
 
-        public async Task<string> DeleteUser(string id)
+        public async Task DeleteUser(string id)
         {
-            User user = await _userManager.FindByIdAsync(id);
-            if (user == null) throw new Exception($"Пользователь с id = {id} не найден");
-
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) throw new EntityNotFoundException($"Пользователь с id = {id} не найден");
             await _userManager.DeleteAsync(user);
-            _logger.LogInformation("\nУдален пользователь с логином {0}, редактор {1}", user.UserName, "!исправить! User.Identity.Name");
-            return "Пользователь удален";
+            _logger.LogInformation("\nУдален пользователь с логином {0}, редактор {1}", user.UserName, _httpContextAccessor.HttpContext.User.Identity.Name);
         }
 
         public async Task<UserWithRolesEdit> EditUser(UserWithRolesEdit model)
         {
-            User user = await _userManager.FindByIdAsync(model.Id.ToString());
+            var user = await _userManager.FindByIdAsync(model.Id.ToString());
             model.AllRoles = _roleManager.Roles.ToList();
 
-            if (user == null) throw new Exception($"Пользователь с id = {model.Id} не найден");
+            if (user == null) throw new EntityNotFoundException($"Пользователь с id = {model.Id} не найден");
 
             user.Email = model.Email;
             // получем список ролей пользователя
@@ -95,8 +100,8 @@ namespace ApiNotebook.BusinessLogic
 
         public async Task<EditUser> EditUserEmail(EditUser model)
         {
-            User user = await _userManager.FindByIdAsync(model.Id);
-            if (user == null) throw new Exception($"Entity user with id: {model.Id} not found");
+            var user = await _userManager.FindByIdAsync(model.Id);
+            if (user == null) throw new EntityNotFoundException($"Entity user with id: {model.Id} not found");
             user.Email = model.Email;
             await _userManager.UpdateAsync(user);
             return model;
@@ -105,9 +110,9 @@ namespace ApiNotebook.BusinessLogic
         public async Task<UserWithRolesEdit> GetCurrentUser()
         {
             var id = _httpContextAccessor.HttpContext!.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            User user = await _userManager.FindByIdAsync(id);
-            if (user == null) throw new Exception($"Entity user with id: {id} not found");
-            UserWithRolesEdit userWithRoles = _mapper.Map<UserWithRolesEdit>(user);
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) throw new EntityNotFoundException($"Entity user with id: {id} not found");
+            var userWithRoles = _mapper.Map<UserWithRolesEdit>(user);
             userWithRoles.UserRoles = await _userManager.GetRolesAsync(user);
             userWithRoles.AllRoles = _roleManager.Roles.ToList();
             return userWithRoles;
@@ -116,8 +121,7 @@ namespace ApiNotebook.BusinessLogic
         public async Task<UserWithRolesEdit> GetUserById(Guid id)
         {
             var user = await _userManager.FindByIdAsync(id.ToString());
-            if (user == null) throw new Exception($"Entity user with id: {id} not found");
-            
+            if (user == null) throw new EntityNotFoundException($"Entity user with id: {id} not found");            
             var userWithRoles = _mapper.Map<UserWithRolesEdit>(user);
             userWithRoles.UserRoles = await _userManager.GetRolesAsync(user);
             userWithRoles.AllRoles = _roleManager.Roles.ToList();
@@ -126,16 +130,14 @@ namespace ApiNotebook.BusinessLogic
 
         public async Task<IEnumerable<UserWithRolesEdit>> UsersList()
         {
-            var users = new List<UserWithRolesEdit>();
-            
+            var users = new List<UserWithRolesEdit>();           
             foreach (var item in _userManager.Users.ToList())
             {
                 var user = _mapper.Map<UserWithRolesEdit>(item);
                 user.UserRoles = await _userManager.GetRolesAsync(item);
                 user.AllRoles = _roleManager.Roles.ToList();
                 users.Add(user);
-            }
-            
+            }          
             return users;
         }
     }
