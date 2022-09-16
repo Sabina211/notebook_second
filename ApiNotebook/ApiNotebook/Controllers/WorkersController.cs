@@ -1,12 +1,9 @@
 ﻿using ApiNotebook.BusinessLogic;
-using ApiNotebook.Data;
 using ApiNotebook.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ApiNotebook.Controllers
@@ -15,88 +12,46 @@ namespace ApiNotebook.Controllers
     [ApiController]
     public class WorkersController : ControllerBase
     {
-        private readonly DataContext _db;
-        private readonly ILogger<WorkersController> _logger;
         private readonly IWorkerService _workerService;
-        public WorkersController(DataContext context, ILogger<WorkersController> logger, IWorkerService workerService)
+        public WorkersController(IWorkerService workerService)
         {
-            _db = context;
-            _logger = logger;
             _workerService = workerService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Worker>>> Get()
+        public async Task<ActionResult<IEnumerable<Worker>>> GetWorkers()
         {
-            return await _db.Workers.ToListAsync();
+            return Ok(await _workerService.GetWorkers());
         }
 
-        // GET api/Workers/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Worker>> Get(string id)
+        [HttpGet("{id:guid}")]
+        public async Task<ActionResult<Worker>> GetWorkerById(Guid id)
         {
-            Worker worker = await _db.Workers.FirstOrDefaultAsync(x => x.Id.ToString() == id);
-            if (worker == null)
-                return NotFound();
-            return new ObjectResult(worker);
+            var worker = await _workerService.GetWorkerById(id);
+            return Ok(worker);
         }
 
-        // POST api/Workers
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult<Worker>> Post([FromBody] Worker worker)
+        public async Task<ActionResult<Worker>> Add([FromBody] Worker worker)
         {
-            /* if (worker.Name == "admin")
-             {
-                 ModelState.AddModelError("Name", "Недопустимое имя пользователя - admin");
-             }
-
-             if (!ModelState.IsValid)
-                 return BadRequest(ModelState);
-
-             _db.Workers.Add(worker);
-             await _db.SaveChangesAsync();
-             _logger.LogInformation("Создан сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
-             return worker;*/
             var result = await _workerService.Add(worker);
-            if(result==null) return  BadRequest("Ошибка при добавлении пользователя");
-            return result;
+            return Ok(result);
         }
 
-        // PUT api/Workers/
         [HttpPut]
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult<Worker>> Put(Worker worker)
+        public async Task<ActionResult<Worker>> Edit(Worker worker)
         {
-            if (worker == null)
-            {
-                return BadRequest();
-            }
-            if (!_db.Workers.Any(x => x.Id == worker.Id))
-            {
-                return NotFound();
-            }
-
-            _db.Update(worker);
-            await _db.SaveChangesAsync();
-            _logger.LogInformation("Отредактирован сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
-            return Ok(worker);
+            return Ok(await _workerService.Edit(worker));
         }
 
-        // DELETE api/Workers/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:guid}")]
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult<Worker>> Delete(string id)
+        public async Task<ActionResult<Worker>> Delete(Guid id)
         {
-            Worker worker = _db.Workers.FirstOrDefault(x => x.Id.ToString() == id);
-            if (worker == null)
-            {
-                return NotFound(new { message = "Сотрудник с таким Id не найден" });
-            }
-            _db.Workers.Remove(worker);
-            await _db.SaveChangesAsync();
-            _logger.LogInformation("Удален сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
-            return Ok(worker);
+            await _workerService.Delete(id);
+            return Ok();
         }
     }
 }

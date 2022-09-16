@@ -14,7 +14,7 @@ namespace ApiNotebook.Controllers
     public class RolesController : ControllerBase
     {
         RoleManager<IdentityRole> _roleManager;
-        public RolesController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
+        public RolesController(RoleManager<IdentityRole> roleManager)
         {
             _roleManager = roleManager;
         }
