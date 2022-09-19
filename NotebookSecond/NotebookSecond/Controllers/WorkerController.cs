@@ -54,7 +54,7 @@ namespace NotebookSecond.Controllers
         {
             if (!ModelState.IsValid)
                 return View(worker);
-            Worker newWorker = _workerData.AddWorker(new Worker()
+            var newWorker = _workerData.AddWorker(new Worker()
             {
                 Name = worker.Name,
                 Surname = worker.Surname,
@@ -74,7 +74,7 @@ namespace NotebookSecond.Controllers
         [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "admin")]
         public IActionResult EditWorker(Worker worker)
         {
-            Worker editedWorker = _workerData.EditWorker(worker);
+            var editedWorker = _workerData.EditWorker(worker);
             if (editedWorker.Id == Guid.Empty)
                 return Redirect("/Worker/Index?error= Error. Employee has not been edited");
             _logger.LogInformation("Отредактирован сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);

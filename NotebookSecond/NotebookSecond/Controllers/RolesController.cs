@@ -17,8 +17,8 @@ namespace NotebookSecond.Controllers
         public IActionResult Index()
         {
             var httpClient = _httpClientFactory.CreateClient("httpClient");
-            string url = httpClient.BaseAddress + "Roles";
-            string json = httpClient.GetStringAsync(url).Result;
+            var url = httpClient.BaseAddress + "Roles";
+            var json = httpClient.GetStringAsync(url).Result;
             var roles = JsonConvert.DeserializeObject<List<IdentityRole>>(json);
             return View(roles.ToList());
         }

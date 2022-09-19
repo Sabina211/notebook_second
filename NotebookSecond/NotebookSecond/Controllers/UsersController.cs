@@ -29,8 +29,8 @@ namespace NotebookSecond.Controllers
         [Authorize(AuthenticationSchemes = "Cookies", Roles = "admin")]
         public IActionResult UsersList(string? error)
         {
-            string url = _httpClient.BaseAddress + "Users";
-            string json = _httpClient.GetStringAsync(url).Result;
+            var url = _httpClient.BaseAddress + "Users";
+            var json = _httpClient.GetStringAsync(url).Result;
             var users = JsonConvert.DeserializeObject<IEnumerable<UserWithRolesEdit>>(json);
             ViewData["Error"] = error;
             return View(users.ToList());
@@ -39,8 +39,8 @@ namespace NotebookSecond.Controllers
         [Authorize(AuthenticationSchemes = "Cookies")]
         public UserWithRolesEdit GetCurrentUser()
         {
-            string url = _httpClient.BaseAddress + "Users/current";
-            string json = _httpClient.GetStringAsync(url).Result;
+            var url = _httpClient.BaseAddress + "Users/current";
+            var json = _httpClient.GetStringAsync(url).Result;
             var currentUsers = JsonConvert.DeserializeObject<UserWithRolesEdit>(json);
             return currentUsers;
         }
@@ -50,7 +50,7 @@ namespace NotebookSecond.Controllers
         public IActionResult ViewCurrentUser()
         {
             var currentUser = GetCurrentUser();
-            EditUser user = new EditUser { Id = currentUser.Id.ToString(), Login = currentUser.UserName, Email = currentUser.Email };
+            var user = new EditUser { Id = currentUser.Id.ToString(), Login = currentUser.UserName, Email = currentUser.Email };
             return View(user);
         }
 
@@ -58,7 +58,7 @@ namespace NotebookSecond.Controllers
         [HttpGet]
         public IActionResult AddUser()
         {
-            UserWithRoles userWithRoles = new UserWithRoles();
+            var userWithRoles = new UserWithRoles();
             userWithRoles.AllRoles = GetCurrentUser().AllRoles.ToList();
             return View(userWithRoles);
         }
@@ -69,7 +69,7 @@ namespace NotebookSecond.Controllers
         {
             userWithRoles.AllRoles = GetCurrentUser().AllRoles.ToList();
             var content = new StringContent(JsonConvert.SerializeObject(userWithRoles), Encoding.UTF8, "application/json");
-            string url = _httpClient.BaseAddress + "Users";
+            var url = _httpClient.BaseAddress + "Users";
             if (!ModelState.IsValid)
                 return View(userWithRoles);
             var result = _httpClient.PostAsync(url, content).Result;
@@ -82,7 +82,7 @@ namespace NotebookSecond.Controllers
             }
             try
             {
-                UserWithRoles newUser = JsonConvert.DeserializeObject<UserWithRoles>(result.Content.ReadAsStringAsync().Result);
+                var newUser = JsonConvert.DeserializeObject<UserWithRoles>(result.Content.ReadAsStringAsync().Result);
                 _logger.LogInformation("\nДобавлен новый пользователь с логином {0}, редактор {1}", userWithRoles.UserName, User.Identity.Name);
                 return RedirectToAction("UsersList", "Users");
             }
@@ -97,7 +97,7 @@ namespace NotebookSecond.Controllers
         public IActionResult EditUserEmail(EditUser model)
         {
             var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
-            string url = _httpClient.BaseAddress + "Users/email";
+            var url = _httpClient.BaseAddress + "Users/email";
             if (!(User.IsInRole("admin") || model.Login == User.Identity.Name))
                 return Forbid();
 
@@ -120,7 +120,7 @@ namespace NotebookSecond.Controllers
             if (!ModelState.IsValid)
                 return Redirect("/Users/UsersList?error= Error. User has not been edited");
             var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
-            string url = _httpClient.BaseAddress + "Users";
+            var url = _httpClient.BaseAddress + "Users";
             var result = _httpClient.PutAsync(url, content).Result;
             bool success = CheckResult(result);
             if (!success)
@@ -136,9 +136,9 @@ namespace NotebookSecond.Controllers
         [Authorize(AuthenticationSchemes = "Cookies", Roles = "admin")]
         public IActionResult DeleteUser(EditUser model)
         {
-            string url = _httpClient.BaseAddress + $"Users/{model.Id}";
+            var url = _httpClient.BaseAddress + $"Users/{model.Id}";
             var result = _httpClient.DeleteAsync(url).Result;
-            bool success = CheckResult(result);
+            var success = CheckResult(result);
             if (success)
             {
                 _logger.LogInformation("\nУдален пользователь с логином {0}, редактор {1}", model.Login, User.Identity.Name);
@@ -151,7 +151,7 @@ namespace NotebookSecond.Controllers
         public IActionResult ChangePassword()
         {
             var currentUser = GetCurrentUser();
-            ChangePassword model = new ChangePassword { Id = currentUser.Id.ToString(), Login = currentUser.Email };
+            var model = new ChangePassword { Id = currentUser.Id.ToString(), Login = currentUser.Email };
             return View(model);
         }
 
@@ -162,7 +162,7 @@ namespace NotebookSecond.Controllers
             if (!ModelState.IsValid)
                 return View(model);
             var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
-            string url = _httpClient.BaseAddress + "Users/password";
+            var url = _httpClient.BaseAddress + "Users/password";
             var result = _httpClient.PatchAsync(url, content).Result;
             bool success = CheckResult(result);
             if (!success)

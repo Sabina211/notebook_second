@@ -45,7 +45,7 @@ namespace NotebookSecond.Controllers
         {
             if (!ModelState.IsValid)
                 return View(registerUser);
-            string url = _httpClient.BaseAddress + "Accounts/register";
+            var url = _httpClient.BaseAddress + "Accounts/register";
             var content = new StringContent(JsonConvert.SerializeObject(registerUser), Encoding.UTF8, "application/json");
             var result = _httpClient.PostAsync(url, content).Result;
             bool success = CheckResult(result);
@@ -68,8 +68,8 @@ namespace NotebookSecond.Controllers
         {
             if (!ModelState.IsValid)
                 return View(loginUser);
-            
-                string url = _httpClient.BaseAddress + "Accounts/login";
+
+                var url = _httpClient.BaseAddress + "Accounts/login";
                 var content = new StringContent(JsonConvert.SerializeObject(loginUser), Encoding.UTF8, "application/json");
                 var result = _httpClient.PostAsync(url, content).Result;
                 bool success = CheckResult(result);
@@ -125,7 +125,7 @@ namespace NotebookSecond.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
-            string url = _httpClient.BaseAddress + "Accounts/logout";
+            var url = _httpClient.BaseAddress + "Accounts/logout";
             var result = _httpClient.PostAsync(url, null).Result;
             await HttpContext.SignOutAsync(
                     CookieAuthenticationDefaults.AuthenticationScheme);
