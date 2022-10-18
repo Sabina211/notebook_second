@@ -54,7 +54,7 @@ namespace ApiNotebook.BusinessLogic
             };
             var result = await _userManager.CreateAsync(user, registerUser.Password);
             if (!result.Succeeded)
-                throw new FailedActionExeption(result.Errors);
+                throw new UserIdentityException(result.Errors);
             await _signInManager.SignInAsync(user, false);
             var userWithRoles = _mapper.Map<UserWithRolesEdit>(user);
             userWithRoles.UserRoles = await _userManager.GetRolesAsync(user);

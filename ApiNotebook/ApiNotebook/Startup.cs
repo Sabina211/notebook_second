@@ -83,22 +83,6 @@ namespace ApiNotebook
                 };
             });
             services.AddAuthorization();
-
-            /*services.ConfigureApplicationCookie(options =>
-            {
-                options.LoginPath = "/Account/Login";
-                options.LogoutPath = "/Account/Logout";
-                options.Events.OnRedirectToLogin = context =>
-                {
-                    context.Response.StatusCode = 401;
-                    return Task.CompletedTask;
-                };
-                options.Events.OnRedirectToAccessDenied= context =>
-                {
-                    context.Response.StatusCode = 403;
-                    return Task.CompletedTask;
-                };
-            });*/
             services.AddHttpContextAccessor();
             services.AddMvc(options =>
             {

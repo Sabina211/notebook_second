@@ -40,7 +40,7 @@ namespace ApiNotebook.BusinessLogic
             var user = await _userManager.FindByIdAsync(model.Id);
             if (user == null) throw new EntityNotFoundException($"Пользователь с id = {model.Id} не найден");
             var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
-            if (!result.Succeeded) throw new FailedActionExeption(result.Errors);
+            if (!result.Succeeded) throw new UserIdentityException(result.Errors);//переделать в просто экепшон, в хелпер обратиься
             _logger.LogInformation("\nИзменен пароль для пользователя с логином {0}, редактор {1}", 
                 user.UserName, 
                 _httpContextAccessor.HttpContext.User.Identity.Name);
@@ -60,7 +60,7 @@ namespace ApiNotebook.BusinessLogic
             await _userManager.AddToRolesAsync(user, userWithRoles.UserRoles);
 
             if (!result.Succeeded) 
-                throw new FailedActionExeption(result.Errors);
+                throw new UserIdentityException(result.Errors);
             _logger.LogInformation("\nДобавлен новый пользователь с логином {0}, редактор: {1}", userWithRoles.UserName, _httpContextAccessor.HttpContext.User.Identity.Name);
             return userWithRoles;
         }
