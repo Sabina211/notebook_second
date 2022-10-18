@@ -18,13 +18,13 @@ namespace NotebookSecond.Models
         override public string Email { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Пароль")]
+        [Display(Name = "Пароль*")]
         [StringLength(100, ErrorMessage = "Поле {0} должно содержать не менее 4 символов и не более 100", MinimumLength = 4)]
         public string Password { get; set; }
 
         [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         [DataType(DataType.Password)]
-        [Display(Name = "Подтверждение пароля")]
+        [Display(Name = "Подтверждение пароля*")]
         public string ConfirmPassword { get; set; }
 
         public UserWithRoles()

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     for (var i = 0; i < workersCount; i++) {
-        // Модальное окно, которое необходимо открыть
+        // Модальное окно с удалением сотрудника
         let modal1 = document.getElementById(`modal-${i}`);
 
         //модалка редактирования сотрудника
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // Вызов модального окна несколькими кнопками на странице
+        // Вызов модального окна с удалением сотрудника
         let buttonOpenModal1 = document.getElementById(`callback-button-${i}`);
         if (buttonOpenModal1!=null) {
             buttonOpenModal1.onclick = function (e) {

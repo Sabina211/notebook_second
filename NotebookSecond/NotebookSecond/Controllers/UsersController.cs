@@ -1,232 +1,187 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using NotebookSecond.Entities;
 using NotebookSecond.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Security.Claims;
 using Microsoft.Extensions.Logging;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Text;
+using System.Threading.Tasks;
+using NotebookSecond.Data;
 
 namespace NotebookSecond.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly UserManager<User> userManager;
-        private readonly RoleManager<IdentityRole> roleManager;
-        private readonly ILogger<UsersController> logger;
+        private readonly ILogger<UsersController> _logger;
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly HttpClient _httpClient;
 
-        public UsersController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, ILogger<UsersController> logger)
+        public UsersController(ILogger<UsersController>? logger, IHttpClientFactory httpClientFactory)
         {
-            this.userManager = userManager;
-            this.roleManager = roleManager;
-            this.logger = logger;
+            _logger = logger;
+            _httpClientFactory = httpClientFactory;
+            _httpClient = _httpClientFactory.CreateClient("httpClient");
+        }
+
+        [Authorize(AuthenticationSchemes = "Cookies", Roles = "admin")]
+        public IActionResult UsersList(string? error)
+        {
+            var url = _httpClient.BaseAddress + "Users";
+            var json = _httpClient.GetStringAsync(url).Result;
+            var users = JsonConvert.DeserializeObject<IEnumerable<UserWithRolesEdit>>(json);
+            ViewData["Error"] = error;
+            return View(users.ToList());
+        }
+
+        [Authorize(AuthenticationSchemes = "Cookies")]
+        public UserWithRolesEdit GetCurrentUser()
+        {
+            var url = _httpClient.BaseAddress + "Users/current";
+            var json = _httpClient.GetStringAsync(url).Result;
+            var currentUsers = JsonConvert.DeserializeObject<UserWithRolesEdit>(json);
+            return currentUsers;
         }
 
         [HttpGet]
-        [Authorize]
-        public async Task<IActionResult> ViewCurrentUser()
+        [Authorize(AuthenticationSchemes = "Cookies")]
+        public IActionResult ViewCurrentUser()
         {
-            var currentUser = await userManager.GetUserAsync(User);
-            return View(currentUser);
+            var currentUser = GetCurrentUser();
+            var user = new EditUser { Id = currentUser.Id.ToString(), Login = currentUser.UserName, Email = currentUser.Email };
+            return View(user);
         }
 
-        [Authorize(Roles = "admin")]
+        [Authorize(AuthenticationSchemes = "Cookies", Roles = "admin")]
         [HttpGet]
         public IActionResult AddUser()
         {
-            UserWithRoles userWithRoles = new UserWithRoles();
-            userWithRoles.AllRoles = roleManager.Roles.ToList();
+            var userWithRoles = new UserWithRoles();
+            userWithRoles.AllRoles = GetCurrentUser().AllRoles.ToList();
             return View(userWithRoles);
         }
 
         [HttpPost]
-        [Authorize(Roles = "admin")]
-        public async Task<IActionResult> AddUser(UserWithRoles userWithRoles)
+        [Authorize(AuthenticationSchemes = "Cookies", Roles = "admin")]
+        public async Task<IActionResult> AddUserAsync(UserWithRoles userWithRoles)
         {
-            userWithRoles.AllRoles = roleManager.Roles.ToList();
-            if (ModelState.IsValid)
+            userWithRoles.AllRoles = GetCurrentUser().AllRoles.ToList();
+            var content = new StringContent(JsonConvert.SerializeObject(userWithRoles), Encoding.UTF8, "application/json");
+            var url = _httpClient.BaseAddress + "Users";
+            if (!ModelState.IsValid)
+                return View(userWithRoles);
+            var result = _httpClient.PostAsync(url, content).Result;
+            bool success = CheckResult(result);
+            if (!success)
             {
-                User user = new User
-                {
-                    Email = userWithRoles.Email,
-                    UserName = userWithRoles.UserName
-                };
-
-                var result = await userManager.CreateAsync(user, userWithRoles.Password);
-                //добавление роли пользователя
-                await userManager.AddToRolesAsync(user, userWithRoles.UserRoles);
-
-                if (result.Succeeded )
-                {
-                    logger.LogInformation("\nДобавлен новый пользователь с логином {0}, редактор {1}", userWithRoles.UserName, User.Identity.Name);
-                    return RedirectToAction("UsersList", "Users");
-                }
-                else
-                {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError(string.Empty, error.Description);
-                    }
-                }
+                var errorText =  result.Content.ReadAsStringAsync().Result.UnescapeUnicode();
+                ModelState.AddModelError(string.Empty, $"При добавлении пользователя произошла ошибка\n {errorText}"); ;
+                return View(userWithRoles);
             }
-            return View(userWithRoles);
-        }
-
-        [Authorize]
-        public async Task<IActionResult> EditUser(string id)
-        {
-            User user = await userManager.FindByIdAsync(id);
-            if (User.IsInRole("admin") || user.UserName == User.Identity.Name)
+            try
             {
-                if (user == null)
-                {
-                    return NotFound();
-                }
-                EditUser model = new EditUser { Id = user.Id, Email = user.Email };
-                return View(model);
-            }
-            else
-            {
-                    return Forbid();
-            }
-
-        }
-
-        [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> EditUser(UserWithRoles model)
-        {
-            if (User.IsInRole("admin") || model.Id == User.FindFirstValue(ClaimTypes.NameIdentifier))
-            {
-                if (ModelState.IsValid)
-                {
-                    User user = await userManager.FindByIdAsync(model.Id);
-                    model.AllRoles = roleManager.Roles.ToList();
-                    //var allRoles = roleManager.Roles;
-                    if (user != null)
-                    {
-                        user.Email = model.Email;
-                        // получем список ролей пользователя
-                        var oldUserRoles = await userManager.GetRolesAsync(user);
-                        // получаем список ролей, которые были добавлены
-                        var addedRoles = model.UserRoles.Except(oldUserRoles);
-                        // получаем роли, которые были удалены
-                        var removedRoles = oldUserRoles.Except(model.UserRoles);
-
-                        var result1 = await userManager.AddToRolesAsync(user, addedRoles);
-                        var result2 = await userManager.RemoveFromRolesAsync(user, removedRoles);
-
-                        var result = await userManager.UpdateAsync(user);
-                        if (result.Succeeded & result1.Succeeded & result2.Succeeded)
-                        {
-                            logger.LogInformation("\nОтредактирован пользователь с логином {0}, редактор {1}", user.UserName, User.Identity.Name);
-                            if (User.IsInRole("admin"))
-                            {
-                                return RedirectToAction("UsersList", "Users");
-                            }
-                            else return RedirectToAction("ViewCurrentUser", "Users");                          
-                        }
-                        else
-                        {
-                            foreach (var item in result.Errors)
-                            {
-                                ModelState.AddModelError(string.Empty, item.Description);
-                            }
-                            foreach (var item in result1.Errors)
-                            {
-                                ModelState.AddModelError(string.Empty, item.Description);
-                            }
-                            foreach (var item in result2.Errors)
-                            {
-                                ModelState.AddModelError(string.Empty, item.Description);
-                            }
-                        }
-                    }
-                }
+                var newUser = JsonConvert.DeserializeObject<UserWithRoles>(result.Content.ReadAsStringAsync().Result);
+                _logger.LogInformation("\nДобавлен новый пользователь с логином {0}, редактор {1}", userWithRoles.UserName, User.Identity.Name);
                 return RedirectToAction("UsersList", "Users");
-
             }
-            else
+            catch (Exception ex)
             {
-                return Forbid();
+                _logger.LogError(ex, "При добавлении сотрудника не удалось преобразовать ответ в UserWithRoles");
+                throw;
             }
-            
+        }
+
+        [Authorize(AuthenticationSchemes = "Cookies")]
+        public IActionResult EditUserEmail(EditUser model)
+        {
+            var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
+            var url = _httpClient.BaseAddress + "Users/email";
+            if (!(User.IsInRole("admin") || model.Login == User.Identity.Name))
+                return Forbid();
+
+            var result = _httpClient.PatchAsync(url, content).Result;
+            bool success = CheckResult(result);
+            if (!success)
+            {
+                ModelState.AddModelError(string.Empty, $"При редактировании почты пользователя произошла ошибка\n {result.Content.ReadAsStringAsync().Result.UnescapeUnicode()}");
+                return RedirectToAction("ViewCurrentUser", "Users");
+            }
+            var editedUser = JsonConvert.DeserializeObject<EditUser>(result.Content.ReadAsStringAsync().Result);
+            _logger.LogInformation("\nОтредактирована почта пользователя с логином {0}, редактор {1}", editedUser.Login, User.Identity.Name);
+            return RedirectToAction("ViewCurrentUser", "Users");
         }
 
         [HttpPost]
-        [Authorize(Roles = "admin")]
-        public async Task<IActionResult> DeleteUser(EditUser model)
+        [Authorize(AuthenticationSchemes = "Cookies", Roles = "admin")]
+        public IActionResult EditUser(UserWithRolesEdit model)
         {
-            User user = await userManager.FindByIdAsync(model.Id);
-            if (user != null)
-            {
-                await userManager.DeleteAsync(user);
-                logger.LogInformation("\nУдален пользователь с логином {0}, редактор {1}", user.UserName, User.Identity.Name);
+            if (!ModelState.IsValid)
+                return Redirect("/Users/UsersList?error= Error. User has not been edited");
+            var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
+            var url = _httpClient.BaseAddress + "Users";
+            var result = _httpClient.PutAsync(url, content).Result;
+            bool success = CheckResult(result);
+            if (!success)
+            { 
+                return RedirectToAction("UsersList", "Users");
             }
+            var editedUser = JsonConvert.DeserializeObject<UserWithRoles>(result.Content.ReadAsStringAsync().Result);
+            _logger.LogInformation("\nПользователь с логином {0} отредактирован, редактор {1}", editedUser.UserName, User.Identity.Name);
             return RedirectToAction("UsersList", "Users");
         }
 
-        [Authorize(Roles = "admin")]
-        public async Task<IActionResult> UsersList()
+        [HttpPost]
+        [Authorize(AuthenticationSchemes = "Cookies", Roles = "admin")]
+        public IActionResult DeleteUser(EditUser model)
         {
-            List<UserWithRoles> usersWithRoles = new List<UserWithRoles>();
-            foreach (var item in userManager.Users.ToList())
+            var url = _httpClient.BaseAddress + $"Users/{model.Id}";
+            var result = _httpClient.DeleteAsync(url).Result;
+            var success = CheckResult(result);
+            if (success)
             {
-                UserWithRoles userWithRoles = new UserWithRoles();
-                userWithRoles.Id = item.Id;
-                userWithRoles.UserName = item.UserName;
-                userWithRoles.Email = item.Email;
-                userWithRoles.UserRoles = await userManager.GetRolesAsync(item);
-                userWithRoles.AllRoles =  roleManager.Roles.ToList();
-                usersWithRoles.Add(userWithRoles);
+                _logger.LogInformation("\nУдален пользователь с логином {0}, редактор {1}", model.Login, User.Identity.Name);
+                return RedirectToAction("UsersList", "Users");
             }
-            return View(usersWithRoles.ToList());
+            return Redirect("/Users/UsersList?error= Error. User has not been deleted");
         }
 
-        [Authorize]
-        public async Task<IActionResult> ChangePassword(string id)
+        [Authorize(AuthenticationSchemes = "Cookies")]
+        public IActionResult ChangePassword()
         {
-            User user = await userManager.FindByIdAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-            ChangePassword model = new ChangePassword { Id = user.Id, Login = user.Email };
+            var currentUser = GetCurrentUser();
+            var model = new ChangePassword { Id = currentUser.Id.ToString(), Login = currentUser.Email };
             return View(model);
         }
 
         [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> ChangePassword(ChangePassword model)
+        [Authorize(AuthenticationSchemes = "Cookies")]
+        public IActionResult ChangePassword(ChangePassword model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+                return View(model);
+            var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
+            var url = _httpClient.BaseAddress + "Users/password";
+            var result = _httpClient.PatchAsync(url, content).Result;
+            bool success = CheckResult(result);
+            if (!success)
             {
-                User user = await userManager.FindByIdAsync(model.Id);
-                if (user != null)
-                {
-                    IdentityResult result = await userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
-                    if (result.Succeeded)
-                    {
-                        logger.LogInformation("\nИзменен пароль для пользователя с логином {0}, редактор {1}", user.UserName, User.Identity.Name);
-                        return RedirectToAction("ViewCurrentUser", "Users");
-                    }
-                    else
-                    {
-                        foreach (var item in result.Errors)
-                        {
-                            ModelState.AddModelError(string.Empty, item.Description);
-                        }
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Пользователь не найден");
-                }
+                ModelState.AddModelError(string.Empty, $"При редактировании пароля произошла ошибка\n {result.Content.ReadAsStringAsync().Result.UnescapeUnicode()}");
+                return View(model);
             }
+            _logger.LogInformation("\nИзменен пароль пользователя {0}, редактор {1}", model.Login, User.Identity.Name);
             return View(model);
+        }
+
+        private bool CheckResult(HttpResponseMessage result)
+        {
+            if (!(result.StatusCode.ToString() == "OK"))
+            {
+                _logger.LogError($"Ошибка при обращении к апи result.StatusCode = {result.StatusCode}\n {result.Content.ReadAsStringAsync().Result}");
+                return false;
+            }
+            else return true;
         }
 
     }

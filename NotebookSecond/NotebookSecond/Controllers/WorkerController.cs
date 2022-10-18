@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using NotebookSecond.ContextFolder;
 using NotebookSecond.Data;
 using NotebookSecond.Entities;
 using System;
@@ -12,63 +12,86 @@ namespace NotebookSecond.Controllers
 {
     public class WorkerController : Controller
     {
-        private readonly WorkerData workerData;
-        private readonly ILogger<WorkerController> logger;
+        private readonly IWorkerData _workerData;
+        private readonly ILogger<WorkerController> _logger;
 
-        public WorkerController(WorkerData WorkerData, ILogger<WorkerController> logger)
+        public WorkerController(IWorkerData WorkerData, ILogger<WorkerController> logger)
         {
-            this.workerData = WorkerData;
-            this.logger = logger;
+            _workerData = WorkerData;
+            _logger = logger;
         }
+
+        public IActionResult Index(string? error)
+        {
+            ViewBag.Workers = _workerData.GetWorkers();
+            ViewBag.Count = _workerData.GetWorkers().Count();
+            ViewData["Error"] = error;
+            return View();
+        }
+
+        public IActionResult Description()
+        {
+            return View();
+        }
+
         public IActionResult View(Guid? Id)
         {
-            List<Worker> workers = workerData.GetWorkers().ToList();
+            List<Worker> workers = _workerData.GetWorkers().ToList();
             var worker = workers.Find(e => e.Id == Id);
             return View(worker);
         }
-        
-        [Authorize]
+
+        [Authorize(AuthenticationSchemes = "Cookies")]
         [HttpGet]
         public IActionResult AddWorker()
         {
             return View();
         }
 
-        //соханаем модель в БД с формы
         [HttpPost]
-        [Authorize]
-        public IActionResult GetWorkerFromViewDB(Worker worker)
+        [Authorize(AuthenticationSchemes = "Cookies")]
+        public IActionResult AddWorker(Worker worker)
         {
-            if (worker.Id != Guid.Empty)
+            if (!ModelState.IsValid)
+                return View(worker);
+            var newWorker = _workerData.AddWorker(new Worker()
             {
-                workerData.EditWorker(worker);
-                logger.LogInformation("Отредактирован сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
-            }
-            else
-            {
-                var id = workerData.AddWorker(new Worker()
-                {
-                    Name = worker.Name,
-                    Surname = worker.Surname,
-                    Patronymic = worker.Patronymic,
-                    PhoneNumber = worker.PhoneNumber,
-                    Address = worker.Address,
-                    Description = worker.Description
-                });
-                logger.LogInformation("Создан сотрудник {0} c id={1}, редактор {2}", worker.Name, id, User.Identity.Name);
-            }
+                Name = worker.Name,
+                Surname = worker.Surname,
+                Patronymic = worker.Patronymic,
+                PhoneNumber = worker.PhoneNumber,
+                Address = worker.Address,
+                Description = worker.Description
+            });
+            if (newWorker.Id == Guid.Empty)
+                return Redirect("/Worker/Index?error= Error. Employee has not been added");
 
-            return Redirect("/WorkersList/Index");
+            _logger.LogInformation("Создан сотрудник {0} c id={1}, редактор {2}", newWorker.Name, newWorker.Id, User.Identity.Name);
+            return Redirect("/Worker/Index");
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "admin")]
+        public IActionResult EditWorker(Worker worker)
+        {
+            var editedWorker = _workerData.EditWorker(worker);
+            if (editedWorker.Id == Guid.Empty)
+                return Redirect("/Worker/Index?error= Error. Employee has not been edited");
+            _logger.LogInformation("Отредактирован сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
+            return Redirect("/Worker/Index");
+        }
+
+        [HttpPost]
+        [Authorize(AuthenticationSchemes = "Cookies", Roles = "admin")]
         public IActionResult DeleteWorkerFromViewDB(Worker worker)
         {
-            var curentWorker = workerData.GetWorkers().ToList().Find(e => e.Id == worker.Id);
-            workerData.RemoveWorker(curentWorker);
-            logger.LogInformation("Удален сотрудник {0} c id={1}, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
-            return Redirect("/WorkersList/Index");
+            var curentWorker = _workerData.GetWorkers().ToList().Find(e => e.Id == worker.Id);
+            bool success = _workerData.RemoveWorker(curentWorker);
+            if (!success)
+                return Redirect("/Worker/Index?error= Error. Employee has not been deleted");
+
+            _logger.LogInformation("Сотрудник {0} c id={1} был удален, редактор {2}", worker.Name, worker.Id, User.Identity.Name);
+            return Redirect("/Worker/Index");
         }
     }
 }

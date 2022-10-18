@@ -1,29 +1,26 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using NotebookSecond.Entities;
-using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace NotebookSecond.Controllers
 {
     public class RolesController : Controller
     {
-        RoleManager<IdentityRole> _roleManager;
-        UserManager<User> _userManager;
-        public RolesController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
+        private readonly IHttpClientFactory _httpClientFactory;
+        public RolesController(IHttpClientFactory httpClientFactory)
         {
-            _roleManager = roleManager;
-            _userManager = userManager;
+            _httpClientFactory = httpClientFactory;
         }
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(_roleManager.Roles.ToList());
+            var httpClient = _httpClientFactory.CreateClient("httpClient");
+            var url = httpClient.BaseAddress + "Roles";
+            var json = httpClient.GetStringAsync(url).Result;
+            var roles = JsonConvert.DeserializeObject<List<IdentityRole>>(json);
+            return View(roles.ToList());
         }
-
-        public IActionResult UserList() => View(_userManager.Users.ToList());
-
     }
 }

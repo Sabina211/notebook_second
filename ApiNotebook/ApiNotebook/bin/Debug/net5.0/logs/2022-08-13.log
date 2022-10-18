@@ -1,0 +1,4 @@
+2022-08-13 01:13:14.5419 | ApiNotebook.Program.Main | INFO | init main2 
+
+2022-08-13 01:13:18.2421 | Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`4.Log | INFO | Entity Framework Core 5.0.17 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None 
+

@@ -1,60 +1,60 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using NotebookSecond.ContextFolder;
 using NotebookSecond.Data;
-using NotebookSecond.Entities;
-using NotebookSecond.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace NotebookSecond
 {
     public class Startup
     {
+        public readonly IConfiguration Configuration;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSpaStaticFiles();
-            services.AddDbContext<DataContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddTransient<WorkerData, WorkerData>();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignOutScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            }).AddCookie(
+                    CookieAuthenticationDefaults.AuthenticationScheme, (options) =>
+                    {
+                        options.Cookie.HttpOnly = true;
+                        options.SlidingExpiration = true;
+                        options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                        options.Cookie.MaxAge = options.ExpireTimeSpan; // optional
+                        options.LoginPath = "/Account/Login";
+                        options.LogoutPath = "/Account/Logout";
+                        options.Events.OnSigningIn = (context) => { 
+                            context.CookieOptions.Expires = DateTimeOffset.UtcNow.AddDays(30);
+                            return Task.CompletedTask;
+                        };
+                    });
+            services.AddAuthorization();
+            //services.AddHttpClient("httpClient", c => c.BaseAddress = new System.Uri("http://notebook-api/api/")).SetHandlerLifetime(TimeSpan.FromMinutes(30)) ;
+            services.AddHttpClient("httpClient", c => c.BaseAddress = new System.Uri(Configuration["HttpClient:BaseUrl"])).SetHandlerLifetime(TimeSpan.FromMinutes(30));
+            services.AddTransient<IWorkerData, ApiWorkerData>();
 
-            services.AddMvc(options => options.EnableEndpointRouting = false);
-            services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<DataContext>()
-                .AddDefaultTokenProviders();
+            services.AddMvc(options => options.EnableEndpointRouting = false) ;
             services.AddControllersWithViews();
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequiredLength = 4; // минимальное количество знаков в пароле
                 options.Password.RequireNonAlphanumeric = false;   // требуются ли не алфавитно-цифровые символы
                 options.Lockout.MaxFailedAccessAttempts = 10; // количество попыток до блокировки
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(60);
                 options.Lockout.AllowedForNewUsers = true;
-            });
-
-            services.ConfigureApplicationCookie(options =>
-            {
-                // конфигурация Cookie с целью использования их для хранения авторизации
-                options.Cookie.HttpOnly = true;
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-                options.LoginPath = "/Account/Login";
-                options.LogoutPath = "/Account/Logout";
-                options.SlidingExpiration = true;
             });
         }
 
@@ -63,14 +63,14 @@ namespace NotebookSecond
             app.UseDeveloperExceptionPage();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            //app.UseRouting();
-
-            app.UseAuthentication();    // подключение аутентификации
+            app.UseRouting();
+            app.UseAuthentication();    
             app.UseAuthorization();
+            app.UseCookiePolicy();
             app.UseMvc(
                 r =>
                 {
-                    r.MapRoute("default", "{controller=WorkersList}/{action=Index}");
+                    r.MapRoute("default", "{controller=Worker}/{action=Index}");
                 });
         }
     }

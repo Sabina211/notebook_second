@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiNotebook</name>
+    </assembly>
+    <members>
+        <member name="M:ApiNotebook.Controllers.AccountController.Login(ApiNotebook.Models.LoginUser)">
+            <summary>
+            Login
+            </summary>
+            <param name="loginUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiNotebook.Controllers.UsersController.AddUser(ApiNotebook.Models.UserWithRolesAdd)">
+            <summary>
+            Создание пользователя
+            </summary>
+            <param name="userWithRoles"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

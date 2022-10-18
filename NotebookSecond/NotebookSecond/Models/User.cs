@@ -9,5 +9,6 @@ namespace NotebookSecond.Entities
     public class User : IdentityUser
     {
         //здесь можно дописать дополнительные поля
+        public static object Identity { get; internal set; }
     }
 }

@@ -1,0 +1,20 @@
+2022-09-05 11:02:25.3718 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-05 11:10:05.4051 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-05 11:11:36.1738 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник Tom9034 c id=5b1eb051-7217-4555-1b4b-08da7535fc7b, редактор admin 
+
+2022-09-05 11:15:10.2309 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-05 11:15:39.1896 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник Tom9034 c id=5b1eb051-7217-4555-1b4b-08da7535fc7b, редактор admin 
+
+2022-09-05 11:16:39.8859 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-05 11:16:56.5998 | ApiNotebook.Controllers.WorkersController.Put | INFO | Отредактирован сотрудник Tom9034 c id=5b1eb051-7217-4555-1b4b-08da7535fc7b, редактор admin 
+
+2022-09-05 22:00:41.2616 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-05 23:00:26.2670 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
+2022-09-05 23:05:45.8155 | ApiNotebook.Program.Main | INFO | Запуск апи 
+
